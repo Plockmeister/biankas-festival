@@ -1,0 +1,2491 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soul Awakening Festival 2026 — Erwachen war nie so lebendig</title>
+<meta name="description" content="21.–23. August 2026 · Lethehof, Wardenburg · Spirituelles Festival mit Speakern, Workshops, Feuerlauf, Taiko Trommeln und Lagerfeuer.">
+<!-- Google Fonts werden erst nach Cookie-Zustimmung geladen (DSGVO) -->
+<style id="font-fallback">
+  body { font-family: Georgia, 'Times New Roman', serif; }
+</style>
+<script>
+// Fonts sofort laden, wenn Zustimmung bereits erteilt
+(function() {
+  var consent = localStorage.getItem('saf_cookie_consent');
+  if (consent === 'all' || consent === 'necessary') {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap';
+    document.head.appendChild(link);
+    var fallback = document.getElementById('font-fallback');
+    if (fallback) fallback.remove();
+  }
+})();
+</script>
+
+<script>
+// ============================================================
+// FESTIVAL-KONFIGURATION — Hier kannst du alles selbst ändern!
+// ============================================================
+const CONFIG = {
+  // Ticketpreise in Euro (nur die Zahl, ohne €-Zeichen)
+  earlyBirdPreis: 199,        // ← Early Bird Preis
+  standardPreis:  249,        // ← Standard Ticket
+  vipPreis:       399,        // ← VIP Ticket
+
+  // Verfügbare Plätze
+  earlyBirdPlaetze: 50,       // ← Wie viele Early Bird Plätze gibt es?
+  earlyBirdVerkauft: 23,      // ← Wie viele wurden schon verkauft?
+  vipPlaetze: 20,             // ← Wie viele VIP-Plätze gibt es?
+
+  // Feuerlauf
+  feuerlaufPlaetze: 50,       // ← Max. Feuerlauf-Teilnehmer
+  feuerlaufVerfuegbar: 34,    // ← Noch verfügbare Plätze (Startwert)
+
+  // Add-on Preise
+  verpflegungProTag: 55,      // ← Vollverpflegung pro Tag
+  uebernachtungEinzel: 85,    // ← Einzelzimmer pro Nacht
+  uebernachtungDoppel: 65,    // ← Doppelzimmer pro Nacht (pro Person)
+  uebernachtungMehrbett: 35,  // ← Dreier/Vierzimmer pro Nacht (pro Person)
+  uebernachtungCamper: 5,     // ← Camper/WoMo pro Nacht
+
+  // Links
+  buchungsLink: "#tickets",   // ← Hier deinen Fluent-Booking-Link eintragen
+  kontaktEmail: "kontakt@soul-awakening-festival.de",
+
+  // Festival-Datum (für den Countdown)
+  festivalDatum: new Date("2026-08-21T09:00:00"),
+};
+// ============================================================
+</script>
+
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  background: #0A0A0A;
+  color: #F5F0E8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C96D;
+  --gold-pale: #F0D98A;
+  --gold-dark: #8B6914;
+  --black: #0A0A0A;
+  --dark: #141414;
+  --dark-mid: #1C1C1C;
+  --cream: #FEFCF7;
+  --cream-mid: #F5F0E8;
+  --cream-dark: #EDE8DC;
+  --text-dark: #1A1A1A;
+  --text-light: #F5F0E8;
+  --text-muted-dark: #9A8A6A;
+  --text-muted-light: #7A6A52;
+  --section-pad: clamp(80px, 10vw, 140px);
+  --container: min(1200px, 92vw);
+  --radius: 2px;
+  --transition: 300ms ease-out;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; line-height: 1.1; }
+p { line-height: 1.7; }
+
+/* ===== GOLD TEXT ===== */
+.gold-text {
+  background: linear-gradient(135deg, #C9A84C 0%, #F0D98A 50%, #C9A84C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== SECTION TITLES ===== */
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+.section-title {
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+/* ===== BUTTONS ===== */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #C9A84C, #E8C96D);
+  color: #0A0A0A;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  opacity: 0;
+  transition: var(--transition);
+}
+.btn-gold:hover::after { opacity: 1; }
+.btn-gold:hover { transform: translateY(-1px); box-shadow: 0 8px 32px rgba(201,168,76,0.35); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+.btn-outline:hover { background: var(--gold); color: var(--black); }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ===== NAVIGATION ===== */
+#nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 20px clamp(20px, 4vw, 60px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+#nav.scrolled {
+  background: rgba(20, 20, 20, 0.97);
+  border-bottom-color: rgba(201,168,76,0.2);
+  padding-top: 14px;
+  padding-bottom: 14px;
+  backdrop-filter: blur(12px);
+}
+.nav-logo img {
+  height: 44px;
+  width: auto;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cream-mid);
+  transition: color var(--transition);
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width var(--transition);
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  padding: 9px 22px !important;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  color: var(--gold) !important;
+}
+.nav-cta:hover { background: var(--gold); color: var(--black) !important; }
+.nav-cta:hover::after { display: none; }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 1.5px;
+  background: var(--cream-mid);
+  transition: var(--transition);
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,10,0.98);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--cream-mid);
+  letter-spacing: 0.05em;
+  transition: color var(--transition);
+}
+.mobile-menu a:hover { color: var(--gold); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* ===== HERO ===== */
+#hero {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px clamp(20px, 5vw, 80px) 60px;
+  position: relative;
+  background: #0A0A0A; /* WebGL canvas übernimmt; Fallback falls kein WebGL2 */
+  overflow: hidden;
+}
+/* WebGL canvas — sitzt ganz unten */
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  touch-action: none;
+  opacity: 0.72;
+  filter: blur(6px) saturate(1.1);
+  transform: scale(1.04); /* Blur-Rand kaschieren */
+}
+/* Dunkle Overlay-Schicht für Lesbarkeit */
+#hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 40%, rgba(201,168,76,0.04) 0%, transparent 65%),
+    linear-gradient(180deg,
+      rgba(5,2,0,0.50) 0%,
+      rgba(8,4,0,0.40) 40%,
+      rgba(10,5,0,0.60) 100%);
+}
+#hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 220px;
+  background: linear-gradient(to top, #0A0A0A 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 3; max-width: 900px; }
+.hero-logo {
+  max-width: clamp(180px, 30vw, 300px);
+  margin: 0 auto 32px;
+  animation: fadeInDown 1s ease-out both;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-title {
+  font-size: clamp(36px, 7vw, 80px);
+  font-weight: 300;
+  line-height: 1.0;
+  margin-bottom: 16px;
+  animation: fadeIn 1s ease-out 0.3s both;
+  filter: drop-shadow(0 2px 24px rgba(0,0,0,0.9));
+}
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3vw, 26px);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--cream-mid);
+  margin-bottom: 12px;
+  animation: fadeIn 1s ease-out 0.5s both;
+  text-shadow: 0 1px 20px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.7);
+}
+.hero-info {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted-dark);
+  margin-bottom: 32px;
+  animation: fadeIn 1s ease-out 0.7s both;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.99);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  gap: clamp(12px, 2vw, 24px);
+  justify-content: center;
+  margin-bottom: 32px;
+  animation: fadeIn 1s ease-out 0.9s both;
+}
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: clamp(64px, 10vw, 88px);
+  padding: clamp(12px, 2vw, 20px) clamp(8px, 1.5vw, 16px);
+  border: 1px solid rgba(201,168,76,0.3);
+  background: rgba(201,168,76,0.04);
+  border-radius: var(--radius);
+}
+.countdown-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  min-width: 2ch;
+  text-align: center;
+}
+.countdown-label {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted-dark);
+}
+
+.hero-cta { animation: fadeIn 1s ease-out 1.1s both; }
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted-dark);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: fadeIn 1s ease-out 1.5s both;
+}
+@media (max-width: 768px) {
+  .scroll-indicator span:first-child { display: none; }
+}
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.5); opacity: 0.5; }
+}
+
+/* ===== ABOUT ===== */
+#about {
+  background: var(--cream-mid);
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+  color: var(--text-dark);
+}
+.about-inner { max-width: var(--container); margin: 0 auto; }
+.about-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 4vw, 44px);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--gold-dark);
+  margin-bottom: 32px;
+  max-width: 800px;
+}
+.about-text {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #3A3028;
+  max-width: 640px;
+  margin-bottom: 64px;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2px;
+  margin-bottom: 64px;
+  border: 1px solid var(--cream-dark);
+}
+.feature-card {
+  padding: 36px 28px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: background var(--transition);
+  border: 1px solid var(--cream-dark);
+}
+.feature-card:hover { background: #fff; }
+.feature-icon { width: 40px; height: 40px; color: var(--gold); }
+.feature-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text-dark);
+}
+.feature-desc { font-size: 14px; color: var(--text-muted-light); }
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid var(--cream-dark);
+  border-bottom: 1px solid var(--cream-dark);
+}
+.stat-item {
+  flex: 1;
+  min-width: 140px;
+  padding: 28px 24px;
+  border-right: 1px solid var(--cream-dark);
+  text-align: center;
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--gold-dark);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label { font-size: 12px; letter-spacing: 0.1em; color: var(--text-muted-light); }
+
+/* ===== SPEAKERS (HEADLINER) ===== */
+#speaker {
+  background: var(--dark);
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+}
+.speakers-inner { max-width: var(--container); margin: 0 auto; }
+.section-header { margin-bottom: 60px; }
+.headliner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.speaker-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.15);
+  transition: border-color var(--transition);
+  cursor: default;
+}
+.speaker-card:hover { border-color: rgba(201,168,76,0.5); }
+.speaker-card:hover .speaker-img { transform: scale(1.04); }
+.speaker-card:hover .speaker-glow { opacity: 1; }
+.speaker-img-wrap {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  position: relative;
+}
+.speaker-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: grayscale(20%);
+}
+.speaker-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(201,168,76,0.08) 100%);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.speaker-info {
+  padding: 24px;
+  background: rgba(20,20,20,0.95);
+}
+.speaker-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--cream-mid);
+  margin-bottom: 4px;
+}
+.speaker-title {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.speaker-bio { font-size: 14px; color: rgba(245,240,232,0.6); line-height: 1.6; }
+
+/* More speakers */
+#more-speakers {
+  background: var(--cream-mid);
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+  color: var(--text-dark);
+}
+.more-speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2px;
+  margin-top: 48px;
+}
+.speaker-card-sm {
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.speaker-card-sm:hover { border-color: var(--gold); }
+.speaker-card-sm .speaker-img-wrap { aspect-ratio: 1/1; }
+.speaker-card-sm .speaker-info { padding: 16px; background: var(--cream); }
+.speaker-card-sm .speaker-name { font-size: 18px; color: var(--text-dark); }
+.speaker-card-sm .speaker-title { color: var(--gold-dark); }
+.speaker-card-sm .speaker-bio { font-size: 13px; color: var(--text-muted-light); }
+
+@media (max-width: 768px) {
+  .headliner-grid { grid-template-columns: 1fr; }
+  .speaker-img-wrap { aspect-ratio: 4/3; }
+}
+@media (max-width: 480px) {
+  .more-speakers-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== FESTIVAL EXPERIENCE ===== */
+#experience {
+  background: var(--black);
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+}
+.experience-inner { max-width: var(--container); margin: 0 auto; }
+.experience-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: center;
+  padding: clamp(40px, 5vw, 80px) 0;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+.experience-item:last-child { border-bottom: none; }
+.experience-item.reverse .experience-text { order: 2; }
+.experience-item.reverse .experience-img-wrap { order: 1; }
+.experience-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(80px, 12vw, 140px);
+  font-weight: 300;
+  color: rgba(201,168,76,0.08);
+  line-height: 0.8;
+  margin-bottom: -20px;
+  display: block;
+}
+.experience-title {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 300;
+  margin-bottom: 20px;
+  color: var(--cream-mid);
+}
+.experience-desc {
+  font-size: 16px;
+  color: rgba(245,240,232,0.65);
+  line-height: 1.8;
+  max-width: 480px;
+}
+.experience-img-wrap {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.15);
+}
+.experience-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: brightness(0.85);
+}
+.experience-item:hover .experience-img { transform: scale(1.03); }
+@media (max-width: 768px) {
+  .experience-item { grid-template-columns: 1fr; }
+  .experience-item.reverse .experience-text,
+  .experience-item.reverse .experience-img-wrap { order: unset; }
+}
+
+/* ===== PROGRAM ===== */
+#programm {
+  background: var(--cream);
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+  color: var(--text-dark);
+}
+.program-inner { max-width: min(800px, var(--container)); margin: 0 auto; }
+.tab-buttons {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 48px;
+  border: 1px solid var(--cream-dark);
+}
+.tab-btn {
+  flex: 1;
+  padding: 16px 12px;
+  background: var(--cream-mid);
+  color: var(--text-muted-light);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  transition: var(--transition);
+  cursor: pointer;
+  text-align: center;
+}
+.tab-btn.active {
+  background: var(--gold-dark);
+  color: var(--cream);
+}
+.tab-btn:hover:not(.active) { background: var(--cream-dark); color: var(--text-dark); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.program-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--cream-dark);
+  position: relative;
+}
+.program-item::before {
+  content: '';
+  position: absolute;
+  left: 72px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--cream);
+}
+.program-time {
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gold-dark);
+  padding-top: 2px;
+}
+.program-session {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+.program-desc { font-size: 13px; color: var(--text-muted-light); }
+.highlight-session .program-session { color: var(--gold-dark); }
+
+/* ===== FEUERLAUF ===== */
+#feuerlauf {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 80%, rgba(255,120,0,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 30% 50%, rgba(201,100,0,0.08) 0%, transparent 50%),
+    linear-gradient(180deg, #0D0400 0%, #1A0800 40%, #0A0300 100%);
+  position: relative;
+  overflow: hidden;
+}
+#feuerlauf::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,0.3), transparent);
+}
+.feuerlauf-inner { max-width: min(720px, var(--container)); margin: 0 auto; text-align: center; }
+.feuerlauf-title {
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 300;
+  line-height: 1.0;
+  margin-bottom: 8px;
+  color: var(--cream-mid);
+}
+.feuerlauf-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3.5vw, 36px);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-light);
+  margin-bottom: 32px;
+}
+.feuerlauf-text {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(245,240,232,0.7);
+  margin-bottom: 48px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.feuerlauf-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  border: 1px solid rgba(255,140,0,0.3);
+  background: rgba(255,100,0,0.06);
+  border-radius: var(--radius);
+  margin-bottom: 28px;
+  font-size: 15px;
+  color: var(--cream-mid);
+}
+.counter-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: #FF9933;
+  font-variant-numeric: tabular-nums;
+}
+.feuerlauf-checkbox-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+.feuerlauf-checkbox-wrap input[type="checkbox"] {
+  width: 20px; height: 20px;
+  border: 1px solid var(--gold);
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.feuerlauf-checkbox-label {
+  font-size: 15px;
+  color: var(--cream-mid);
+  cursor: pointer;
+}
+.feuerlauf-note {
+  font-size: 12px;
+  color: rgba(245,240,232,0.4);
+  letter-spacing: 0.05em;
+  margin-bottom: 36px;
+}
+.checked-label {
+  font-size: 13px;
+  color: #FF9933;
+  margin-bottom: 24px;
+  display: none;
+}
+
+/* ===== TICKETS ===== */
+#tickets {
+  background: var(--black);
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+}
+.tickets-inner { max-width: var(--container); margin: 0 auto; }
+.tickets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 60px;
+}
+.ticket-card {
+  padding: 40px 32px;
+  border: 1px solid rgba(201,168,76,0.15);
+  background: var(--dark);
+  position: relative;
+  transition: border-color var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.ticket-card:hover { border-color: rgba(201,168,76,0.35); }
+.ticket-card.featured {
+  background: linear-gradient(135deg, #C9A84C 0%, #A07830 100%);
+  border-color: var(--gold);
+}
+.ticket-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.ticket-card.featured .ticket-badge {
+  background: rgba(0,0,0,0.15);
+  border-color: rgba(0,0,0,0.2);
+  color: rgba(10,10,10,0.7);
+}
+.ticket-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--cream-mid);
+  margin-bottom: 8px;
+}
+.ticket-card.featured .ticket-name { color: var(--black); }
+.ticket-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.ticket-price-currency {
+  font-size: 24px;
+  vertical-align: super;
+}
+.ticket-price-note {
+  font-size: 13px;
+  color: rgba(245,240,232,0.5);
+  margin-bottom: 28px;
+}
+.ticket-card.featured .ticket-price-note { color: rgba(10,10,10,0.55); }
+.ticket-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 36px;
+  flex: 1;
+}
+.ticket-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(245,240,232,0.75);
+  line-height: 1.4;
+}
+.ticket-card.featured .ticket-features li { color: rgba(10,10,10,0.75); }
+.ticket-check {
+  width: 16px; height: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--gold);
+}
+.ticket-card.featured .ticket-check { color: rgba(10,10,10,0.7); }
+.ticket-btn {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: var(--transition);
+  border-radius: var(--radius);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+}
+.ticket-btn:hover { background: var(--gold); color: var(--black); }
+.ticket-card.featured .ticket-btn {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--cream-mid);
+}
+.ticket-card.featured .ticket-btn:hover { background: #1A1A1A; }
+
+/* Add-ons */
+.addons-section {
+  border: 1px solid rgba(201,168,76,0.15);
+  background: var(--dark);
+  padding: 40px;
+  margin-bottom: 32px;
+}
+.addons-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--cream-mid);
+  margin-bottom: 32px;
+}
+.addon-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+}
+.addon-row:last-of-type { border-bottom: none; }
+.addon-checkbox {
+  width: 18px; height: 18px;
+  accent-color: var(--gold);
+  margin-top: 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.addon-label { flex: 1; }
+.addon-name {
+  font-size: 15px;
+  color: var(--cream-mid);
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+.addon-desc { font-size: 13px; color: rgba(245,240,232,0.4); }
+.addon-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--gold-light);
+  white-space: nowrap;
+}
+.nights-select {
+  display: none;
+  margin-top: 12px;
+  flex-direction: column;
+  gap: 8px;
+}
+.nights-select.visible { display: flex; }
+.nights-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(245,240,232,0.6);
+  cursor: pointer;
+}
+.nights-option input[type="radio"] { accent-color: var(--gold); cursor: pointer; }
+.room-radio-group { margin-top: 12px; display: none; }
+.room-radio-group.visible { display: block; }
+.room-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.06);
+  cursor: pointer;
+}
+.room-option:last-child { border-bottom: none; }
+.room-option input { accent-color: var(--gold); cursor: pointer; }
+.room-option-label { font-size: 14px; color: rgba(245,240,232,0.7); flex: 1; }
+.room-option-price { font-size: 14px; color: var(--gold-light); }
+.price-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 40px;
+  border: 1px solid rgba(201,168,76,0.3);
+  background: rgba(201,168,76,0.04);
+  margin-bottom: 24px;
+}
+.price-total-label { font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.5); }
+.price-total-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--gold-light);
+}
+.tickets-note {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(245,240,232,0.35);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+  .tickets-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 600px) {
+  .addons-section { padding: 24px 20px; }
+  .price-total { padding: 20px; }
+}
+
+/* ===== ACCOMMODATION ===== */
+#unterkunft {
+  background: var(--cream-mid);
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+  color: var(--text-dark);
+}
+.unterkunft-inner { max-width: var(--container); margin: 0 auto; }
+.unterkunft-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 60px;
+}
+.unterkunft-card {
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  padding: 36px 32px;
+}
+.unterkunft-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+.unterkunft-card-sub {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 28px;
+}
+.room-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.room-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--cream-dark);
+  font-size: 15px;
+}
+.room-row:last-child { border-bottom: none; }
+.room-name { color: var(--text-dark); }
+.room-price-display { color: var(--gold-dark); font-family: 'Cormorant Garamond', serif; font-size: 20px; }
+.verpflegung-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cream-dark);
+  font-size: 15px;
+  color: var(--text-dark);
+  align-items: flex-start;
+}
+.verpflegung-item:last-child { border-bottom: none; }
+.verpflegung-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold-dark);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.hotels-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--text-dark);
+  margin-bottom: 32px;
+}
+.hotels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.hotel-card {
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  padding: 28px 24px;
+  transition: border-color var(--transition);
+}
+.hotel-card:hover { border-color: var(--gold-dark); }
+.hotel-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+.hotel-distance {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted-light);
+  margin-bottom: 20px;
+}
+.hotel-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid var(--gold-dark);
+  color: var(--gold-dark);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: var(--transition);
+  border-radius: var(--radius);
+}
+.hotel-btn:hover { background: var(--gold-dark); color: var(--cream); }
+@media (max-width: 768px) {
+  .unterkunft-grid { grid-template-columns: 1fr; }
+  .hotels-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== FAQ ===== */
+#faq {
+  background: var(--dark);
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+}
+.faq-inner { max-width: min(720px, var(--container)); margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--cream-mid);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color var(--transition);
+}
+.faq-question:hover { color: var(--gold-light); }
+.faq-icon {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+  color: var(--gold);
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-item.open .faq-answer { max-height: 300px; }
+.faq-answer-inner {
+  padding: 0 0 24px;
+  font-size: 16px;
+  color: rgba(245,240,232,0.6);
+  line-height: 1.75;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--black);
+  padding: 80px clamp(20px, 5vw, 80px) 40px;
+  text-align: center;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+.footer-logo { max-width: 120px; margin: 0 auto 20px; opacity: 0.85; }
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--cream-mid);
+  margin-bottom: 6px;
+}
+.footer-date {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: rgba(245,240,232,0.35);
+  margin-bottom: 32px;
+}
+.footer-contact {
+  font-size: 14px;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+.footer-contact a { transition: color var(--transition); }
+.footer-contact a:hover { color: var(--gold-light); }
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.social-link {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(245,240,232,0.4);
+  transition: var(--transition);
+}
+.social-link:hover { border-color: var(--gold); color: var(--gold); }
+.social-link svg { width: 18px; height: 18px; }
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.3);
+  transition: color var(--transition);
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-copy {
+  font-size: 12px;
+  color: rgba(245,240,232,0.2);
+  letter-spacing: 0.05em;
+}
+.footer-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,0.4), transparent);
+  margin: 0 auto 32px;
+}
+
+/* ===== COOKIE BANNER ===== */
+#cookie-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 9999;
+  background: rgba(14, 12, 10, 0.97);
+  border-top: 1px solid rgba(201,168,76,0.25);
+  backdrop-filter: blur(16px);
+  padding: clamp(20px, 3vw, 32px) clamp(20px, 5vw, 60px);
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: none;
+}
+#cookie-banner.visible {
+  display: block;
+  transform: translateY(0);
+}
+.cookie-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: center;
+}
+.cookie-text-block {}
+.cookie-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--cream-mid);
+  margin-bottom: 6px;
+}
+.cookie-text {
+  font-size: 13px;
+  color: rgba(245,240,232,0.5);
+  line-height: 1.6;
+  max-width: 640px;
+}
+.cookie-text a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cookie-text a:hover { color: var(--gold-light); }
+.cookie-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+  min-width: 200px;
+}
+.cookie-btn-accept {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #C9A84C, #E8C96D);
+  color: #0A0A0A;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  text-align: center;
+}
+.cookie-btn-accept:hover { opacity: 0.9; }
+.cookie-btn-necessary {
+  padding: 10px 24px;
+  background: transparent;
+  color: rgba(245,240,232,0.5);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(245,240,232,0.15);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  text-align: center;
+}
+.cookie-btn-necessary:hover { border-color: rgba(245,240,232,0.35); color: var(--cream-mid); }
+.cookie-details-toggle {
+  background: none;
+  border: none;
+  color: rgba(245,240,232,0.3);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  text-align: center;
+  padding: 4px;
+  transition: color 0.2s;
+}
+.cookie-details-toggle:hover { color: var(--gold); }
+
+/* Details panel */
+.cookie-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  border-top: 0px solid rgba(201,168,76,0.1);
+  margin-top: 0;
+}
+.cookie-details.open {
+  max-height: 400px;
+  border-top-width: 1px;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+.cookie-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+}
+.cookie-category {
+  background: rgba(201,168,76,0.04);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 16px;
+  border-radius: 2px;
+}
+.cookie-cat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.cookie-cat-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cream-mid);
+}
+.cookie-cat-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.08em;
+}
+.badge-required { background: rgba(201,168,76,0.15); color: var(--gold); }
+.badge-optional { background: rgba(245,240,232,0.08); color: rgba(245,240,232,0.4); }
+.cookie-cat-desc { font-size: 12px; color: rgba(245,240,232,0.4); line-height: 1.5; }
+
+/* Toggle switch */
+.cookie-toggle {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+.cookie-toggle input { opacity: 0; width: 0; height: 0; }
+.cookie-toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: rgba(245,240,232,0.15);
+  border-radius: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.cookie-toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 14px; height: 14px;
+  left: 3px; top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.cookie-toggle input:checked + .cookie-toggle-slider { background: var(--gold); }
+.cookie-toggle input:checked + .cookie-toggle-slider::before { transform: translateX(16px); }
+.cookie-toggle input:disabled + .cookie-toggle-slider { opacity: 0.5; cursor: not-allowed; }
+
+@media (max-width: 768px) {
+  .cookie-inner { grid-template-columns: 1fr; gap: 20px; }
+  .cookie-actions { flex-direction: row; flex-wrap: wrap; }
+  .cookie-btn-accept, .cookie-btn-necessary { flex: 1; min-width: 120px; }
+}
+
+/* ===== DECORATIVE GOLD LINE ===== */
+.cookie-consent-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  z-index: 10000;
+  display: none;
+}
+.cookie-consent-bar.show { display: block; animation: barFade 2s ease forwards; }
+@keyframes barFade { 0%{opacity:1} 80%{opacity:1} 100%{opacity:0} }
+.gold-line {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 0 auto 24px;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="nav" aria-label="Hauptnavigation">
+  <a href="#hero" class="nav-logo" aria-label="Soul Awakening Festival — Zur Startseite">
+    <img src="Medien/Awakening Festival Logo.png" alt="Soul Awakening Festival 2026 Logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#programm">Programm</a></li>
+    <li><a href="#speaker">Speaker</a></li>
+    <li><a href="#feuerlauf">Feuerlauf</a></li>
+    <li><a href="#tickets">Tickets</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#tickets" class="nav-cta">Ticket sichern</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Menü öffnen" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation">
+  <a href="#programm" class="mobile-nav-link">Programm</a>
+  <a href="#speaker" class="mobile-nav-link">Speaker</a>
+  <a href="#feuerlauf" class="mobile-nav-link">Feuerlauf</a>
+  <a href="#tickets" class="mobile-nav-link">Tickets</a>
+  <a href="#faq" class="mobile-nav-link">FAQ</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div id="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <img src="Medien/Awakening Festival Logo.png" alt="Soul Awakening Festival 2026" class="hero-logo">
+    <h1 class="hero-title gold-text serif">Soul Awakening<br>Festival 2026</h1>
+    <p class="hero-tagline">Erwachen war nie so lebendig</p>
+    <p class="hero-info">21.–23. August 2026 &nbsp;·&nbsp; Lethehof, Wardenburg &nbsp;·&nbsp; Niedersachsen</p>
+    <div class="countdown" role="timer" aria-label="Countdown bis zum Festival">
+      <div class="countdown-box"><span class="countdown-num" id="cd-days">00</span><span class="countdown-label">Tage</span></div>
+      <div class="countdown-box"><span class="countdown-num" id="cd-hours">00</span><span class="countdown-label">Stunden</span></div>
+      <div class="countdown-box"><span class="countdown-num" id="cd-mins">00</span><span class="countdown-label">Minuten</span></div>
+      <div class="countdown-box"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-label">Sekunden</span></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#tickets" class="btn-gold">Jetzt Early-Bird-Ticket sichern</a>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Entdecken</span>
+    <span class="scroll-line"></span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <span class="section-label reveal">Was erwartet dich</span>
+    <blockquote class="about-quote reveal reveal-delay-1">
+      „Es ist kein Kongress, kein Podium und kein klassischer Input-Marathon. Es geht um etwas weitaus Tieferes."
+    </blockquote>
+    <p class="about-text reveal reveal-delay-2">
+      Musik, Tanz, Lagerfeuer, Stille, Vernetzung und pure Lebensfreude stehen im Mittelpunkt. Spirituelles Festival — Speaker hautnah, mit Freude und Leichtigkeit. Drei Tage, die dein Leben verändern können.
+    </p>
+
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/><path d="M12 18.5V21M8 21h8M15.5 9.5c0 1.93-1.57 3.5-3.5 3.5S8.5 11.43 8.5 9.5"/><circle cx="12" cy="9.5" r="1.5" fill="currentColor"/></svg>
+        <div class="feature-title">10 Speaker</div>
+        <div class="feature-desc">Inspirierende Stimmen aus Spiritualität, Bewusstsein & persönlichem Wachstum</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="6" rx="5" ry="3"/><path d="M7 6v6c0 1.657 2.239 3 5 3s5-1.343 5-3V6"/><path d="M7 12v4c0 1.657 2.239 3 5 3s5-1.343 5-3v-4"/></svg>
+        <div class="feature-title">Taiko Trommeln</div>
+        <div class="feature-desc">Japanische Trommelkunst — kraftvoll, verbindend, erweckend</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none"/></svg>
+        <div class="feature-title">Feuerlaufen</div>
+        <div class="feature-desc">Das transformative Highlight — geh durch das Feuer und wachse darüber hinaus</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="7" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3 20c0-3.314 2.686-6 6-6s6 2.686 6 6"/><path d="M14 20c0-2.21 1.343-4.105 3.268-4.751"/></svg>
+        <div class="feature-title">Gemeinschaft</div>
+        <div class="feature-desc">200 Gleichgesinnte — echte Begegnung, Vernetzung & gemeinsame Magie</div>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-item reveal"><div class="stat-num">200</div><div class="stat-label">Teilnehmer</div></div>
+      <div class="stat-item reveal reveal-delay-1"><div class="stat-num">3</div><div class="stat-label">Tage</div></div>
+      <div class="stat-item reveal reveal-delay-2"><div class="stat-num">10</div><div class="stat-label">Speaker</div></div>
+      <div class="stat-item reveal reveal-delay-3"><div class="stat-num">1</div><div class="stat-label">Unvergessliches Wochenende</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HEADLINER SPEAKERS -->
+<section id="speaker">
+  <div class="speakers-inner">
+    <div class="section-header">
+      <span class="section-label reveal">Die Stimmen des Festivals</span>
+      <h2 class="section-title reveal reveal-delay-1">Unsere <span class="gold-text">Speaker</span></h2>
+    </div>
+    <div class="headliner-grid">
+      <!-- SPEAKER 1 -->
+      <article class="speaker-card reveal">
+        <div class="speaker-img-wrap">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80&auto=format&fit=crop" alt="Speaker Portrait" class="speaker-img" loading="lazy">
+          <div class="speaker-glow"></div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name">[Speaker Name]</div>
+          <div class="speaker-title">Bewusstsein & Innere Transformation</div>
+          <div class="speaker-bio">Kurze Biografie des Speakers — Expertisegebiet, Erfahrung und was die Teilnehmenden von dieser Session mitnehmen werden.</div>
+        </div>
+      </article>
+      <!-- SPEAKER 2 -->
+      <article class="speaker-card reveal reveal-delay-1">
+        <div class="speaker-img-wrap">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop" alt="Speaker Portrait" class="speaker-img" loading="lazy">
+          <div class="speaker-glow"></div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name">[Speaker Name]</div>
+          <div class="speaker-title">Spiritualität & Lebensfreude</div>
+          <div class="speaker-bio">Kurze Biografie des Speakers — Expertisegebiet, Erfahrung und was die Teilnehmenden von dieser Session mitnehmen werden.</div>
+        </div>
+      </article>
+      <!-- SPEAKER 3 -->
+      <article class="speaker-card reveal reveal-delay-2">
+        <div class="speaker-img-wrap">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80&auto=format&fit=crop" alt="Speaker Portrait" class="speaker-img" loading="lazy">
+          <div class="speaker-glow"></div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name">[Speaker Name]</div>
+          <div class="speaker-title">Energie & Heilung</div>
+          <div class="speaker-bio">Kurze Biografie des Speakers — Expertisegebiet, Erfahrung und was die Teilnehmenden von dieser Session mitnehmen werden.</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- MORE SPEAKERS -->
+<section id="more-speakers">
+  <div class="speakers-inner" style="max-width:var(--container);margin:0 auto;">
+    <span class="section-label reveal">Weitere Stimmen</span>
+    <h2 class="section-title reveal reveal-delay-1" style="color:var(--text-dark);">Weitere Inspirierende <span style="color:var(--gold-dark);">Köpfe</span></h2>
+    <div class="more-speakers-grid">
+      <article class="speaker-card-sm reveal">
+        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
+        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Meditationslehrer</div><div class="speaker-bio">Thema folgt</div></div>
+      </article>
+      <article class="speaker-card-sm reveal reveal-delay-1">
+        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
+        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Coach & Trainer</div><div class="speaker-bio">Thema folgt</div></div>
+      </article>
+      <article class="speaker-card-sm reveal reveal-delay-2">
+        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
+        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Heilpraktikerin</div><div class="speaker-bio">Thema folgt</div></div>
+      </article>
+      <article class="speaker-card-sm reveal reveal-delay-3">
+        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
+        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Autor & Speaker</div><div class="speaker-bio">Thema folgt</div></div>
+      </article>
+      <article class="speaker-card-sm reveal">
+        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
+        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Yoga-Lehrerin</div><div class="speaker-bio">Thema folgt</div></div>
+      </article>
+      <article class="speaker-card-sm reveal reveal-delay-1">
+        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
+        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Energetikerin</div><div class="speaker-bio">Thema folgt</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FESTIVAL EXPERIENCE -->
+<section id="experience">
+  <div class="experience-inner">
+    <span class="section-label reveal" style="display:block;margin-bottom:60px;">Das Festival-Erlebnis</span>
+
+    <div class="experience-item reveal">
+      <div class="experience-text">
+        <span class="experience-num">01</span>
+        <h3 class="experience-title">Transformation</h3>
+        <p class="experience-desc">Drei Tage intensiver innerer Arbeit — nicht als Anstrengung, sondern als Einladung. Speaker, Rituale und Stille geben dir den Raum, wirklich zu wachsen. Du wirst nicht derselbe Mensch nach Hause fahren.</p>
+      </div>
+      <div class="experience-img-wrap">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80&auto=format&fit=crop" alt="Transformation" class="experience-img" loading="lazy">
+      </div>
+    </div>
+
+    <div class="experience-item reverse reveal">
+      <div class="experience-text">
+        <span class="experience-num">02</span>
+        <h3 class="experience-title">Gemeinschaft</h3>
+        <p class="experience-desc">200 Menschen, die dasselbe suchen wie du — echte Verbindung, Tiefe, Authentizität. Lagerfeuer-Abende, gemeinsame Mahlzeiten und spontane Gespräche, die ein Leben lang halten.</p>
+      </div>
+      <div class="experience-img-wrap">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80&auto=format&fit=crop" alt="Gemeinschaft" class="experience-img" loading="lazy">
+      </div>
+    </div>
+
+    <div class="experience-item reveal">
+      <div class="experience-text">
+        <span class="experience-num">03</span>
+        <h3 class="experience-title">Inspiration</h3>
+        <p class="experience-desc">10 außergewöhnliche Speaker, Workshops, Taiko-Trommeln und Tanz. Kein klassischer Kongress — sondern ein lebendiger Tempel der Ideen, der Musik und der Bewegung.</p>
+      </div>
+      <div class="experience-img-wrap">
+        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80&auto=format&fit=crop" alt="Inspiration" class="experience-img" loading="lazy">
+      </div>
+    </div>
+
+    <div class="experience-item reverse reveal">
+      <div class="experience-text">
+        <span class="experience-num">04</span>
+        <h3 class="experience-title">Feuerlaufen</h3>
+        <p class="experience-desc">Das Highlight des Festivals. In der Abenddämmerung des Samstags gehen mutige Seelen durch das Feuer — und kommen verändert heraus. Ein uraltes Ritual, das Grenzen sprengt.</p>
+      </div>
+      <div class="experience-img-wrap">
+        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80&auto=format&fit=crop" alt="Feuerlaufen" class="experience-img" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="programm">
+  <div class="program-inner">
+    <span class="section-label reveal">21.–23. August 2026</span>
+    <h2 class="section-title reveal reveal-delay-1" style="color:var(--text-dark);">Das <span style="color:var(--gold-dark);">Programm</span></h2>
+    <div class="gold-line reveal reveal-delay-2"></div>
+
+    <div class="tab-buttons reveal reveal-delay-2" role="tablist">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="fr">Freitag 21.8.</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="sa">Samstag 22.8.</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="so">Sonntag 23.8.</button>
+    </div>
+
+    <div id="tab-fr" class="tab-panel active" role="tabpanel">
+      <div class="program-item"><div class="program-time">16:00</div><div><div class="program-session">Anreise &amp; Begrüßung</div><div class="program-desc">Check-in, erstes Kennenlernen, Orientierung auf dem Lethehof</div></div></div>
+      <div class="program-item"><div class="program-time">18:00</div><div><div class="program-session">Eröffnungs-Zeremonie</div><div class="program-desc">Gemeinsames Einläuten des Festivals — spirituelle Öffnungsrunde</div></div></div>
+      <div class="program-item"><div class="program-time">19:30</div><div><div class="program-session">Willkommens-Dinner</div><div class="program-desc">Gemeinsames Abendessen (optional, Vollverpflegung)</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">20:00</div><div><div class="program-session">Lagerfeuer &amp; Kennenlernen</div><div class="program-desc">Entspannter Abend unter dem Sternenhimmel</div></div></div>
+    </div>
+
+    <div id="tab-sa" class="tab-panel" role="tabpanel">
+      <div class="program-item"><div class="program-time">07:00</div><div><div class="program-session">Morgen-Meditation</div><div class="program-desc">Sanfter Start in den Tag, geführte Meditation im Freien</div></div></div>
+      <div class="program-item"><div class="program-time">09:00</div><div><div class="program-session">Speaker-Session I</div><div class="program-desc">Keynote Speaker — Thema und Name werden bekanntgegeben</div></div></div>
+      <div class="program-item"><div class="program-time">11:00</div><div><div class="program-session">Workshops</div><div class="program-desc">Parallele Workshop-Angebote zur Auswahl</div></div></div>
+      <div class="program-item"><div class="program-time">13:00</div><div><div class="program-session">Mittagspause</div><div class="program-desc">Gemeinsames Mittagessen (vegan/vegetarisch, Vollverpflegung optional)</div></div></div>
+      <div class="program-item"><div class="program-time">15:00</div><div><div class="program-session">Speaker-Session II</div><div class="program-desc">Keynote Speaker — Thema und Name werden bekanntgegeben</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">17:00</div><div><div class="program-session">Taiko Trommeln</div><div class="program-desc">Erlebe die kraftvolle Energie japanischer Trommelkunst</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">20:00</div><div><div class="program-session">🔥 Feuerlauf-Zeremonie</div><div class="program-desc">Das Highlight des Festivals — für angemeldete Teilnehmer</div></div></div>
+      <div class="program-item"><div class="program-time">22:00</div><div><div class="program-session">Lagerfeuer-Nacht</div><div class="program-desc">Musik, Stille, Verbindung</div></div></div>
+    </div>
+
+    <div id="tab-so" class="tab-panel" role="tabpanel">
+      <div class="program-item"><div class="program-time">08:00</div><div><div class="program-session">Yoga &amp; Stille</div><div class="program-desc">Sanfter Morgen mit Yoga und Atemübungen</div></div></div>
+      <div class="program-item"><div class="program-time">10:00</div><div><div class="program-session">Speaker-Session III</div><div class="program-desc">Keynote Speaker — Thema und Name werden bekanntgegeben</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">12:00</div><div><div class="program-session">Abschluss-Kreis</div><div class="program-desc">Gemeinsame Reflexion, Dankbarkeit und Verabschiedung</div></div></div>
+      <div class="program-item"><div class="program-time">13:00</div><div><div class="program-session">Gemeinsames Mittagessen</div><div class="program-desc">Letztes gemeinsames Essen des Festivals</div></div></div>
+      <div class="program-item"><div class="program-time">15:00</div><div><div class="program-session">Abreise</div><div class="program-desc">Safe travels — bis zum nächsten Mal</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEUERLAUF -->
+<section id="feuerlauf">
+  <div class="feuerlauf-inner">
+    <span class="section-label reveal" style="color:rgba(255,153,51,0.8);">Das Highlight</span>
+    <h2 class="feuerlauf-title serif reveal reveal-delay-1">Geh durch das Feuer.</h2>
+    <p class="feuerlauf-sub reveal reveal-delay-2">Komm als Neue/r heraus.</p>
+    <p class="feuerlauf-text reveal reveal-delay-3">
+      Der Feuerlauf ist eines der ältesten Rituale der Menschheit — und eines der mächtigsten. In der Abenddämmerung des Samstags wirst du eingeladen, auf Kohlen zu gehen. Nicht als Mutprobe, sondern als Zeremonie der Transformation. Professionell begleitet. Sicher. Unvergesslich.
+    </p>
+    <div class="feuerlauf-counter reveal" id="feuerlaufCounter">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF9933" stroke-width="1.5" aria-hidden="true"><path d="M17.657 18.657A8 8 0 016.343 7.343M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 6.343l-.707-.707M6.343 6.343l-.707-.707"/></svg>
+      <span><span class="counter-num" id="feuerlaufNum">34</span> von 50 Plätzen noch verfügbar</span>
+    </div>
+    <label class="feuerlauf-checkbox-wrap reveal" id="feuerlaufCheckWrap">
+      <input type="checkbox" id="feuerlaufCheck" aria-label="Am Feuerlauf teilnehmen">
+      <span class="feuerlauf-checkbox-label">Ich möchte am Feuerlauf teilnehmen</span>
+    </label>
+    <p class="checked-label" id="feuerlaufCheckedMsg">✓ Du bist vorgemerkt! Wähle beim Ticketkauf die Feuerlauf-Option.</p>
+    <p class="feuerlauf-note reveal">Feuerlauf wird beim Ticketkauf zur Auswahl hinzugefügt · Professionelle Begleitung inklusive</p>
+    <div class="reveal reveal-delay-1" style="margin-top:12px;">
+      <a href="#tickets" class="btn-outline">Zum Ticket</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKETS -->
+<section id="tickets">
+  <div class="tickets-inner">
+    <div style="text-align:center;margin-bottom:60px;">
+      <span class="section-label reveal">Dein Festival-Erlebnis</span>
+      <h2 class="section-title gold-text reveal reveal-delay-1" style="font-size:clamp(40px,6vw,80px);">Wähle dein Erlebnis</h2>
+    </div>
+
+    <div class="tickets-grid">
+      <!-- EARLY BIRD -->
+      <div class="ticket-card reveal">
+        <span class="ticket-badge">🕊 Early Bird — Noch <span id="earlyBirdLeft">27</span> Plätze!</span>
+        <div class="ticket-name">Early Bird</div>
+        <div class="ticket-price gold-text"><span class="ticket-price-currency">€</span><span id="priceEarlyBird">199</span></div>
+        <div class="ticket-price-note">Spare €50 gegenüber Standardticket</div>
+        <ul class="ticket-features">
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Festivaleintritt Freitag–Sonntag</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alle Speaker-Sessions</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Workshops</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Taiko Trommeln &amp; Musik</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Option: Feuerlauf (zubuchbar)</li>
+        </ul>
+        <a href="#" id="bookEarlyBird" class="ticket-btn" onclick="setSelectedTicket('earlyBird');return false;">Jetzt sichern</a>
+      </div>
+
+      <!-- STANDARD -->
+      <div class="ticket-card reveal reveal-delay-1">
+        <span class="ticket-badge">Standard</span>
+        <div class="ticket-name">Standard</div>
+        <div class="ticket-price" style="color:var(--cream-mid);"><span class="ticket-price-currency" style="color:var(--cream-mid);">€</span><span id="priceStandard">249</span></div>
+        <div class="ticket-price-note">Reguläres Festival-Ticket</div>
+        <ul class="ticket-features">
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Festivaleintritt Freitag–Sonntag</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alle Speaker-Sessions</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Workshops</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Taiko Trommeln &amp; Musik</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Option: Feuerlauf (zubuchbar)</li>
+        </ul>
+        <a href="#" id="bookStandard" class="ticket-btn" onclick="setSelectedTicket('standard');return false;">Ticket buchen</a>
+      </div>
+
+      <!-- VIP -->
+      <div class="ticket-card featured reveal reveal-delay-2">
+        <span class="ticket-badge">VIP — Exklusiv</span>
+        <div class="ticket-name">VIP</div>
+        <div class="ticket-price" style="color:#0A0A0A;"><span class="ticket-price-currency" style="color:#0A0A0A;">€</span><span id="priceVIP">399</span></div>
+        <div class="ticket-price-note">Nur <span id="vipLeft">20</span> VIP-Plätze verfügbar</div>
+        <ul class="ticket-features">
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Standard</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>VIP-Lounge Zugang</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Meet the Speaker</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Bevorzugter Einlass</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Feuerlauf inklusive</li>
+        </ul>
+        <a href="#" id="bookVIP" class="ticket-btn" onclick="setSelectedTicket('vip');return false;">VIP-Erlebnis sichern</a>
+      </div>
+    </div>
+
+    <!-- ADD-ONS -->
+    <div class="addons-section reveal">
+      <div class="addons-title">Add-ons zu deinem Ticket</div>
+
+      <!-- Feuerlauf -->
+      <div class="addon-row">
+        <input type="checkbox" class="addon-checkbox" id="addonFeuerlauf" onchange="calcTotal()">
+        <div class="addon-label">
+          <label for="addonFeuerlauf" class="addon-name">Feuerlauf-Teilnahme</label>
+          <div class="addon-desc">Inklusive — nur Anmeldung erforderlich. Professionelle Begleitung.</div>
+        </div>
+        <span class="addon-price">Gratis</span>
+      </div>
+
+      <!-- Vollverpflegung -->
+      <div class="addon-row" style="flex-wrap:wrap;">
+        <input type="checkbox" class="addon-checkbox" id="addonVerpflegung" onchange="toggleVerpflegung();calcTotal()">
+        <div class="addon-label" style="flex:1;">
+          <label for="addonVerpflegung" class="addon-name">Vollverpflegung</label>
+          <div class="addon-desc">Vegan/vegetarisch · Frühstück, Mittagessen, Abendessen + Obst, Kuchen, Getränke</div>
+          <div class="nights-select" id="verpflegungTage">
+            <label class="nights-option"><input type="checkbox" value="55" class="verpf-day" onchange="calcTotal()"> Freitag, 21.8. — €55</label>
+            <label class="nights-option"><input type="checkbox" value="55" class="verpf-day" onchange="calcTotal()"> Samstag, 22.8. — €55</label>
+            <label class="nights-option"><input type="checkbox" value="55" class="verpf-day" onchange="calcTotal()"> Sonntag, 23.8. — €55</label>
+          </div>
+        </div>
+        <span class="addon-price">€55/Tag</span>
+      </div>
+
+      <!-- Übernachtung -->
+      <div class="addon-row" style="flex-wrap:wrap;">
+        <input type="checkbox" class="addon-checkbox" id="addonUebernachtung" onchange="toggleRoom();calcTotal()">
+        <div class="addon-label" style="flex:1;">
+          <label for="addonUebernachtung" class="addon-name">Übernachtung im Lethehof</label>
+          <div class="addon-desc">Direkt vor Ort — wähle deine Zimmerkategorie</div>
+          <div class="room-radio-group" id="roomOptions">
+            <label class="room-option"><input type="radio" name="room" value="85" onchange="calcTotal()"><span class="room-option-label">Einzelzimmer</span><span class="room-option-price">€85/Nacht</span></label>
+            <label class="room-option"><input type="radio" name="room" value="65" onchange="calcTotal()"><span class="room-option-label">Doppelzimmer (pro Person)</span><span class="room-option-price">€65/Nacht</span></label>
+            <label class="room-option"><input type="radio" name="room" value="35" onchange="calcTotal()"><span class="room-option-label">Dreier-/Vierzimmer (pro Person)</span><span class="room-option-price">€35/Nacht</span></label>
+            <label class="room-option"><input type="radio" name="room" value="5" onchange="calcTotal()"><span class="room-option-label">Camper / WoMo / Gruppenraum</span><span class="room-option-price">€5/Nacht</span></label>
+            <div style="display:flex;align-items:center;gap:16px;padding-top:12px;">
+              <label style="font-size:13px;color:rgba(245,240,232,0.5);">Nächte:</label>
+              <select id="numNights" onchange="calcTotal()" style="background:var(--dark-mid);color:var(--cream-mid);border:1px solid rgba(201,168,76,0.2);padding:6px 12px;font-size:14px;border-radius:2px;">
+                <option value="1">1 Nacht</option>
+                <option value="2" selected>2 Nächte</option>
+                <option value="3">3 Nächte</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <span class="addon-price">ab €5/Nacht</span>
+      </div>
+    </div>
+
+    <!-- PRICE TOTAL -->
+    <div class="price-total reveal">
+      <span class="price-total-label">Geschätzter Gesamtpreis</span>
+      <span class="price-total-amount" id="totalPrice">€—</span>
+    </div>
+
+    <div style="text-align:center;" class="reveal">
+      <a href="#" id="mainBookBtn" class="btn-gold" style="margin-bottom:20px;">Jetzt buchen</a>
+      <p class="tickets-note">Alle Preise inkl. MwSt. · Buchung über Fluent Booking (Link folgt) · kontakt@soul-awakening-festival.de</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOMMODATION -->
+<section id="unterkunft">
+  <div class="unterkunft-inner">
+    <span class="section-label reveal">Schlafen &amp; Genießen</span>
+    <h2 class="section-title reveal reveal-delay-1" style="color:var(--text-dark);">Unterkunft &amp; <span style="color:var(--gold-dark);">Verpflegung</span></h2>
+    <div class="gold-line reveal reveal-delay-2" style="background:linear-gradient(to right, transparent, var(--gold-dark), transparent);"></div>
+
+    <div class="unterkunft-grid reveal">
+      <!-- Lethehof -->
+      <div class="unterkunft-card">
+        <div class="unterkunft-card-title">Lethehof</div>
+        <div class="unterkunft-card-sub">Direkt vor Ort · Wardenburg</div>
+        <ul class="room-list">
+          <li class="room-row"><span class="room-name">Einzelzimmer</span><span class="room-price-display">€85 / Nacht</span></li>
+          <li class="room-row"><span class="room-name">Doppelzimmer (pro Person)</span><span class="room-price-display">€65 / Nacht</span></li>
+          <li class="room-row"><span class="room-name">Dreier-/Vierzimmer (pro Person)</span><span class="room-price-display">€35 / Nacht</span></li>
+          <li class="room-row"><span class="room-name">Camper / WoMo / Gruppenraum</span><span class="room-price-display">€5 / Nacht</span></li>
+        </ul>
+        <p style="font-size:13px;color:var(--text-muted-light);margin-top:16px;">Buchung über das Ticket-System · Verfügbarkeit begrenzt</p>
+      </div>
+      <!-- Verpflegung -->
+      <div class="unterkunft-card">
+        <div class="unterkunft-card-title">Vollverpflegung</div>
+        <div class="unterkunft-card-sub">€55 pro Person / Tag (optional)</div>
+        <div class="verpflegung-item"><div class="verpflegung-dot"></div>Frühstück, Mittagessen &amp; Abendessen</div>
+        <div class="verpflegung-item"><div class="verpflegung-dot"></div>Obst, Kuchen &amp; Snacks den ganzen Tag</div>
+        <div class="verpflegung-item"><div class="verpflegung-dot"></div>Kaffee, Tee &amp; Wasser inklusive</div>
+        <div class="verpflegung-item"><div class="verpflegung-dot"></div>100% vegan &amp; vegetarisch</div>
+        <div class="verpflegung-item"><div class="verpflegung-dot"></div>Frisch zubereitet, regional</div>
+        <p style="font-size:13px;color:var(--text-muted-light);margin-top:16px;">Pro Tag buchbar (Fr./Sa./So.) · Buchung über das Ticket-System</p>
+      </div>
+    </div>
+
+    <!-- Partner Hotels -->
+    <div class="reveal">
+      <h3 class="hotels-title">Weitere Hotels in der Umgebung</h3>
+      <div class="hotels-grid">
+        <div class="hotel-card">
+          <div class="hotel-name">[Hotel Name]</div>
+          <div class="hotel-distance">ca. 3 km vom Lethehof · Wardenburg</div>
+          <a href="mailto:kontakt@soul-awakening-festival.de" class="hotel-btn">Jetzt anfragen</a>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-name">[Hotel Name]</div>
+          <div class="hotel-distance">ca. 8 km · Oldenburg Innenstadt</div>
+          <a href="mailto:kontakt@soul-awakening-festival.de" class="hotel-btn">Jetzt anfragen</a>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-name">[Hotel Name]</div>
+          <div class="hotel-distance">ca. 10 km · Bahnhof Oldenburg</div>
+          <a href="mailto:kontakt@soul-awakening-festival.de" class="hotel-btn">Jetzt anfragen</a>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted-light);margin-top:20px;">Partnerhotels werden eigenständig organisiert. Für Empfehlungen: <a href="mailto:kontakt@soul-awakening-festival.de" style="color:var(--gold-dark);">kontakt@soul-awakening-festival.de</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <span class="section-label reveal">Alles, was du wissen musst</span>
+    <h2 class="section-title reveal reveal-delay-1">Häufige <span class="gold-text">Fragen</span></h2>
+    <div class="gold-line reveal reveal-delay-2"></div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        Wie komme ich zum Lethehof?
+        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Lethehof, Friedrichstraße 74, 26203 Wardenburg (Oldenburg). Mit dem Auto: A28, Ausfahrt Wardenburg — Parkplätze sind vorhanden. Mit der Bahn: Hauptbahnhof Oldenburg (~10 km), von dort per Taxi oder Bus. Genaue Anfahrtsbeschreibung erhältst du mit deiner Buchungsbestätigung.</div></div>
+    </div>
+    <div class="faq-item reveal reveal-delay-1">
+      <button class="faq-question" aria-expanded="false">
+        Was ist beim Feuerlauf zu beachten?
+        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Der Feuerlauf wird professionell begleitet — keine Vorerfahrung notwendig. Maximal 50 Teilnehmer, um eine intensive und sichere Atmosphäre zu gewährleisten. Die Anmeldung erfolgt direkt beim Ticketkauf. Du wirst vorab ausführlich über Ablauf und Vorbereitung informiert.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        Ist Vollverpflegung inklusive?
+        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Die Vollverpflegung ist ein optionales Add-on und kostet €55 pro Tag. Sie ist pro Tag einzeln buchbar (Freitag, Samstag, Sonntag). Das Angebot ist 100% vegan und vegetarisch: Frühstück, Mittagessen, Abendessen sowie Obst, Kuchen, Kaffee, Tee und Wasser den ganzen Tag.</div></div>
+    </div>
+    <div class="faq-item reveal reveal-delay-1">
+      <button class="faq-question" aria-expanded="false">
+        Kann ich mein Ticket stornieren?
+        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Bis 30 Tage vor Veranstaltungsbeginn: volle Rückerstattung. Bis 14 Tage vorher: 50% Rückerstattung. Danach ist keine Rückerstattung mehr möglich — das Ticket kann jedoch auf eine andere Person übertragen werden. Bitte melde dich in diesem Fall an kontakt@soul-awakening-festival.de.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        Ich möchte ausstellen — wie kann ich mitmachen?
+        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Es stehen 20 Tischplätze (1,80m Tisch, selbst mitbringen) für €200/3 Tage und 10 Pavillonplätze (selbst mitbringen) für €300/3 Tage zur Verfügung. Sponsoring-Optionen auf Anfrage. Schreib uns unter kontakt@soul-awakening-festival.de mit deinem Angebot und deinen Wünschen — wir melden uns schnellstmöglich.</div></div>
+    </div>
+    <div class="faq-item reveal reveal-delay-1">
+      <button class="faq-question" aria-expanded="false">
+        Ist das Festival barrierefrei?
+        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Das Gelände des Lethehofs ist weitgehend barrierefrei zugänglich. Wenn du besondere Bedürfnisse hast, melde dich bitte vorab unter kontakt@soul-awakening-festival.de — wir kümmern uns gerne individuell darum, dass du das Festival uneingeschränkt genießen kannst.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="Medien/Awakening Festival Logo.png" alt="Soul Awakening Festival 2026" class="footer-logo" loading="lazy">
+  <div class="footer-name serif">Soul Awakening Festival 2026</div>
+  <div class="footer-date">Lethehof, Wardenburg · 21.–23. August 2026</div>
+  <div class="footer-divider"></div>
+  <div class="footer-contact">
+    <a href="mailto:kontakt@soul-awakening-festival.de">kontakt@soul-awakening-festival.de</a>
+  </div>
+  <div class="footer-social">
+    <a href="#" class="social-link" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+    </a>
+    <a href="#" class="social-link" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+    </a>
+  </div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+    <a href="#" onclick="openCookieSettings();return false;">Cookie-Einstellungen</a>
+  </div>
+  <div class="footer-copy">© 2026 Soul Awakening Festival · Mit Liebe gemacht</div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen" aria-modal="true">
+  <div class="cookie-inner">
+    <div class="cookie-text-block">
+      <div class="cookie-title">Deine Privatsphäre ist uns wichtig</div>
+      <p class="cookie-text">
+        Wir verwenden Cookies und externe Dienste (Google Fonts), um diese Website optimal darzustellen.
+        Mit „Alle akzeptieren" stimmst du dem Laden externer Ressourcen zu.
+        Mehr dazu in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.
+      </p>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn-accept" id="cookieAcceptAll" onclick="setCookieConsent('all')">Alle akzeptieren</button>
+      <button class="cookie-btn-necessary" id="cookieNecessary" onclick="setCookieConsent('necessary')">Nur notwendige</button>
+      <button class="cookie-details-toggle" id="cookieDetailsToggle" onclick="toggleCookieDetails()" aria-expanded="false">Einstellungen anzeigen ▾</button>
+    </div>
+  </div>
+
+  <!-- Details Panel -->
+  <div class="cookie-details" id="cookieDetails">
+    <div class="cookie-categories">
+      <div class="cookie-category">
+        <div class="cookie-cat-header">
+          <span class="cookie-cat-name">Notwendig</span>
+          <label class="cookie-toggle" title="Immer aktiv">
+            <input type="checkbox" checked disabled>
+            <span class="cookie-toggle-slider"></span>
+          </label>
+        </div>
+        <span class="cookie-cat-badge badge-required">Immer aktiv</span>
+        <p class="cookie-cat-desc" style="margin-top:8px;">Speichert deine Cookie-Einstellungen und den Feuerlauf-Zähler (localStorage). Keine Weitergabe an Dritte.</p>
+      </div>
+      <div class="cookie-category">
+        <div class="cookie-cat-header">
+          <span class="cookie-cat-name">Google Fonts</span>
+          <label class="cookie-toggle" title="Google Fonts aktivieren">
+            <input type="checkbox" id="toggleFonts" checked>
+            <span class="cookie-toggle-slider"></span>
+          </label>
+        </div>
+        <span class="cookie-cat-badge badge-optional">Optional</span>
+        <p class="cookie-cat-desc" style="margin-top:8px;">Lädt Schriftarten von Google-Servern (USA). Dabei wird deine IP-Adresse übermittelt. Bei Ablehnung werden Systemschriften verwendet.</p>
+      </div>
+      <div class="cookie-category">
+        <div class="cookie-cat-header">
+          <span class="cookie-cat-name">Analyse & Tracking</span>
+          <label class="cookie-toggle" title="Analyse aktivieren">
+            <input type="checkbox" id="toggleAnalytics" disabled>
+            <span class="cookie-toggle-slider"></span>
+          </label>
+        </div>
+        <span class="cookie-cat-badge badge-optional">Derzeit inaktiv</span>
+        <p class="cookie-cat-desc" style="margin-top:8px;">Aktuell sind keine Analyse-Tools aktiv. Wird vor dem Einsatz erneut abgefragt.</p>
+      </div>
+    </div>
+    <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+      <button class="cookie-btn-accept" onclick="setCookieConsentCustom()">Auswahl speichern</button>
+    </div>
+  </div>
+</div>
+
+<!-- Gold confirmation flash -->
+<div class="cookie-consent-bar" id="consentBar"></div>
+
+<script>
+// ===== INIT CONFIG VALUES =====
+document.getElementById('priceEarlyBird').textContent = CONFIG.earlyBirdPreis;
+document.getElementById('priceStandard').textContent = CONFIG.standardPreis;
+document.getElementById('priceVIP').textContent = CONFIG.vipPreis;
+document.getElementById('earlyBirdLeft').textContent = CONFIG.earlyBirdPlaetze - CONFIG.earlyBirdVerkauft;
+document.getElementById('vipLeft').textContent = CONFIG.vipPlaetze;
+
+// ===== COUNTDOWN =====
+function updateCountdown() {
+  const now = new Date();
+  const diff = CONFIG.festivalDatum - now;
+  if (diff <= 0) {
+    document.querySelector('.countdown').innerHTML = '<div class="countdown-box"><span style="font-family:Cormorant Garamond,serif;font-size:22px;color:var(--gold-light);">Das Festival hat begonnen!</span></div>';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ===== STICKY NAV =====
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+
+// ===== MOBILE MENU =====
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  hamburger.setAttribute('aria-label', mobileMenu.classList.contains('open') ? 'Menü schließen' : 'Menü öffnen');
+});
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// ===== SCROLL REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ===== PROGRAM TABS =====
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected','true');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// ===== FAQ ACCORDION =====
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-question').setAttribute('aria-expanded','false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+
+// ===== FEUERLAUF COUNTER (localStorage) =====
+(function() {
+  const stored = localStorage.getItem('feuerlaufVerfuegbar');
+  const checked = localStorage.getItem('feuerlaufChecked');
+  let verfuegbar = stored !== null ? parseInt(stored) : CONFIG.feuerlaufVerfuegbar;
+
+  document.getElementById('feuerlaufNum').textContent = verfuegbar;
+
+  if (checked === '1') {
+    document.getElementById('feuerlaufCheck').checked = true;
+    document.getElementById('feuerlaufCheckedMsg').style.display = 'block';
+    document.getElementById('addonFeuerlauf').checked = true;
+  }
+
+  document.getElementById('feuerlaufCheck').addEventListener('change', function() {
+    if (this.checked && verfuegbar > 0) {
+      verfuegbar--;
+      localStorage.setItem('feuerlaufVerfuegbar', verfuegbar);
+      localStorage.setItem('feuerlaufChecked', '1');
+      document.getElementById('feuerlaufNum').textContent = verfuegbar;
+      document.getElementById('feuerlaufCheckedMsg').style.display = 'block';
+      document.getElementById('addonFeuerlauf').checked = true;
+      calcTotal();
+    } else if (!this.checked) {
+      verfuegbar++;
+      if (verfuegbar > CONFIG.feuerlaufPlaetze) verfuegbar = CONFIG.feuerlaufPlaetze;
+      localStorage.setItem('feuerlaufVerfuegbar', verfuegbar);
+      localStorage.removeItem('feuerlaufChecked');
+      document.getElementById('feuerlaufNum').textContent = verfuegbar;
+      document.getElementById('feuerlaufCheckedMsg').style.display = 'none';
+      document.getElementById('addonFeuerlauf').checked = false;
+      calcTotal();
+    }
+  });
+})();
+
+// ===== TICKET SELECTION & PRICE CALC =====
+let selectedTicketPrice = 0;
+let selectedTicketName = '';
+
+function setSelectedTicket(type) {
+  const prices = { earlyBird: CONFIG.earlyBirdPreis, standard: CONFIG.standardPreis, vip: CONFIG.vipPreis };
+  const names = { earlyBird: 'Early Bird', standard: 'Standard', vip: 'VIP' };
+  selectedTicketPrice = prices[type];
+  selectedTicketName = names[type];
+  calcTotal();
+  document.getElementById('mainBookBtn').href = CONFIG.buchungsLink;
+  // Scroll to addons
+  document.querySelector('.addons-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function toggleVerpflegung() {
+  const show = document.getElementById('addonVerpflegung').checked;
+  document.getElementById('verpflegungTage').classList.toggle('visible', show);
+}
+
+function toggleRoom() {
+  const show = document.getElementById('addonUebernachtung').checked;
+  document.getElementById('roomOptions').classList.toggle('visible', show);
+}
+
+function calcTotal() {
+  let total = selectedTicketPrice;
+
+  if (document.getElementById('addonVerpflegung').checked) {
+    document.querySelectorAll('.verpf-day:checked').forEach(cb => { total += parseInt(cb.value); });
+  }
+
+  if (document.getElementById('addonUebernachtung').checked) {
+    const room = document.querySelector('input[name="room"]:checked');
+    const nights = parseInt(document.getElementById('numNights').value) || 2;
+    if (room) total += parseInt(room.value) * nights;
+  }
+
+  document.getElementById('totalPrice').textContent = selectedTicketPrice > 0 ? '€' + total : '€—';
+}
+
+// Ticket buttons also update booking link
+['bookEarlyBird','bookStandard','bookVIP'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.href = CONFIG.buchungsLink;
+});
+
+// ===== HERO WEBGL SHADER =====
+(function initHeroShader() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const gl = canvas.getContext('webgl2');
+  if (!gl) return; // Fallback: CSS-Hintergrund bleibt sichtbar
+
+  const vertSrc = `#version 300 es
+precision highp float;
+in vec4 position;
+void main(){gl_Position=position;}`;
+
+  const fragSrc = `#version 300 es
+/*
+ * Shader by Matthias Hurrle (@atzedent)
+ * Adapted for Soul Awakening Festival 2026
+ */
+precision highp float;
+out vec4 O;
+uniform vec2 resolution;
+uniform float time;
+#define FC gl_FragCoord.xy
+#define T time
+#define R resolution
+#define MN min(R.x,R.y)
+float rnd(vec2 p){
+  p=fract(p*vec2(12.9898,78.233));
+  p+=dot(p,p+34.56);
+  return fract(p.x*p.y);
+}
+float noise(in vec2 p){
+  vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);
+  float a=rnd(i),b=rnd(i+vec2(1,0)),c=rnd(i+vec2(0,1)),d=rnd(i+1.);
+  return mix(mix(a,b,u.x),mix(c,d,u.x),u.y);
+}
+float fbm(vec2 p){
+  float t=.0,a=1.;mat2 m=mat2(1.,-.5,.2,1.2);
+  for(int i=0;i<5;i++){t+=a*noise(p);p*=2.*m;a*=.5;}
+  return t;
+}
+float clouds(vec2 p){
+  float d=1.,t=.0;
+  for(float i=.0;i<3.;i++){
+    float a=d*fbm(i*10.+p.x*.2+.2*(1.+i)*p.y+d+i*i+p);
+    t=mix(t,d,a);d=a;p*=2./(i+1.);
+  }
+  return t;
+}
+void main(void){
+  vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
+  vec3 col=vec3(0);
+  float bg=clouds(vec2(st.x+T*.5,-st.y));
+  uv*=1.-.3*(sin(T*.2)*.5+.5);
+  for(float i=1.;i<12.;i++){
+    uv+=.1*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);
+    vec2 p=uv;
+    float d=length(p);
+    col+=.00125/d*(cos(sin(i)*vec3(1,2,3))+1.);
+    float b=noise(i+p+bg*1.731);
+    col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));
+    col=mix(col,vec3(bg*.25,bg*.137,bg*.05),d);
+  }
+  O=vec4(col,1);
+}`;
+
+  function compileShader(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+      console.warn('Shader error:', gl.getShaderInfoLog(s));
+      return null;
+    }
+    return s;
+  }
+
+  const vs = compileShader(gl.VERTEX_SHADER, vertSrc);
+  const fs = compileShader(gl.FRAGMENT_SHADER, fragSrc);
+  if (!vs || !fs) return;
+
+  const prog = gl.createProgram();
+  gl.attachShader(prog, vs); gl.attachShader(prog, fs);
+  gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { console.warn(gl.getProgramInfoLog(prog)); return; }
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW);
+
+  const posLoc = gl.getAttribLocation(prog, 'position');
+  gl.enableVertexAttribArray(posLoc);
+  gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+  const uRes   = gl.getUniformLocation(prog, 'resolution');
+  const uTime  = gl.getUniformLocation(prog, 'time');
+
+  function resize() {
+    const dpr = Math.max(1, 0.5 * devicePixelRatio);
+    canvas.width  = canvas.offsetWidth  * dpr;
+    canvas.height = canvas.offsetHeight * dpr;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  // Pause when section is not visible (performance)
+  let running = true;
+  const heroObserver = new IntersectionObserver(entries => {
+    running = entries[0].isIntersecting;
+  }, { threshold: 0 });
+  heroObserver.observe(canvas.closest('#hero'));
+
+  // Respect prefers-reduced-motion
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  let startTime = null;
+  let rafId;
+  function loop(now) {
+    rafId = requestAnimationFrame(loop);
+    if (!running) return;
+    if (!startTime) startTime = now;
+    const t = (now - startTime) * 0.001;
+    gl.useProgram(prog);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.uniform1f(uTime, t);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+  rafId = requestAnimationFrame(loop);
+
+  // Cleanup wenn Seite verlassen wird
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { cancelAnimationFrame(rafId); }
+    else { rafId = requestAnimationFrame(loop); }
+  });
+})();
+
+// ===== COOKIE CONSENT =====
+(function initCookieBanner() {
+  const consent = localStorage.getItem('saf_cookie_consent');
+  if (!consent) {
+    // No consent stored: show banner after short delay
+    setTimeout(() => {
+      const banner = document.getElementById('cookie-banner');
+      banner.style.display = 'block';
+      requestAnimationFrame(() => banner.classList.add('visible'));
+    }, 1200);
+  }
+})();
+
+function loadGoogleFonts() {
+  if (document.getElementById('google-fonts-link')) return;
+  const link = document.createElement('link');
+  link.id = 'google-fonts-link';
+  link.rel = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap';
+  document.head.appendChild(link);
+  const fallback = document.getElementById('font-fallback');
+  if (fallback) fallback.remove();
+}
+
+function hideBanner() {
+  const banner = document.getElementById('cookie-banner');
+  banner.classList.remove('visible');
+  setTimeout(() => banner.style.display = 'none', 500);
+  // Gold confirmation flash
+  const bar = document.getElementById('consentBar');
+  bar.classList.add('show');
+  setTimeout(() => bar.classList.remove('show'), 2200);
+}
+
+function setCookieConsent(type) {
+  localStorage.setItem('saf_cookie_consent', type);
+  if (type === 'all') loadGoogleFonts();
+  hideBanner();
+}
+
+function setCookieConsentCustom() {
+  const fontsEnabled = document.getElementById('toggleFonts').checked;
+  const type = fontsEnabled ? 'all' : 'necessary';
+  localStorage.setItem('saf_cookie_consent', type);
+  if (fontsEnabled) loadGoogleFonts();
+  hideBanner();
+}
+
+function toggleCookieDetails() {
+  const details = document.getElementById('cookieDetails');
+  const btn = document.getElementById('cookieDetailsToggle');
+  const isOpen = details.classList.contains('open');
+  details.classList.toggle('open');
+  btn.setAttribute('aria-expanded', !isOpen);
+  btn.textContent = isOpen ? 'Einstellungen anzeigen ▾' : 'Einstellungen ausblenden ▴';
+}
+
+// Allow re-opening cookie settings via footer link (to be added)
+window.openCookieSettings = function() {
+  const banner = document.getElementById('cookie-banner');
+  banner.style.display = 'block';
+  requestAnimationFrame(() => banner.classList.add('visible'));
+  const details = document.getElementById('cookieDetails');
+  if (!details.classList.contains('open')) toggleCookieDetails();
+  banner.scrollIntoView({ behavior: 'smooth', block: 'end' });
+};
+</script>
+</body>
+</html>
