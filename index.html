@@ -316,8 +316,8 @@ p { line-height: 1.7; }
   width: 100%; height: 100%;
   z-index: 0;
   touch-action: none;
-  opacity: 0.72;
-  filter: blur(6px) saturate(1.1);
+  opacity: 0.85;
+  filter: blur(4px) saturate(1.4) brightness(1.3);
   transform: scale(1.04); /* Blur-Rand kaschieren */
 }
 /* Dunkle Overlay-Schicht für Lesbarkeit */
@@ -2817,14 +2817,14 @@ void main(void){
 
   function resize() {
     const dpr = Math.max(1, 0.5 * devicePixelRatio);
-    // window.innerWidth/Height ist immer korrekt, auch vor erstem Paint
-    canvas.width  = window.innerWidth  * dpr;
-    canvas.height = window.innerHeight * dpr;
+    const hero = document.getElementById('hero');
+    const r = hero ? hero.getBoundingClientRect() : null;
+    canvas.width  = (r && r.width  > 0 ? r.width  : window.innerWidth)  * dpr;
+    canvas.height = (r && r.height > 0 ? r.height : window.innerHeight) * dpr;
     gl.viewport(0, 0, canvas.width, canvas.height);
   }
   resize();
-  setTimeout(resize, 0);   // nach Microtask-Queue
-  setTimeout(resize, 100); // nach erstem Paint
+  setTimeout(resize, 50);
   window.addEventListener('resize', resize, { passive: true });
 
   // Pause when section is not visible (performance)
