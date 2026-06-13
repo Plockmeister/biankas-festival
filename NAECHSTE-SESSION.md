@@ -4,7 +4,7 @@
 ## Projekt
 - **Datei:** `C:\CLAUDE\CLAUDE CODE\Biankas Festival\index.html`
 - **Live (GitHub Pages):** https://plockmeister.github.io/biankas-festival/
-- **Domain (nach DNS):** https://soul-awakening-festival.de
+- **Domain (nach DNS):** https://soul-awakening-festival.com
 - **GitHub Repo:** https://github.com/Plockmeister/biankas-festival
 - **Deploy:** `git add . && git commit -m "update" && git push` (dann automatisch live ~1 Min)
 - **Netlify: NICHT MEHR NUTZEN** — Credits erschoepft (300/300 verbraucht, 13. Juni 2026)
@@ -81,7 +81,7 @@ Medien/Awakening Festival Logo.png
 
 ## Domain Setup (noch offen)
 
-soul-awakening-festival.de liegt bei Hetzner DNS.
+soul-awakening-festival.com liegt bei Hetzner DNS.
 Bianka muss Hetzner-Code schicken, dann DNS umstellen.
 
 **HOSTING GEAENDERT: Netlify → GitHub Pages**
@@ -93,7 +93,7 @@ Neue DNS-Eintraege bei dns.hetzner.com (alte Netlify-Eintraege ersetzen):
   A     @    185.199.111.153    TTL 3600
   CNAME www  plockmeister.github.io  TTL 3600
 
-Dann in GitHub Repo → Settings → Pages → Custom Domain → "soul-awakening-festival.de" eintragen.
+Dann in GitHub Repo → Settings → Pages → Custom Domain → "soul-awakening-festival.com" eintragen.
 
 ---
 

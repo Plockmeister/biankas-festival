@@ -72,7 +72,7 @@ git push
 
 ## 🌐 DNS-Einstellungen (GitHub Pages) bei Hetzner
 
-**URL:** https://dns.hetzner.com → Zone `soul-awakening-festival.de`
+**URL:** https://dns.hetzner.com → Zone `soul-awakening-festival.com`
 
 Alte Einträge löschen, dann diese anlegen:
 
@@ -84,7 +84,7 @@ Alte Einträge löschen, dann diese anlegen:
 | A     | `@`   | `185.199.111.153`           | 3600 |
 | CNAME | `www` | `plockmeister.github.io`    | 3600 |
 
-Danach: GitHub Repo → Settings → Pages → Custom Domain → "soul-awakening-festival.de" eintragen.
+Danach: GitHub Repo → Settings → Pages → Custom Domain → "soul-awakening-festival.com" eintragen.
 
 ---
 
@@ -104,7 +104,7 @@ Danach: GitHub Repo → Settings → Pages → Custom Domain → "soul-awakening
 | Was | Link / Pfad |
 |-----|-------------|
 | Website (live) | https://plockmeister.github.io/biankas-festival/ |
-| Website (Domain, nach DNS) | https://soul-awakening-festival.de |
+| Website (Domain, nach DNS) | https://soul-awakening-festival.com |
 | GitHub Repo | https://github.com/Plockmeister/biankas-festival |
 | QRTicket Anmeldung | https://qrticket.de/anmeldung.php |
 | index.html | `C:\CLAUDE\CLAUDE CODE\Biankas Festival\index.html` |
