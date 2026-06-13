@@ -2817,13 +2817,14 @@ void main(void){
 
   function resize() {
     const dpr = Math.max(1, 0.5 * devicePixelRatio);
-    canvas.width  = canvas.offsetWidth  * dpr;
-    canvas.height = canvas.offsetHeight * dpr;
+    // window.innerWidth/Height ist immer korrekt, auch vor erstem Paint
+    canvas.width  = window.innerWidth  * dpr;
+    canvas.height = window.innerHeight * dpr;
     gl.viewport(0, 0, canvas.width, canvas.height);
   }
   resize();
-  requestAnimationFrame(resize); // Nochmal nach Layout-Berechnung
-  window.addEventListener('load', resize);
+  setTimeout(resize, 0);   // nach Microtask-Queue
+  setTimeout(resize, 100); // nach erstem Paint
   window.addEventListener('resize', resize, { passive: true });
 
   // Pause when section is not visible (performance)
