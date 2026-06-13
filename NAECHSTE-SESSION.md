@@ -3,10 +3,11 @@
 
 ## Projekt
 - **Datei:** `C:\CLAUDE\CLAUDE CODE\Biankas Festival\index.html`
-- **Live-Demo:** https://beamish-centaur-0aa073.netlify.app
+- **Live (GitHub Pages):** https://plockmeister.github.io/biankas-festival/
 - **Domain (nach DNS):** https://soul-awakening-festival.de
-- **Netlify Site-ID:** `52b17895-179f-4fab-b6cf-538a67307ebb`
-- **Deploy-Befehl:** `cd "C:/CLAUDE/CLAUDE CODE/Biankas Festival" && netlify deploy --prod --dir . --site 52b17895-179f-4fab-b6cf-538a67307ebb`
+- **GitHub Repo:** https://github.com/Plockmeister/biankas-festival
+- **Deploy:** `git add . && git commit -m "update" && git push` (dann automatisch live ~1 Min)
+- **Netlify: NICHT MEHR NUTZEN** — Credits erschoepft (300/300 verbraucht, 13. Juni 2026)
 
 ---
 
@@ -83,10 +84,16 @@ Medien/Awakening Festival Logo.png
 soul-awakening-festival.de liegt bei Hetzner DNS.
 Bianka muss Hetzner-Code schicken, dann DNS umstellen.
 
-DNS-Eintraege bei dns.hetzner.com:
-  A     @    75.2.60.5                            TTL 3600
-  A     @    99.83.190.102                        TTL 3600
-  CNAME www  beamish-centaur-0aa073.netlify.app   TTL 3600
+**HOSTING GEAENDERT: Netlify → GitHub Pages**
+
+Neue DNS-Eintraege bei dns.hetzner.com (alte Netlify-Eintraege ersetzen):
+  A     @    185.199.108.153    TTL 3600
+  A     @    185.199.109.153    TTL 3600
+  A     @    185.199.110.153    TTL 3600
+  A     @    185.199.111.153    TTL 3600
+  CNAME www  plockmeister.github.io  TTL 3600
+
+Dann in GitHub Repo → Settings → Pages → Custom Domain → "soul-awakening-festival.de" eintragen.
 
 ---
 

@@ -1,96 +1,111 @@
 # Soul Awakening Festival 2026 — Checkliste
-*Zuletzt aktualisiert: 12. Juni 2026*
+*Zuletzt aktualisiert: 13. Juni 2026*
 
 ---
 
-## 🔴 Dringend — Inhalte fehlen noch
+## 🔴 Dringend — jetzt zu tun
 
-- [ ] **Andy Schwab** — Foto + Bio (du fragst ihn direkt)
-- [ ] **Manfred Mohr** — Foto + Bio (du fragst ihn direkt)
-- [ ] **Verena Jaus** — Speaker-Bio fehlt noch (Foto ist drin)
+- [ ] **GitHub Pages live prüfen** → https://plockmeister.github.io/biankas-festival/ (1-2 Min nach Push)
+- [ ] **DNS umstellen** (sobald Bianka Hetzner-Code schickt) → neue GitHub Pages IPs eintragen (siehe unten)
+- [ ] **QRTicket einrichten** → Bianka registriert sich auf https://qrticket.de/anmeldung.php
+  - Dann: Ticket-Links in Website ersetzen (aktuell noch Pretix-Links!)
+- [ ] **IBAN in QRTicket** → Bianka trägt Bankdaten selbst ein (Claude darf das nicht!)
 
 ---
 
-## 🟡 Inhalte ausstehend
+## 🟡 Feedback von Bianka (13. Juni) — zu erledigen
 
-- [ ] **Festival Erlebnis Sektion** — Inhalte noch unfertig, muss überarbeitet werden
-- [ ] **Programm-Zeiten** — Tagesablauf Fr/Sa/So noch Platzhalter (wartet auf Bianka)
-- [ ] **Social Media Links** — Instagram + Facebook aktuell auf `#` (Links eintragen wenn vorhanden)
+- [ ] **Breathwork-Foto** — anderes Foto nehmen: Menschen die im Kreis liegen
+  → Datei prüfen: `Medien/Festival/Angebote/Roland-Hutner-111.jpeg` oder `Roland-Hutner-112.jpeg`
+- [ ] **Moderation-Fotos größer** — Bianka möchte sichtbarer sein im Moderation-Bereich
+- [ ] **Unterkunft betonen** — "Nur per E-Mail buchbar" deutlicher hervorheben
+- [ ] **Programm "Coming Soon"** — Andy Schwab hat noch nicht zugesagt; Programm-Sektion verstecken oder "Coming Soon" anzeigen um Verwirrung zu vermeiden
+- [ ] **Mehr Workshops** — Bianka nennt noch weitere, konkrete Liste ausstehend
+- [ ] **"Open Text fehlt noch"** — unklar was gemeint ist, bei Bianka nachfragen
+- [ ] **"Open Foto fehlt noch"** — unklar was gemeint ist, bei Bianka nachfragen
+- [ ] **Bianka-Foto** — sie schickt ein besseres Foto von sich
+
+---
+
+## 🟡 Inhalte ausstehend (von Bianka)
+
+- [ ] **Andy Schwab** — Foto + Bio (wartet auf Zusage)
+- [ ] **Programm-Zeiten** — Tagesablauf Fr/Sa/So noch Platzhalter
+- [ ] **Social Media Links** — Instagram + Facebook aktuell auf `#`
 - [ ] **AGB & Datenschutz** — Platzhalter bis Ticketsystem live ist
 
 ---
 
-## 🔵 Technik — noch offen
-
-- [ ] **Domain DNS** — Hetzner auf Netlify zeigen lassen (Bianka schickt dir morgen den Code)
-  → Einstellungen siehe unten
-- [ ] **Pretix — IBAN eintragen** — Bianka muss ihre Bankdaten selbst eintragen
-  → URL: https://pretix.eu/control/event/soulawakeningfestival/saf2026/quickstart/
-- [ ] **Pretix — Livemodus aktivieren** — nach IBAN-Eintrag unter „Einstellungen" → Livemodus
-- [ ] **Pretix — Bianka als Team-Mitglied einladen** (optional, damit sie eigenen Zugang hat)
-  → Pretix → Veranstalter → Teams → Neue Einladung
-
----
-
-## ✅ Heute erledigt (12. Juni 2026)
+## ✅ Erledigt
 
 - [x] Hero-Sektion (Logo, Countdown, CTA)
-- [x] Speaker-Sektion (10 echte Karten + 2 Platzhalter Andy/Manfred)
+- [x] Speaker-Sektion — 10 echte Karten
+- [x] Manfred Mohr — gestrichen (hat abgesagt)
+- [x] Verena Jaus — Speaker-Karte mit Bio eingebaut
 - [x] Bettina Hallifax — Foto eingebaut
-- [x] Workshops & Aktivitäten (9 Karten mit Preisen + Labels)
-- [x] Tickets (€249 / €299 / €499, sauber ohne Add-ons)
-- [x] Moderation & Führung (Bianka + Thomas mit Fotos)
-- [x] Unterkunft (Nur Lethehof mit Foto + Link)
-- [x] Feuerlauf-Sektion
+- [x] Workshops & Aktivitäten (9 Karten mit Preisen)
+- [x] Tickets (€249 / €299 / €499)
+- [x] Moderation (Bianka + Thomas mit Fotos)
+- [x] Unterkunft (Lethehof, info@hotel-lethehof.com — .com korrigiert!)
+- [x] Feuerlauf-Sektion — Checkbox entfernt, Text "Für alle inklusive"
+- [x] Festival-Erlebnis — echte Fotos (Klangliege, Handpan, Breathwork, Riccardo)
 - [x] FAQ
-- [x] Netlify-Deploy live: https://beamish-centaur-0aa073.netlify.app
-- [x] Custom Domain bei Netlify eingetragen: soul-awakening-festival.de
-- [x] Pretix Ticketsystem eingerichtet (Testmodus)
-  - Early Bird €249 · Standard €299 · VIP €499 · unbegrenzte Kontingente
-  - Shop-URL: https://pretix.eu/soulawakeningfestival/saf2026/
-- [x] Ticket-Buttons auf Website mit Pretix verlinkt
-- [x] CHECKLIST.md angelegt
+- [x] Netlify Deploy (jetzt erschöpft — nicht mehr nutzen!)
+- [x] **GitHub Pages aufgesetzt** → https://plockmeister.github.io/biankas-festival/
+- [x] Pretix Ticketsystem eingerichtet (wird durch QRTicket ersetzt)
 
 ---
 
-## 🌐 DNS-Einstellungen bei Hetzner (sobald Code von Bianka da)
+## 🌐 Deploy-Workflow (NEU — GitHub Pages)
+
+```bash
+cd "C:/CLAUDE/CLAUDE CODE/Biankas Festival"
+git add .
+git commit -m "Beschreibung der Änderung"
+git push
+```
+→ Website ist nach ~1 Minute automatisch live.
+
+**NETLIFY NICHT MEHR NUTZEN** — Credits verbraucht!
+
+---
+
+## 🌐 DNS-Einstellungen (GitHub Pages) bei Hetzner
 
 **URL:** https://dns.hetzner.com → Zone `soul-awakening-festival.de`
 
-Alte A-Records löschen, dann diese anlegen:
+Alte Einträge löschen, dann diese anlegen:
 
-| Typ   | Name  | Wert                                    | TTL  |
-|-------|-------|-----------------------------------------|------|
-| A     | `@`   | `75.2.60.5`                             | 3600 |
-| A     | `@`   | `99.83.190.102`                         | 3600 |
-| CNAME | `www` | `beamish-centaur-0aa073.netlify.app`    | 3600 |
+| Typ   | Name  | Wert                        | TTL  |
+|-------|-------|-----------------------------|------|
+| A     | `@`   | `185.199.108.153`           | 3600 |
+| A     | `@`   | `185.199.109.153`           | 3600 |
+| A     | `@`   | `185.199.110.153`           | 3600 |
+| A     | `@`   | `185.199.111.153`           | 3600 |
+| CNAME | `www` | `plockmeister.github.io`    | 3600 |
 
-> Nach der Änderung dauert es 1–24 Stunden bis die Domain aktiv ist.
-> SSL-Zertifikat wird danach automatisch von Netlify ausgestellt.
+Danach: GitHub Repo → Settings → Pages → Custom Domain → "soul-awakening-festival.de" eintragen.
 
 ---
 
 ## 📋 Was Bianka selbst tun muss
 
-1. **IBAN eintragen** → https://pretix.eu/control/event/soulawakeningfestival/saf2026/quickstart/
-2. **Livemodus aktivieren** in Pretix (nach IBAN-Eintrag)
-3. **Hetzner DNS** — Code an Daniel schicken, dann DNS umstellen
+1. **Hetzner DNS** — Code an Daniel schicken → DNS umstellen auf GitHub Pages
+2. **QRTicket** — Account anlegen auf https://qrticket.de/anmeldung.php
+3. **IBAN in QRTicket** — Bankdaten selbst eintragen
+4. **Fotos** — besseres Foto von sich schicken
+5. **Mehr Workshops** — Liste der weiteren Workshops schicken
+6. **"Open Text" / "Open Foto"** — erklären was gemeint ist
 
 ---
 
-## 📁 Wichtige Dateien & Links
+## 📁 Wichtige Links
 
 | Was | Link / Pfad |
 |-----|-------------|
-| Website (live) | https://beamish-centaur-0aa073.netlify.app |
+| Website (live) | https://plockmeister.github.io/biankas-festival/ |
 | Website (Domain, nach DNS) | https://soul-awakening-festival.de |
-| Pretix Shop | https://pretix.eu/soulawakeningfestival/saf2026/ |
-| Pretix Admin | https://pretix.eu/control/event/soulawakeningfestival/saf2026/ |
+| GitHub Repo | https://github.com/Plockmeister/biankas-festival |
+| QRTicket Anmeldung | https://qrticket.de/anmeldung.php |
 | index.html | `C:\CLAUDE\CLAUDE CODE\Biankas Festival\index.html` |
 | Speaker-Fotos | `C:\CLAUDE\CLAUDE CODE\Biankas Festival\Medien\Speaker\` |
-
-**Netlify Site-ID:** `52b17895-179f-4fab-b6cf-538a67307ebb`  
-**Deploy-Befehl:**
-```
-cd "C:/CLAUDE/CLAUDE CODE/Biankas Festival" && netlify deploy --prod --dir . --site 52b17895-179f-4fab-b6cf-538a67307ebb
-```
