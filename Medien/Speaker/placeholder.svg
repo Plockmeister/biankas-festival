@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#1e1414"/>
+  <!-- Person silhouette -->
+  <circle cx="200" cy="145" r="65" fill="#3a2828"/>
+  <ellipse cx="200" cy="330" rx="105" ry="80" fill="#3a2828"/>
+  <!-- Subtle border -->
+  <rect width="400" height="400" fill="none" stroke="#C4848C" stroke-width="2" stroke-opacity="0.3"/>
+  <!-- Text -->
+  <text x="200" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#C4848C" opacity="0.7" letter-spacing="2">FOTO FOLGT</text>
+</svg>

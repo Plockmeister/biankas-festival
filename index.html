@@ -30,9 +30,9 @@
 // ============================================================
 const CONFIG = {
   // Ticketpreise in Euro (nur die Zahl, ohne €-Zeichen)
-  earlyBirdPreis: 199,        // ← Early Bird Preis
-  standardPreis:  249,        // ← Standard Ticket
-  vipPreis:       399,        // ← VIP Ticket
+  earlyBirdPreis: 249,        // ← Early Bird Preis
+  standardPreis:  299,        // ← Standard Ticket
+  vipPreis:       499,        // ← VIP Ticket
 
   // Verfügbare Plätze
   earlyBirdPlaetze: 50,       // ← Wie viele Early Bird Plätze gibt es?
@@ -67,7 +67,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  background: #0A0A0A;
+  background: #100808;
   color: #F5F0E8;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -82,13 +82,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   --gold-light: #E8C96D;
   --gold-pale: #F0D98A;
   --gold-dark: #8B6914;
-  --black: #0A0A0A;
-  --dark: #141414;
-  --dark-mid: #1C1C1C;
+  --rose: #C4848C;
+  --rose-light: #E8B4BA;
+  --rose-pale: #F7ECED;
+  --black: #100808;
+  --dark: #1A1010;
+  --dark-mid: #241818;
   --cream: #FEFCF7;
   --cream-mid: #F5F0E8;
   --cream-dark: #EDE8DC;
-  --text-dark: #1A1A1A;
+  --text-dark: #1A1414;
   --text-light: #F5F0E8;
   --text-muted-dark: #9A8A6A;
   --text-muted-light: #7A6A52;
@@ -324,18 +327,18 @@ p { line-height: 1.7; }
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 70% 50% at 50% 40%, rgba(201,168,76,0.04) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 50% at 50% 40%, rgba(196,132,140,0.06) 0%, transparent 65%),
     linear-gradient(180deg,
-      rgba(5,2,0,0.50) 0%,
-      rgba(8,4,0,0.40) 40%,
-      rgba(10,5,0,0.60) 100%);
+      rgba(8,2,2,0.50) 0%,
+      rgba(10,4,4,0.40) 40%,
+      rgba(16,8,8,0.65) 100%);
 }
 #hero::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 220px;
-  background: linear-gradient(to top, #0A0A0A 0%, transparent 100%);
+  background: linear-gradient(to top, #100808 0%, transparent 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -525,30 +528,31 @@ p { line-height: 1.7; }
 }
 .stat-label { font-size: 12px; letter-spacing: 0.1em; color: var(--text-muted-light); }
 
-/* ===== SPEAKERS (HEADLINER) ===== */
+/* ===== SPEAKERS ===== */
 #speaker {
-  background: var(--dark);
+  background: var(--cream-mid);
   padding: var(--section-pad) clamp(20px, 5vw, 80px);
 }
 .speakers-inner { max-width: var(--container); margin: 0 auto; }
 .section-header { margin-bottom: 60px; }
-.headliner-grid {
+.speakers-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2px;
 }
 .speaker-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(201,168,76,0.15);
-  transition: border-color var(--transition);
+  border: 1px solid var(--cream-dark);
+  background: var(--cream);
+  transition: border-color var(--transition), box-shadow var(--transition);
   cursor: default;
 }
-.speaker-card:hover { border-color: rgba(201,168,76,0.5); }
+.speaker-card:hover { border-color: var(--rose-light); box-shadow: 0 4px 24px rgba(196,132,140,0.12); }
 .speaker-card:hover .speaker-img { transform: scale(1.04); }
 .speaker-card:hover .speaker-glow { opacity: 1; }
 .speaker-img-wrap {
-  aspect-ratio: 3/4;
+  aspect-ratio: 1/1;
   overflow: hidden;
   position: relative;
 }
@@ -556,67 +560,144 @@ p { line-height: 1.7; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   transition: transform 0.6s ease;
-  filter: grayscale(20%);
+  filter: grayscale(15%);
+}
+.speaker-img.placeholder {
+  object-fit: contain;
+  object-position: center center;
+  filter: none;
+  background: #2a2020;
 }
 .speaker-glow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, rgba(201,168,76,0.08) 100%);
+  background: linear-gradient(to bottom, transparent 40%, rgba(196,132,140,0.08) 100%);
   opacity: 0;
   transition: opacity var(--transition);
 }
 .speaker-info {
-  padding: 24px;
-  background: rgba(20,20,20,0.95);
+  padding: 18px 20px;
+  background: var(--cream);
 }
 .speaker-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
-  color: var(--cream-mid);
+  color: var(--text-dark);
   margin-bottom: 4px;
 }
 .speaker-title {
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 12px;
-}
-.speaker-bio { font-size: 14px; color: rgba(245,240,232,0.6); line-height: 1.6; }
-
-/* More speakers */
-#more-speakers {
-  background: var(--cream-mid);
-  padding: var(--section-pad) clamp(20px, 5vw, 80px);
-  color: var(--text-dark);
-}
-.more-speakers-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 2px;
-  margin-top: 48px;
-}
-.speaker-card-sm {
-  background: var(--cream);
-  border: 1px solid var(--cream-dark);
+  color: var(--rose);
+  margin-bottom: 10px;
+  white-space: nowrap;
   overflow: hidden;
-  transition: border-color var(--transition);
+  text-overflow: ellipsis;
 }
-.speaker-card-sm:hover { border-color: var(--gold); }
-.speaker-card-sm .speaker-img-wrap { aspect-ratio: 1/1; }
-.speaker-card-sm .speaker-info { padding: 16px; background: var(--cream); }
-.speaker-card-sm .speaker-name { font-size: 18px; color: var(--text-dark); }
-.speaker-card-sm .speaker-title { color: var(--gold-dark); }
-.speaker-card-sm .speaker-bio { font-size: 13px; color: var(--text-muted-light); }
+.speaker-bio { font-size: 13px; color: var(--text-muted-light); line-height: 1.55; }
 
-@media (max-width: 768px) {
-  .headliner-grid { grid-template-columns: 1fr; }
-  .speaker-img-wrap { aspect-ratio: 4/3; }
+@media (max-width: 900px) {
+  .speakers-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
-  .more-speakers-grid { grid-template-columns: repeat(2, 1fr); }
+  .speakers-grid { grid-template-columns: repeat(2, 1fr); }
+  .speaker-info { padding: 14px 16px; }
+  .speaker-name { font-size: 17px; }
+  .speaker-bio { display: none; }
+}
+
+/* ===== SPEAKER MODAL ===== */
+.speaker-card { cursor: pointer; }
+#speaker-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(10,4,4,0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 40px);
+}
+#speaker-modal.open { display: flex; }
+.modal-inner {
+  background: var(--cream);
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  position: relative;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+}
+.modal-img-wrap {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modal-content {
+  padding: clamp(24px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.modal-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 8px;
+}
+.modal-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 300;
+  color: var(--text-dark);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.modal-theme {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gold-dark);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.modal-bio {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-muted-light);
+}
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  color: var(--text-muted-light);
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  padding: 4px 8px;
+  transition: color var(--transition);
+  z-index: 1;
+}
+.modal-close:hover { color: var(--text-dark); }
+@media (max-width: 600px) {
+  .modal-inner { grid-template-columns: 1fr; }
+  .modal-img-wrap { aspect-ratio: 4/3; }
 }
 
 /* ===== FESTIVAL EXPERIENCE ===== */
@@ -745,6 +826,103 @@ p { line-height: 1.7; }
 }
 .program-desc { font-size: 13px; color: var(--text-muted-light); }
 .highlight-session .program-session { color: var(--gold-dark); }
+
+/* ===== WORKSHOPS ===== */
+#workshops {
+  background: var(--black);
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+}
+.workshops-inner { max-width: var(--container); margin: 0 auto; }
+.workshops-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 60px;
+}
+.workshop-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 32px 28px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.workshop-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.workshop-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-3px); }
+.workshop-card:hover::before { opacity: 1; }
+.workshop-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.35);
+  padding: 4px 10px;
+  margin-bottom: 16px;
+}
+.workshop-tag.free { color: var(--rose-light); border-color: rgba(211,126,130,0.35); }
+.workshop-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 400;
+  color: var(--cream-mid);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.workshop-host {
+  font-size: 13px;
+  color: var(--gold-dark);
+  margin-bottom: 14px;
+  font-weight: 400;
+}
+.workshop-desc {
+  font-size: 14px;
+  color: rgba(245,240,232,0.6);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+.workshop-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+.workshop-badge {
+  font-size: 11px;
+  color: rgba(245,240,232,0.5);
+  background: rgba(255,255,255,0.05);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.workshop-badge.price {
+  color: var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+.workshop-badge.free-badge {
+  color: var(--rose-light);
+  background: rgba(211,126,130,0.08);
+}
+.workshop-note {
+  font-size: 12px;
+  color: rgba(245,240,232,0.35);
+  margin-top: 14px;
+  font-style: italic;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 12px;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .workshops-grid { grid-template-columns: 1fr; }
+}
 
 /* ===== FEUERLAUF ===== */
 #feuerlauf {
@@ -1471,6 +1649,10 @@ footer {
   .cookie-btn-accept, .cookie-btn-necessary { flex: 1; min-width: 120px; }
 }
 
+@media (max-width: 768px) {
+  .moderation-grid { grid-template-columns: 1fr !important; }
+}
+
 /* ===== DECORATIVE GOLD LINE ===== */
 .cookie-consent-bar {
   position: fixed;
@@ -1500,6 +1682,7 @@ footer {
   <ul class="nav-links">
     <li><a href="#programm">Programm</a></li>
     <li><a href="#speaker">Speaker</a></li>
+    <li><a href="#workshops">Workshops</a></li>
     <li><a href="#feuerlauf">Feuerlauf</a></li>
     <li><a href="#tickets">Tickets</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -1514,6 +1697,7 @@ footer {
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation">
   <a href="#programm" class="mobile-nav-link">Programm</a>
   <a href="#speaker" class="mobile-nav-link">Speaker</a>
+  <a href="#workshops" class="mobile-nav-link">Workshops</a>
   <a href="#feuerlauf" class="mobile-nav-link">Feuerlauf</a>
   <a href="#tickets" class="mobile-nav-link">Tickets</a>
   <a href="#faq" class="mobile-nav-link">FAQ</a>
@@ -1547,7 +1731,7 @@ footer {
 <!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
-    <span class="section-label reveal">Was erwartet dich</span>
+    <span class="section-label reveal" style="color:var(--rose);">Was erwartet dich</span>
     <blockquote class="about-quote reveal reveal-delay-1">
       „Es ist kein Kongress, kein Podium und kein klassischer Input-Marathon. Es geht um etwas weitaus Tieferes."
     </blockquote>
@@ -1558,7 +1742,7 @@ footer {
     <div class="features-grid">
       <div class="feature-card reveal">
         <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/><path d="M12 18.5V21M8 21h8M15.5 9.5c0 1.93-1.57 3.5-3.5 3.5S8.5 11.43 8.5 9.5"/><circle cx="12" cy="9.5" r="1.5" fill="currentColor"/></svg>
-        <div class="feature-title">10 Speaker</div>
+        <div class="feature-title">12 Speaker</div>
         <div class="feature-desc">Inspirierende Stimmen aus Spiritualität, Bewusstsein & persönlichem Wachstum</div>
       </div>
       <div class="feature-card reveal reveal-delay-1">
@@ -1581,89 +1765,202 @@ footer {
     <div class="stats-row">
       <div class="stat-item reveal"><div class="stat-num">200</div><div class="stat-label">Teilnehmer</div></div>
       <div class="stat-item reveal reveal-delay-1"><div class="stat-num">3</div><div class="stat-label">Tage</div></div>
-      <div class="stat-item reveal reveal-delay-2"><div class="stat-num">10</div><div class="stat-label">Speaker</div></div>
+      <div class="stat-item reveal reveal-delay-2"><div class="stat-num">12</div><div class="stat-label">Speaker</div></div>
       <div class="stat-item reveal reveal-delay-3"><div class="stat-num">1</div><div class="stat-label">Unvergessliches Wochenende</div></div>
     </div>
   </div>
 </section>
 
-<!-- HEADLINER SPEAKERS -->
+<!-- SPEAKERS -->
 <section id="speaker">
   <div class="speakers-inner">
     <div class="section-header">
-      <span class="section-label reveal">Die Stimmen des Festivals</span>
-      <h2 class="section-title reveal reveal-delay-1">Unsere <span class="gold-text">Speaker</span></h2>
+      <span class="section-label reveal" style="color:var(--rose);">Die Stimmen des Festivals</span>
+      <h2 class="section-title reveal reveal-delay-1" style="color:var(--text-dark);">Unsere <span style="background:linear-gradient(135deg,var(--rose) 0%,var(--gold) 60%,var(--rose-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Speaker</span></h2>
     </div>
-    <div class="headliner-grid">
-      <!-- SPEAKER 1 -->
-      <article class="speaker-card reveal">
+    <div class="speakers-grid">
+      <!-- THOMAS SCHMELZER -->
+      <article class="speaker-card reveal" onclick="openSpeakerModal(this)"
+        data-name="Thomas Schmelzer"
+        data-title="Moderator · Autor · Medienmacher"
+        data-theme="Klarheit des Herzens: Willkommen auf dem Bewusstseinsweg!"
+        data-bio="Thomas Schmelzer ist Moderator, Regisseur, Redakteur, Autor, Speaker und Medienberater. Bekannt geworden ist er als das Gesicht des Onlinemagazins MYSTICA.TV (145.000 Abonnenten). Er moderierte rund 80 Kongresse, interviewte mehr als 1.000 Persönlichkeiten der Szene und ist Regisseur der Dokumentationen ‚Die Übersinnlichen' und ‚Wiedergeburt'. 2016 erschien sein Buch ‚Die Stille in mir', im Herbst 2025 ‚Klarheit des Herzens' (Ansata). Im April 2024 startete seine Talkshow ‚COSMOPOLY – Der Bewusstseinstalk'. Sein Vortrag beim Soul Awakening Festival führt durch moderne Spiritualität — mit berührenden Geschichten, Wissensbausteinen und Meditation."
+        data-img="Medien/Speaker/thomas-schmelzer.jpg">
         <div class="speaker-img-wrap">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80&auto=format&fit=crop" alt="Speaker Portrait" class="speaker-img" loading="lazy">
+          <img src="Medien/Speaker/thomas-schmelzer.jpg" alt="Thomas Schmelzer" class="speaker-img" loading="lazy">
           <div class="speaker-glow"></div>
         </div>
         <div class="speaker-info">
-          <div class="speaker-name">[Speaker Name]</div>
-          <div class="speaker-title">Bewusstsein & Innere Transformation</div>
-          <div class="speaker-bio">Kurze Biografie des Speakers — Expertisegebiet, Erfahrung und was die Teilnehmenden von dieser Session mitnehmen werden.</div>
+          <div class="speaker-name">Thomas Schmelzer</div>
+          <div class="speaker-title">Klarheit des Herzens</div>
+          <div class="speaker-bio">Gesicht von MYSTICA.TV · Autor · 80+ Kongresse moderiert</div>
         </div>
       </article>
-      <!-- SPEAKER 2 -->
-      <article class="speaker-card reveal reveal-delay-1">
+      <!-- SAMU VITATUM -->
+      <article class="speaker-card reveal reveal-delay-1" onclick="openSpeakerModal(this)"
+        data-name="Samu Vitatum"
+        data-title="Autor · Begründer des Vitaldeterminismus"
+        data-theme="Non Duality"
+        data-bio="Samu ist Begründer des Vitaldeterminismus — der Überzeugung, dass biologische Realität bewusste Realität erschafft. Nicht als Metapher, sondern als messbarer, biochemischer Prozess. Als Autor von 8 Büchern — darunter die meistverkauften Rohkost-Bücher auf Amazon (2017–2021) — und Betreiber des YouTube-Kanals vitatum erreicht er monatlich zehntausende Menschen im deutschsprachigen Raum. Sein Ansatz: Keine Motivation, keine Selbsthilfe-Phrasen. Stattdessen direkte, wissenschaftlich fundierte Kommunikation über fünf fundamentale Lebensbereiche — VITAS — die gemeinsam Gesundheit, Bewusstsein und Verbindung determinieren. Samu spricht auf Bühnen, führt Seminare und Retreats durch und ist Veranstalter des KEX Camps."
+        data-img="Medien/Speaker/samu-vitatum.jpg">
         <div class="speaker-img-wrap">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop" alt="Speaker Portrait" class="speaker-img" loading="lazy">
+          <img src="Medien/Speaker/samu-vitatum.jpg" alt="Samu Vitatum" class="speaker-img" loading="lazy">
           <div class="speaker-glow"></div>
         </div>
         <div class="speaker-info">
-          <div class="speaker-name">[Speaker Name]</div>
-          <div class="speaker-title">Spiritualität & Lebensfreude</div>
-          <div class="speaker-bio">Kurze Biografie des Speakers — Expertisegebiet, Erfahrung und was die Teilnehmenden von dieser Session mitnehmen werden.</div>
+          <div class="speaker-name">Samu Vitatum</div>
+          <div class="speaker-title">Non Duality</div>
+          <div class="speaker-bio">Vitaldeterminismus · Autor 8 Bücher · YouTube vitatum</div>
         </div>
       </article>
-      <!-- SPEAKER 3 -->
-      <article class="speaker-card reveal reveal-delay-2">
+      <!-- MARC STOLLREITER -->
+      <article class="speaker-card reveal reveal-delay-2" onclick="openSpeakerModal(this)"
+        data-name="Dr. Marc Stollreiter"
+        data-title="Psychologe · Begründer des Herz-Dialogs"
+        data-theme="Von der Willenskraft zur Seelenkraft"
+        data-bio="Dr. Marc Stollreiter (Dr. rer. nat., Psychologie) ist Begründer des Herz-Dialogs, einer Praxis radikaler Selbsterkenntnis. Menschen erleben dabei oft überraschende Klarheit, innere Aufrichtung und den Kontakt zu ihrer eigenen göttlichen Essenz. Marc versteht sich nicht als Autorität oder ‚Heiler', sondern als jemand, der einen präzisen Rahmen setzt, in dem Wahrheit im Menschen selbst erfahrbar wird. Sein aktuelles Buch ‚Die 7 Geschenke des Himmels' begleitet den Weg von Leid und Mangel zu grenzenloser Fülle. Marc ist auch als Künstler unter dem Namen ‚Nobo' unterwegs."
+        data-img="Medien/Speaker/marc-stollreiter.jpg">
         <div class="speaker-img-wrap">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80&auto=format&fit=crop" alt="Speaker Portrait" class="speaker-img" loading="lazy">
+          <img src="Medien/Speaker/marc-stollreiter.jpg" alt="Dr. Marc Stollreiter" class="speaker-img" loading="lazy">
           <div class="speaker-glow"></div>
         </div>
         <div class="speaker-info">
-          <div class="speaker-name">[Speaker Name]</div>
-          <div class="speaker-title">Energie & Heilung</div>
-          <div class="speaker-bio">Kurze Biografie des Speakers — Expertisegebiet, Erfahrung und was die Teilnehmenden von dieser Session mitnehmen werden.</div>
+          <div class="speaker-name">Dr. Marc Stollreiter</div>
+          <div class="speaker-title">Willenskraft zur Seelenkraft</div>
+          <div class="speaker-bio">Psychologe · Herz-Dialog · Autor</div>
         </div>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- MORE SPEAKERS -->
-<section id="more-speakers">
-  <div class="speakers-inner" style="max-width:var(--container);margin:0 auto;">
-    <span class="section-label reveal">Weitere Stimmen</span>
-    <h2 class="section-title reveal reveal-delay-1" style="color:var(--text-dark);">Weitere Inspirierende <span style="color:var(--gold-dark);">Köpfe</span></h2>
-    <div class="more-speakers-grid">
-      <article class="speaker-card-sm reveal">
-        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
-        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Meditationslehrer</div><div class="speaker-bio">Thema folgt</div></div>
+      <!-- SUSANNE HÜHN -->
+      <article class="speaker-card reveal reveal-delay-3" onclick="openSpeakerModal(this)"
+        data-name="Susanne Hühn"
+        data-title="Physiotherapeutin · Seminarleiterin · Autorin"
+        data-theme="Die Heldenreise deines Inneren Kindes"
+        data-bio="Susanne Hühn ist staatl. anerkannte Physiotherapeutin, spirituelle und psychologische Seminarleiterin und Autorin. Ihr Schwerpunkt ist das Lehren emotionaler Intelligenz und innerer Freiheit mithilfe einer beschützenden Beziehung des Erwachsenen zum eigenen Inneren Kind. Bewusstes Selbstmitgefühl bildet das wichtigste Element ihrer Methode, über die sie zahlreiche Bücher verfasst hat. Viele Kliniken arbeiten mit ihren Büchern und empfehlen sie weiter."
+        data-img="Medien/Speaker/susanne-huehn.jpg">
+        <div class="speaker-img-wrap">
+          <img src="Medien/Speaker/susanne-huehn.jpg" alt="Susanne Hühn" class="speaker-img" loading="lazy">
+          <div class="speaker-glow"></div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name">Susanne Hühn</div>
+          <div class="speaker-title">Das Innere Kind</div>
+          <div class="speaker-bio">Physiotherapeutin · Autorin · Seminarleiterin</div>
+        </div>
       </article>
-      <article class="speaker-card-sm reveal reveal-delay-1">
-        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
-        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Coach & Trainer</div><div class="speaker-bio">Thema folgt</div></div>
+      <!-- BETTINA HALLIFAX -->
+      <article class="speaker-card reveal" onclick="openSpeakerModal(this)"
+        data-name="Bettina Hallifax"
+        data-title="The Journey Repräsentantin · 20+ Jahre Begleitung"
+        data-theme="Gefühle als Kompass – Wie Emotionen zu Wegweisern werden"
+        data-bio="Bettina Hallifax begleitet seit über 20 Jahren Einzelne und Gruppen auf dem Weg zu innerer Freiheit, emotionaler Klarheit und authentischer Verbindung mit sich selbst. Die Begegnung mit The Journey — der transformativen Methode von Brandon Bays — wurde für sie zu einem persönlichen Wendepunkt. Als Repräsentantin von The Journey im deutschsprachigen Raum begleitet sie Menschen in Seminaren, Retreats und Einzelsitzungen. Mit großer Präsenz, Klarheit und Herz schafft sie Räume, in denen Innehalten möglich wird, Gefühle ihren Platz finden und eine neue Begegnung mit sich selbst entstehen kann — bodenständig und zugleich tiefgehend."
+        data-img="Medien/Speaker/bettina-Halifax.jpg">
+        <div class="speaker-img-wrap">
+          <img src="Medien/Speaker/bettina-Halifax.jpg" alt="Bettina Hallifax" class="speaker-img" loading="lazy">
+          <div class="speaker-glow"></div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name">Bettina Hallifax</div>
+          <div class="speaker-title">Gefühle als Kompass</div>
+          <div class="speaker-bio">The Journey · Emotionale Freiheit · 20+ Jahre</div>
+        </div>
       </article>
-      <article class="speaker-card-sm reveal reveal-delay-2">
-        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
-        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Heilpraktikerin</div><div class="speaker-bio">Thema folgt</div></div>
+      <!-- RENATE DERTINGER -->
+      <article class="speaker-card reveal reveal-delay-1" onclick="openSpeakerModal(this)"
+        data-name="Renate Dertinger"
+        data-title="Heilpraktikerin · Cosmic Healing"
+        data-theme="Komme durch Cosmic Healing in das Feld — lass dich berühren"
+        data-bio="Renate Dertinger, geboren 1967, ist seit 38 Jahren spirituell unterwegs und zertifizierte Heilpraktikerin für Psychotherapie in eigener Praxis. Sie arbeitet mit systemischer Therapie (DGSF und SIT zertifiziert) sowie traumasensibler Fachberatung (DeGPT und FVTP zertifiziert). Durch Cosmic Healing begleitet sie Menschen in tiefe Heilungsfelder — auch in sensiblen Bereichen wie Demenz — und schafft Erfahrungsräume, in denen das scheinbar Unmögliche spürbar wird."
+        data-img="Medien/Speaker/renate-dertinger.jpg">
+        <div class="speaker-img-wrap">
+          <img src="Medien/Speaker/renate-dertinger.jpg" alt="Renate Dertinger" class="speaker-img" loading="lazy">
+          <div class="speaker-glow"></div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name">Renate Dertinger</div>
+          <div class="speaker-title">Cosmic Healing</div>
+          <div class="speaker-bio">Heilpraktikerin · 38 Jahre spirituell unterwegs</div>
+        </div>
       </article>
-      <article class="speaker-card-sm reveal reveal-delay-3">
-        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
-        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Autor & Speaker</div><div class="speaker-bio">Thema folgt</div></div>
+      <!-- BIANKA HUGEN -->
+      <article class="speaker-card reveal reveal-delay-2" onclick="openSpeakerModal(this)"
+        data-name="Bianka Hugen"
+        data-title="Gastgeberin & Moderatorin"
+        data-theme="Spiritualität & Alltag — Wachstum, das ins Leben fließt"
+        data-bio="Mit offenem Herzen und liebevoller Präsenz begleitet Bianka Hugen durch diese besondere gemeinsame Zeit. Sie verbindet die unterschiedlichen Impulse, Energien und Perspektiven zu einem gemeinsamen Feld, in dem Inspiration, Tiefe und echte Begegnung entstehen dürfen. Besonders am Herzen liegt ihr die Verbindung von Spiritualität und Alltag — denn wahres Wachstum zeigt sich darin, spirituelle Erkenntnisse ins Leben zu bringen. Ein absolutes Highlight sind die persönlichen Gespräche mit den Speakern: nahbar, authentisch und von Herz zu Herz. Biankas Herzensaufgabe ist es, Menschen zusammenzuführen, Räume für Verbindung zu schaffen und ein Feld zu halten, in dem wir gemeinsam wachsen, erinnern und leuchten dürfen."
+        data-img="Medien/Speaker/bianka-hugen.jpg">
+        <div class="speaker-img-wrap">
+          <img src="Medien/Speaker/bianka-hugen.jpg" alt="Bianka Hugen" class="speaker-img" loading="lazy">
+          <div class="speaker-glow"></div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name">Bianka Hugen</div>
+          <div class="speaker-title">Gastgeberin & Moderatorin</div>
+          <div class="speaker-bio">Veranstalterin · Spiritualität & Alltag</div>
+        </div>
       </article>
-      <article class="speaker-card-sm reveal">
-        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
-        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Yoga-Lehrerin</div><div class="speaker-bio">Thema folgt</div></div>
+      <!-- VERENA JAUS -->
+      <article class="speaker-card reveal reveal-delay-3" onclick="openSpeakerModal(this)"
+        data-name="Verena Jaus"
+        data-title="Energetische Aromatherapeutin"
+        data-theme="Aroma Heil Massage – Entspannung, Klarheit & innere Ordnung"
+        data-bio="Verena Jaus bietet energetisch gestützte Aromamassage direkt am Festival-Gelände in geschützter Atmosphäre an. Während du dich entspannst und regenerierst, arbeitet sie sanft an der Aura und dem Energiesystem, sodass genau die für dich entsprechende Harmonisierung stattfindet, die gerade benötigt wird. Eine ideale Ergänzung zum Gesamterlebnis dieses Festivals — für ein nachhaltiges Gefühl der Entspannung, Klarheit und innerer Ordnung."
+        data-img="Medien/Speaker/verena-jaus.jpg">
+        <div class="speaker-img-wrap">
+          <img src="Medien/Speaker/verena-jaus.jpg" alt="Verena Jaus" class="speaker-img" loading="lazy">
+          <div class="speaker-glow"></div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name">Verena Jaus</div>
+          <div class="speaker-title">Aroma Heil Massage</div>
+          <div class="speaker-bio">Energetische Aromatherapie · Aura & Energiesystem</div>
+        </div>
       </article>
-      <article class="speaker-card-sm reveal reveal-delay-1">
-        <div class="speaker-img-wrap"><img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&q=80&auto=format&fit=crop" alt="Speaker" class="speaker-img" loading="lazy"></div>
-        <div class="speaker-info"><div class="speaker-name">[Speaker Name]</div><div class="speaker-title">Energetikerin</div><div class="speaker-bio">Thema folgt</div></div>
+      <!-- DESIRÉE SALOMON -->
+      <article class="speaker-card reveal" onclick="openSpeakerModal(this)"
+        data-name="Desirée Salomon"
+        data-title="Medium, Coach & Visionärin"
+        data-theme="Bewusstsein & Business"
+        data-bio="Desirée Salomon ist Medium, Coach, Visionärin und Gründerin von Lumea. Als hellwissende alte Seele begleitet sie Menschen dabei, das Unsichtbare in die Realität zu übersetzen und große Visionen auf dieser Erde zu verankern. Sie ist die Anlaufstelle für Unternehmerinnen und Unternehmer, die spüren, dass sie für etwas Größeres gekommen sind. Ihre besondere Gabe liegt darin, Spiritualität, Mindset und Business auf eine Weise zu verbinden, die Wachstum, Fülle und Erfolg wieder in ihren natürlichen Fluss bringt."
+        data-img="Medien/Speaker/desiree-salomon.jpg">
+        <div class="speaker-img-wrap">
+          <img src="Medien/Speaker/desiree-salomon.jpg" alt="Desirée Salomon" class="speaker-img" loading="lazy">
+          <div class="speaker-glow"></div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name">Desirée Salomon</div>
+          <div class="speaker-title">Medium & Coach</div>
+          <div class="speaker-bio">Lumea · Bewusstsein, Mindset & Business</div>
+        </div>
+      </article>
+      <!-- PJOTR & CHARLENE ELKUNOVIZ -->
+      <article class="speaker-card reveal reveal-delay-1" onclick="openSpeakerModal(this)"
+        data-name="Pjotr & Charlene Elkunoviz"
+        data-title="Die Geistige Aufrichtung®"
+        data-theme="Ganzheitliche Heilung"
+        data-bio="Pjotr und Charlene Elkunoviz sind Heiler aus ganzem Herzen. Ihre Spezialität ist die Herstellung der göttlichen Ordnung durch Die Geistige Aufrichtung® — eine ganzheitliche Heilweise, mit der Pjotr Elkunoviz 1989 begann. In über 35 Jahren hat er bereits über 400.000 Menschen behandelt. Pjotr und Charlene arbeiten seit 15 Jahren weltweit zusammen und bieten beim Festival neben ihrem Vortrag auch Einzelsitzungen an (50 Min., €150, Plätze limitiert)."
+        data-img="Medien/Speaker/pjotr-charlene-elkunoviz.jpg">
+        <div class="speaker-img-wrap">
+          <img src="Medien/Speaker/pjotr-charlene-elkunoviz.jpg" alt="Pjotr & Charlene Elkunoviz" class="speaker-img" loading="lazy" style="object-position: center 30%;">
+          <div class="speaker-glow"></div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name">Pjotr & Charlene Elkunoviz</div>
+          <div class="speaker-title">Die Geistige Aufrichtung®</div>
+          <div class="speaker-bio">35+ Jahre Heilarbeit · Vortrag & Einzelsitzungen</div>
+        </div>
+      </article>
+      <!-- ANDY SCHWAB -->
+      <article class="speaker-card reveal reveal-delay-2"
+        data-name="" data-title="" data-theme="" data-bio="" data-img="">
+        <div class="speaker-img-wrap">
+          <img src="Medien/Speaker/placeholder.svg" alt="Andy Schwab" class="speaker-img placeholder" loading="lazy">
+          <div class="speaker-glow"></div>
+        </div>
+        <div class="speaker-info">
+          <div class="speaker-name">Andy Schwab</div>
+          <div class="speaker-title">Foto & Bio folgen</div>
+          <div class="speaker-bio" style="color:var(--text-muted-light);font-style:italic;">Wird bekannt gegeben</div>
+        </div>
       </article>
     </div>
   </div>
@@ -1677,44 +1974,44 @@ footer {
     <div class="experience-item reveal">
       <div class="experience-text">
         <span class="experience-num">01</span>
-        <h3 class="experience-title">Transformation</h3>
-        <p class="experience-desc">Drei Tage intensiver innerer Arbeit — nicht als Anstrengung, sondern als Einladung. Speaker, Rituale und Stille geben dir den Raum, wirklich zu wachsen. Du wirst nicht derselbe Mensch nach Hause fahren.</p>
+        <h3 class="experience-title">Heilung & Tiefe</h3>
+        <p class="experience-desc">Lass dich tragen — von Klang, Atem und Berührung. Erlebe eine Reise auf der Klangliege, einen Breathwork-Workshop oder eine Aroma-Heil-Massage. Räume, in denen echte Transformation entsteht.</p>
       </div>
       <div class="experience-img-wrap">
-        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80&auto=format&fit=crop" alt="Transformation" class="experience-img" loading="lazy">
+        <img src="Medien/Festival/Angebote/Roland-Hutner-Klangliege-113.png" alt="Klangliege" class="experience-img" loading="lazy">
       </div>
     </div>
 
     <div class="experience-item reverse reveal">
       <div class="experience-text">
         <span class="experience-num">02</span>
-        <h3 class="experience-title">Gemeinschaft</h3>
-        <p class="experience-desc">200 Menschen, die dasselbe suchen wie du — echte Verbindung, Tiefe, Authentizität. Lagerfeuer-Abende, gemeinsame Mahlzeiten und spontane Gespräche, die ein Leben lang halten.</p>
+        <h3 class="experience-title">Klang & Rhythmus</h3>
+        <p class="experience-desc">Spüre die Kraft von Taiko-Trommeln, lass dich von Handpan-Klängen verzaubern und erlebe den Heilkreis mit Riccardo Avola. Musik als Sprache der Seele — live, unverstärkt, direkt ins Herz.</p>
       </div>
       <div class="experience-img-wrap">
-        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80&auto=format&fit=crop" alt="Gemeinschaft" class="experience-img" loading="lazy">
+        <img src="Medien/Festival/Handpan/Handpan-IMG-2174.jpeg" alt="Handpan" class="experience-img" loading="lazy">
       </div>
     </div>
 
     <div class="experience-item reveal">
       <div class="experience-text">
         <span class="experience-num">03</span>
-        <h3 class="experience-title">Inspiration</h3>
-        <p class="experience-desc">10 außergewöhnliche Speaker, Workshops, Taiko-Trommeln und Tanz. Kein klassischer Kongress — sondern ein lebendiger Tempel der Ideen, der Musik und der Bewegung.</p>
+        <h3 class="experience-title">Breathwork</h3>
+        <p class="experience-desc">Roland Hutner und Aurelia Hutner begleiten dich durch eine kraftvolle Atemreise — eine Einladung, loszulassen, was nicht mehr dient, und neue Lebendigkeit zu spüren. Max. 25 Teilnehmende.</p>
       </div>
       <div class="experience-img-wrap">
-        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80&auto=format&fit=crop" alt="Inspiration" class="experience-img" loading="lazy">
+        <img src="Medien/Festival/Angebote/Roland-Hutner-Breathwork-115.png" alt="Breathwork" class="experience-img" loading="lazy">
       </div>
     </div>
 
     <div class="experience-item reverse reveal">
       <div class="experience-text">
         <span class="experience-num">04</span>
-        <h3 class="experience-title">Feuerlaufen</h3>
-        <p class="experience-desc">Das Highlight des Festivals. In der Abenddämmerung des Samstags gehen mutige Seelen durch das Feuer — und kommen verändert heraus. Ein uraltes Ritual, das Grenzen sprengt.</p>
+        <h3 class="experience-title">Musik & Heilkreis</h3>
+        <p class="experience-desc">Riccardo Avola lädt ein in einen lebendigen Heilkreis aus Gesang, Klang und Verbindung. Abends trägt Musik von DJ und Live-Acts die Energie des Tages — Tanz, Lachen und echte Begegnung unter freiem Himmel.</p>
       </div>
       <div class="experience-img-wrap">
-        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80&auto=format&fit=crop" alt="Feuerlaufen" class="experience-img" loading="lazy">
+        <img src="Medien/Festival/Programm/Riccardo-Avola.jpg" alt="Heilkreis mit Riccardo Avola" class="experience-img" loading="lazy">
       </div>
     </div>
   </div>
@@ -1761,6 +2058,127 @@ footer {
   </div>
 </section>
 
+<!-- WORKSHOPS & AKTIVITÄTEN -->
+<section id="workshops">
+  <div class="workshops-inner">
+    <span class="section-label reveal" style="color:var(--gold);">Erleben &amp; Vertiefen</span>
+    <h2 class="section-title reveal reveal-delay-1" style="color:var(--cream-mid);">Workshops &amp; <span style="background:linear-gradient(135deg,var(--gold) 0%,var(--rose-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Aktivitäten</span></h2>
+    <p class="reveal reveal-delay-2" style="font-size:16px;color:rgba(245,240,232,0.6);max-width:640px;line-height:1.8;margin-top:-10px;">Neben den großen Bühnen-Sessions erwartet dich ein vielfältiges Programm aus Workshops, Einzelsitzungen und spontanen Begegnungen.</p>
+
+    <div class="workshops-grid">
+
+      <!-- Breathwork -->
+      <article class="workshop-card reveal">
+        <span class="workshop-tag">Workshop · max. 25 Personen</span>
+        <h3 class="workshop-title">Breathwork Workshop</h3>
+        <div class="workshop-host">Roland Hutner &amp; Aurelia Hutner</div>
+        <p class="workshop-desc">Eine kraftvolle Atemreise, die tief in das Nervensystem wirkt — loslassen, was nicht mehr dient, und neue Lebendigkeit spüren.</p>
+        <div class="workshop-meta">
+          <span class="workshop-badge">⏱ 2 Stunden</span>
+          <span class="workshop-badge price">€ 30 · Exklusiver Festivalpreis</span>
+          <span class="workshop-badge free-badge">Im VIP-Paket inbegriffen</span>
+        </div>
+        <p class="workshop-note">Nicht geeignet bei Schwangerschaft, Epilepsie, Herzerkrankungen oder psychischen Erkrankungen. Bitte im Vorfeld abklären.</p>
+      </article>
+
+      <!-- Klangreise -->
+      <article class="workshop-card reveal">
+        <span class="workshop-tag">Einzelsitzung</span>
+        <h3 class="workshop-title">Klangreise auf der Klangliege</h3>
+        <div class="workshop-host">Roland Hutner</div>
+        <p class="workshop-desc">Monochord, Planeten-Gong, Obertongesang und Didgeridoo erzeugen ein Klangfeld, das durch Körper und Geist fließt — eine Reise nach innen.</p>
+        <div class="workshop-meta">
+          <span class="workshop-badge">⏱ 30 Minuten</span>
+          <span class="workshop-badge price">€ 40 · Exklusiver Festivalpreis</span>
+          <span class="workshop-badge free-badge">Im VIP-Paket inbegriffen</span>
+        </div>
+      </article>
+
+      <!-- Kostenfreie Atemmeditation -->
+      <article class="workshop-card reveal">
+        <span class="workshop-tag free">Kostenlos</span>
+        <h3 class="workshop-title">Atemmeditation</h3>
+        <div class="workshop-host">Roland Hutner</div>
+        <p class="workshop-desc">Eine geführte Atemmeditation für alle — einfach kommen, ankommen und durchatmen. Kein Vorwissen nötig.</p>
+        <div class="workshop-meta">
+          <span class="workshop-badge">⏱ ca. 30 Minuten</span>
+          <span class="workshop-badge free-badge">Kostenlos</span>
+        </div>
+      </article>
+
+      <!-- Handpan -->
+      <article class="workshop-card reveal">
+        <span class="workshop-tag">Schnupperkurs · max. 4 Personen</span>
+        <h3 class="workshop-title">Handpan Schnupperkurs</h3>
+        <div class="workshop-host">Hilla Knipper</div>
+        <p class="workshop-desc">Entdecke das faszinierende Klanginstrument Handpan — du lernst erste Rhythmen und bekommst ein Gefühl für den meditativen Klang. Zwischendurch gibt es freies Spielen für alle.</p>
+        <div class="workshop-meta">
+          <span class="workshop-badge">⏱ 60 Minuten</span>
+          <span class="workshop-badge price">€ 35 · Exklusiver Festivalpreis</span>
+          <span class="workshop-badge free-badge">Im VIP-Paket inbegriffen</span>
+        </div>
+      </article>
+
+      <!-- Taiko -->
+      <article class="workshop-card reveal">
+        <span class="workshop-tag free">Kostenlos inklusive</span>
+        <h3 class="workshop-title">Taiko Trommeln</h3>
+        <div class="workshop-host">Sa &amp; So Morgens · Sa Abend: Taiko Show</div>
+        <p class="workshop-desc">Samstag und Sonntag morgens kannst du japanische Taiko-Trommeln selbst ausprobieren. Am Samstagabend gibt es eine mitreißende Taiko-Bühnenshow — kostenlos für alle.</p>
+        <div class="workshop-meta">
+          <span class="workshop-badge free-badge">Im Ticket enthalten</span>
+        </div>
+      </article>
+
+      <!-- Aroma Heil Massage -->
+      <article class="workshop-card reveal">
+        <span class="workshop-tag">Einzelsitzung · Optional</span>
+        <h3 class="workshop-title">Aroma Heil Massage</h3>
+        <div class="workshop-host">Verena Jaus</div>
+        <p class="workshop-desc">Eine heilsame Massage mit hochwertigen ätherischen Ölen — tief entspannend, regenerierend und nährend für Körper und Seele.</p>
+        <div class="workshop-meta">
+          <span class="workshop-badge price">€ 66 · Exklusiver Festivalpreis</span>
+          <span class="workshop-badge free-badge">Im VIP-Paket inbegriffen</span>
+        </div>
+      </article>
+
+      <!-- Energetisches Füssedrücken -->
+      <article class="workshop-card reveal">
+        <span class="workshop-tag">Einzelsitzung · Optional</span>
+        <h3 class="workshop-title">Energetisches Füßedrücken</h3>
+        <div class="workshop-host">Einzelsitzung auf Anfrage</div>
+        <p class="workshop-desc">Eine energetische Fußbehandlung, die Blockaden löst und die Lebensenergie neu in Fluss bringt — ganzheitlich, sanft und tief wirkend.</p>
+        <div class="workshop-meta">
+          <span class="workshop-badge">Preis auf Anfrage</span>
+        </div>
+      </article>
+
+      <!-- Riccardo Avola -->
+      <article class="workshop-card reveal">
+        <span class="workshop-tag free">Kostenlos inklusive</span>
+        <h3 class="workshop-title">Heilkreis & Gesang</h3>
+        <div class="workshop-host">Riccardo Avola</div>
+        <p class="workshop-desc">Riccardo Avola, Gründer der Heilkreise Deutschlands, verbindet Menschen durch die Kraft von Gesang, Musik und kollektivem Bewusstsein. Er singt am Freitagabend und leitet Sa- und Sonntagmorgen jeweils einen Heilkreis — ein gemeinschaftliches Ritual der Verbindung, Stille und Transformation.</p>
+        <div class="workshop-meta">
+          <span class="workshop-badge free-badge">Im Ticket enthalten</span>
+        </div>
+      </article>
+
+      <!-- Symposium -->
+      <article class="workshop-card reveal">
+        <span class="workshop-tag free">Kostenlos inklusive</span>
+        <h3 class="workshop-title">Symposium</h3>
+        <div class="workshop-host">Moderation: Thomas Schmelzer</div>
+        <p class="workshop-desc">„Ganz wach und bewusst im Herzen sein – wie gelingt uns das in diesen bewegenden Zeiten?" Ein offener Austausch mit Speakern und Teilnehmenden.</p>
+        <div class="workshop-meta">
+          <span class="workshop-badge free-badge">Im Ticket enthalten</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- FEUERLAUF -->
 <section id="feuerlauf">
   <div class="feuerlauf-inner">
@@ -1772,14 +2190,9 @@ footer {
     </p>
     <div class="feuerlauf-counter reveal" id="feuerlaufCounter">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF9933" stroke-width="1.5" aria-hidden="true"><path d="M17.657 18.657A8 8 0 016.343 7.343M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 6.343l-.707-.707M6.343 6.343l-.707-.707"/></svg>
-      <span><span class="counter-num" id="feuerlaufNum">34</span> von 50 Plätzen noch verfügbar</span>
+      <span>Für alle Teilnehmenden · Professionelle Begleitung</span>
     </div>
-    <label class="feuerlauf-checkbox-wrap reveal" id="feuerlaufCheckWrap">
-      <input type="checkbox" id="feuerlaufCheck" aria-label="Am Feuerlauf teilnehmen">
-      <span class="feuerlauf-checkbox-label">Ich möchte am Feuerlauf teilnehmen</span>
-    </label>
-    <p class="checked-label" id="feuerlaufCheckedMsg">✓ Du bist vorgemerkt! Wähle beim Ticketkauf die Feuerlauf-Option.</p>
-    <p class="feuerlauf-note reveal">Feuerlauf wird beim Ticketkauf zur Auswahl hinzugefügt · Professionelle Begleitung inklusive</p>
+    <p class="feuerlauf-note reveal">Für alle Teilnehmenden inklusive · Professionelle Begleitung</p>
     <div class="reveal reveal-delay-1" style="margin-top:12px;">
       <a href="#tickets" class="btn-outline">Zum Ticket</a>
     </div>
@@ -1799,114 +2212,56 @@ footer {
       <div class="ticket-card reveal">
         <span class="ticket-badge">🕊 Early Bird — Noch <span id="earlyBirdLeft">27</span> Plätze!</span>
         <div class="ticket-name">Early Bird</div>
-        <div class="ticket-price gold-text"><span class="ticket-price-currency">€</span><span id="priceEarlyBird">199</span></div>
-        <div class="ticket-price-note">Spare €50 gegenüber Standardticket</div>
+        <div class="ticket-price gold-text"><span class="ticket-price-currency">€</span><span id="priceEarlyBird">249</span></div>
+        <div class="ticket-price-note">Spare €50 gegenüber dem Festivalpreis</div>
         <ul class="ticket-features">
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Festivaleintritt Freitag–Sonntag</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alle Speaker-Sessions</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Workshops</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Taiko Trommeln &amp; Musik</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Option: Feuerlauf (zubuchbar)</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alle Speaker-Sessions &amp; Symposium</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Taiko Trommeln · Handpan · Musik</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Feuerlauf · Lagerfeuer · Tanz</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>~20 Aussteller · Speaker hautnah</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Viele Workshops (optional zubuchbar)</li>
         </ul>
-        <a href="#" id="bookEarlyBird" class="ticket-btn" onclick="setSelectedTicket('earlyBird');return false;">Jetzt sichern</a>
+        <a href="https://pretix.eu/soulawakeningfestival/saf2026/" target="_blank" id="bookEarlyBird" class="ticket-btn">Jetzt sichern</a>
       </div>
 
       <!-- STANDARD -->
       <div class="ticket-card reveal reveal-delay-1">
         <span class="ticket-badge">Standard</span>
         <div class="ticket-name">Standard</div>
-        <div class="ticket-price" style="color:var(--cream-mid);"><span class="ticket-price-currency" style="color:var(--cream-mid);">€</span><span id="priceStandard">249</span></div>
-        <div class="ticket-price-note">Reguläres Festival-Ticket</div>
+        <div class="ticket-price" style="color:var(--cream-mid);"><span class="ticket-price-currency" style="color:var(--cream-mid);">€</span><span id="priceStandard">299</span></div>
+        <div class="ticket-price-note">Regulärer Festivalpreis</div>
         <ul class="ticket-features">
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Festivaleintritt Freitag–Sonntag</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alle Speaker-Sessions</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Workshops</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Taiko Trommeln &amp; Musik</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Option: Feuerlauf (zubuchbar)</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alle Speaker-Sessions &amp; Symposium</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Taiko Trommeln · Handpan · Musik</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Feuerlauf · Lagerfeuer · Tanz</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>~20 Aussteller · Speaker hautnah</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Viele Workshops (optional zubuchbar)</li>
         </ul>
-        <a href="#" id="bookStandard" class="ticket-btn" onclick="setSelectedTicket('standard');return false;">Ticket buchen</a>
+        <a href="https://pretix.eu/soulawakeningfestival/saf2026/" target="_blank" id="bookStandard" class="ticket-btn">Ticket buchen</a>
       </div>
 
       <!-- VIP -->
       <div class="ticket-card featured reveal reveal-delay-2">
         <span class="ticket-badge">VIP — Exklusiv</span>
         <div class="ticket-name">VIP</div>
-        <div class="ticket-price" style="color:#0A0A0A;"><span class="ticket-price-currency" style="color:#0A0A0A;">€</span><span id="priceVIP">399</span></div>
+        <div class="ticket-price" style="color:#0A0A0A;"><span class="ticket-price-currency" style="color:#0A0A0A;">€</span><span id="priceVIP">499</span></div>
         <div class="ticket-price-note">Nur <span id="vipLeft">20</span> VIP-Plätze verfügbar</div>
         <ul class="ticket-features">
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Standard</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>VIP-Lounge Zugang</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alle Workshops inklusive</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Breathwork Journey inklusive</li>
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Meet the Speaker</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Bevorzugter Einlass</li>
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Feuerlauf inklusive</li>
         </ul>
-        <a href="#" id="bookVIP" class="ticket-btn" onclick="setSelectedTicket('vip');return false;">VIP-Erlebnis sichern</a>
+        <a href="https://pretix.eu/soulawakeningfestival/saf2026/" target="_blank" id="bookVIP" class="ticket-btn">VIP-Erlebnis sichern</a>
       </div>
-    </div>
-
-    <!-- ADD-ONS -->
-    <div class="addons-section reveal">
-      <div class="addons-title">Add-ons zu deinem Ticket</div>
-
-      <!-- Feuerlauf -->
-      <div class="addon-row">
-        <input type="checkbox" class="addon-checkbox" id="addonFeuerlauf" onchange="calcTotal()">
-        <div class="addon-label">
-          <label for="addonFeuerlauf" class="addon-name">Feuerlauf-Teilnahme</label>
-          <div class="addon-desc">Inklusive — nur Anmeldung erforderlich. Professionelle Begleitung.</div>
-        </div>
-        <span class="addon-price">Gratis</span>
-      </div>
-
-      <!-- Vollverpflegung -->
-      <div class="addon-row" style="flex-wrap:wrap;">
-        <input type="checkbox" class="addon-checkbox" id="addonVerpflegung" onchange="toggleVerpflegung();calcTotal()">
-        <div class="addon-label" style="flex:1;">
-          <label for="addonVerpflegung" class="addon-name">Vollverpflegung</label>
-          <div class="addon-desc">Vegan/vegetarisch · Frühstück, Mittagessen, Abendessen + Obst, Kuchen, Getränke</div>
-          <div class="nights-select" id="verpflegungTage">
-            <label class="nights-option"><input type="checkbox" value="55" class="verpf-day" onchange="calcTotal()"> Freitag, 21.8. — €55</label>
-            <label class="nights-option"><input type="checkbox" value="55" class="verpf-day" onchange="calcTotal()"> Samstag, 22.8. — €55</label>
-            <label class="nights-option"><input type="checkbox" value="55" class="verpf-day" onchange="calcTotal()"> Sonntag, 23.8. — €55</label>
-          </div>
-        </div>
-        <span class="addon-price">€55/Tag</span>
-      </div>
-
-      <!-- Übernachtung -->
-      <div class="addon-row" style="flex-wrap:wrap;">
-        <input type="checkbox" class="addon-checkbox" id="addonUebernachtung" onchange="toggleRoom();calcTotal()">
-        <div class="addon-label" style="flex:1;">
-          <label for="addonUebernachtung" class="addon-name">Übernachtung im Lethehof</label>
-          <div class="addon-desc">Direkt vor Ort — wähle deine Zimmerkategorie</div>
-          <div class="room-radio-group" id="roomOptions">
-            <label class="room-option"><input type="radio" name="room" value="85" onchange="calcTotal()"><span class="room-option-label">Einzelzimmer</span><span class="room-option-price">€85/Nacht</span></label>
-            <label class="room-option"><input type="radio" name="room" value="65" onchange="calcTotal()"><span class="room-option-label">Doppelzimmer (pro Person)</span><span class="room-option-price">€65/Nacht</span></label>
-            <label class="room-option"><input type="radio" name="room" value="35" onchange="calcTotal()"><span class="room-option-label">Dreier-/Vierzimmer (pro Person)</span><span class="room-option-price">€35/Nacht</span></label>
-            <label class="room-option"><input type="radio" name="room" value="5" onchange="calcTotal()"><span class="room-option-label">Camper / WoMo / Gruppenraum</span><span class="room-option-price">€5/Nacht</span></label>
-            <div style="display:flex;align-items:center;gap:16px;padding-top:12px;">
-              <label style="font-size:13px;color:rgba(245,240,232,0.5);">Nächte:</label>
-              <select id="numNights" onchange="calcTotal()" style="background:var(--dark-mid);color:var(--cream-mid);border:1px solid rgba(201,168,76,0.2);padding:6px 12px;font-size:14px;border-radius:2px;">
-                <option value="1">1 Nacht</option>
-                <option value="2" selected>2 Nächte</option>
-                <option value="3">3 Nächte</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <span class="addon-price">ab €5/Nacht</span>
-      </div>
-    </div>
-
-    <!-- PRICE TOTAL -->
-    <div class="price-total reveal">
-      <span class="price-total-label">Geschätzter Gesamtpreis</span>
-      <span class="price-total-amount" id="totalPrice">€—</span>
     </div>
 
     <div style="text-align:center;" class="reveal">
-      <a href="#" id="mainBookBtn" class="btn-gold" style="margin-bottom:20px;">Jetzt buchen</a>
-      <p class="tickets-note">Alle Preise inkl. MwSt. · Buchung über Fluent Booking (Link folgt) · kontakt@soul-awakening-festival.de</p>
+      <a href="https://pretix.eu/soulawakeningfestival/saf2026/" target="_blank" id="mainBookBtn" class="btn-gold" style="margin-bottom:20px;">Jetzt buchen</a>
+      <p class="tickets-note">Alle Preise inkl. MwSt. · Sicherer Ticketkauf über pretix · kontakt@soul-awakening-festival.de</p>
     </div>
   </div>
 </section>
@@ -1918,53 +2273,94 @@ footer {
     <h2 class="section-title reveal reveal-delay-1" style="color:var(--text-dark);">Unterkunft &amp; <span style="color:var(--gold-dark);">Verpflegung</span></h2>
     <div class="gold-line reveal reveal-delay-2" style="background:linear-gradient(to right, transparent, var(--gold-dark), transparent);"></div>
 
-    <div class="unterkunft-grid reveal">
-      <!-- Lethehof -->
-      <div class="unterkunft-card">
-        <div class="unterkunft-card-title">Lethehof</div>
-        <div class="unterkunft-card-sub">Direkt vor Ort · Wardenburg</div>
-        <ul class="room-list">
-          <li class="room-row"><span class="room-name">Einzelzimmer</span><span class="room-price-display">€85 / Nacht</span></li>
-          <li class="room-row"><span class="room-name">Doppelzimmer (pro Person)</span><span class="room-price-display">€65 / Nacht</span></li>
-          <li class="room-row"><span class="room-name">Dreier-/Vierzimmer (pro Person)</span><span class="room-price-display">€35 / Nacht</span></li>
-          <li class="room-row"><span class="room-name">Camper / WoMo / Gruppenraum</span><span class="room-price-display">€5 / Nacht</span></li>
-        </ul>
-        <p style="font-size:13px;color:var(--text-muted-light);margin-top:16px;">Buchung über das Ticket-System · Verfügbarkeit begrenzt</p>
+    <!-- Lethehof Foto + Empfehlung -->
+    <div class="reveal" style="max-width:860px;margin:0 auto 48px;">
+      <div style="position:relative;overflow:hidden;aspect-ratio:16/6;border:1px solid rgba(109,74,55,0.2);">
+        <img src="Medien/lethehof.jpg" alt="Hotel Lethehof Wardenburg" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.85);">
+        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.6) 0%,transparent 50%);display:flex;align-items:center;padding:40px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,40px);font-weight:300;color:var(--cream-mid);margin-bottom:8px;">Hotel Lethehof</div>
+            <div style="font-size:13px;color:rgba(245,240,232,0.6);margin-bottom:16px;">Friedrichstraße 74 · 26203 Wardenburg · Direkt vor Ort</div>
+            <a href="https://hotel-lethehof.com" target="_blank" rel="noopener" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(201,168,76,0.4);padding-bottom:2px;text-decoration:none;">hotel-lethehof.com →</a>
+          </div>
+        </div>
       </div>
-      <!-- Verpflegung -->
-      <div class="unterkunft-card">
-        <div class="unterkunft-card-title">Vollverpflegung</div>
-        <div class="unterkunft-card-sub">€55 pro Person / Tag (optional)</div>
-        <div class="verpflegung-item"><div class="verpflegung-dot"></div>Frühstück, Mittagessen &amp; Abendessen</div>
-        <div class="verpflegung-item"><div class="verpflegung-dot"></div>Obst, Kuchen &amp; Snacks den ganzen Tag</div>
-        <div class="verpflegung-item"><div class="verpflegung-dot"></div>Kaffee, Tee &amp; Wasser inklusive</div>
-        <div class="verpflegung-item"><div class="verpflegung-dot"></div>100% vegan &amp; vegetarisch</div>
-        <div class="verpflegung-item"><div class="verpflegung-dot"></div>Frisch zubereitet, regional</div>
-        <p style="font-size:13px;color:var(--text-muted-light);margin-top:16px;">Pro Tag buchbar (Fr./Sa./So.) · Buchung über das Ticket-System</p>
-      </div>
+      <p style="font-size:13px;color:var(--text-muted-light);margin-top:12px;text-align:center;">Modernes Design trifft rustikalen Charme — hochwertige Zimmer, Seminarräume und Gastronomie direkt auf dem Festivalgelände.</p>
     </div>
 
-    <!-- Partner Hotels -->
-    <div class="reveal">
-      <h3 class="hotels-title">Weitere Hotels in der Umgebung</h3>
-      <div class="hotels-grid">
-        <div class="hotel-card">
-          <div class="hotel-name">[Hotel Name]</div>
-          <div class="hotel-distance">ca. 3 km vom Lethehof · Wardenburg</div>
-          <a href="mailto:kontakt@soul-awakening-festival.de" class="hotel-btn">Jetzt anfragen</a>
-        </div>
-        <div class="hotel-card">
-          <div class="hotel-name">[Hotel Name]</div>
-          <div class="hotel-distance">ca. 8 km · Oldenburg Innenstadt</div>
-          <a href="mailto:kontakt@soul-awakening-festival.de" class="hotel-btn">Jetzt anfragen</a>
-        </div>
-        <div class="hotel-card">
-          <div class="hotel-name">[Hotel Name]</div>
-          <div class="hotel-distance">ca. 10 km · Bahnhof Oldenburg</div>
-          <a href="mailto:kontakt@soul-awakening-festival.de" class="hotel-btn">Jetzt anfragen</a>
-        </div>
+    <div class="unterkunft-grid reveal" style="grid-template-columns:1fr 1fr;max-width:860px;margin:0 auto;">
+      <!-- Lethehof -->
+      <div class="unterkunft-card">
+        <div class="unterkunft-card-title">🏡 Lethehof</div>
+        <div class="unterkunft-card-sub">Direkt vor Ort · Friedrichstraße 74, 26203 Wardenburg</div>
+        <ul class="room-list" style="margin-top:18px;">
+          <li class="room-row"><span class="room-name">Einzelzimmer</span><span class="room-price-display">€ 85 / Nacht</span></li>
+          <li class="room-row"><span class="room-name">Doppelzimmer (pro Person)</span><span class="room-price-display">€ 65 / Nacht</span></li>
+          <li class="room-row"><span class="room-name">Dreier-/Vierzimmer (pro Person)</span><span class="room-price-display">€ 35 / Nacht</span></li>
+          <li class="room-row"><span class="room-name">Camper / WoMo / Gruppenraum</span><span class="room-price-display">€ 5 / Nacht</span></li>
+        </ul>
+        <p style="font-size:13px;color:var(--text-muted-light);margin-top:16px;line-height:1.7;">Zimmer direkt beim Lethehof buchbar · Verfügbarkeit begrenzt</p>
+        <a href="mailto:info@hotel-lethehof.com" class="hotel-btn" style="display:inline-block;margin-top:16px;padding:10px 20px;border:1px solid rgba(109,74,55,0.4);color:var(--gold-dark);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.3s;">info@hotel-lethehof.com</a>
       </div>
-      <p style="font-size:13px;color:var(--text-muted-light);margin-top:20px;">Partnerhotels werden eigenständig organisiert. Für Empfehlungen: <a href="mailto:kontakt@soul-awakening-festival.de" style="color:var(--gold-dark);">kontakt@soul-awakening-festival.de</a></p>
+
+      <!-- Verpflegung -->
+      <div class="unterkunft-card">
+        <div class="unterkunft-card-title">🍽 Vollverpflegung</div>
+        <div class="unterkunft-card-sub">€ 55 pro Person / Tag · tagesweise buchbar</div>
+        <div class="verpflegung-item" style="margin-top:18px;"><div class="verpflegung-dot"></div>Frühstück, Mittagessen &amp; Abendessen</div>
+        <div class="verpflegung-item"><div class="verpflegung-dot"></div>100 % vegan &amp; vegetarisch · frisch &amp; regional</div>
+        <div class="verpflegung-item"><div class="verpflegung-dot"></div>Kaffee, Tee &amp; Wasser den ganzen Tag inklusive</div>
+        <p style="font-size:13px;color:var(--text-muted-light);margin-top:16px;line-height:1.7;">Freitag, Samstag oder Sonntag einzeln buchbar.<br>Buchung direkt beim Lethehof:</p>
+        <a href="mailto:info@hotel-lethehof.com" class="hotel-btn" style="display:inline-block;margin-top:12px;padding:10px 20px;border:1px solid rgba(109,74,55,0.4);color:var(--gold-dark);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.3s;">info@hotel-lethehof.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODERATION -->
+<section id="moderation" style="background:var(--black);padding:var(--section-pad) clamp(20px,5vw,80px);">
+  <div style="max-width:var(--container);margin:0 auto;">
+    <span class="section-label reveal" style="color:var(--rose);">Das Herzstück des Festivals</span>
+    <h2 class="section-title reveal reveal-delay-1" style="color:var(--cream-mid);">Moderation &amp; <span style="background:linear-gradient(135deg,var(--rose) 0%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Führung</span></h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,100px);margin-top:60px;" class="moderation-grid">
+
+      <!-- Bianka Hugen -->
+      <div class="reveal" style="display:flex;flex-direction:column;gap:24px;">
+        <div style="display:flex;align-items:center;gap:20px;">
+          <div style="width:90px;height:90px;border-radius:50%;overflow:hidden;border:2px solid rgba(201,168,76,0.3);flex-shrink:0;">
+            <img src="Medien/Speaker/bianka-hugen.jpg" alt="Bianka Hugen" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;">
+          </div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.5vw,30px);font-weight:400;color:var(--cream-mid);">Bianka Hugen</div>
+            <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose-light);margin-top:4px;">Moderatorin &amp; Gastgeberin</div>
+          </div>
+        </div>
+        <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">Mit offenem Herzen und liebevoller Präsenz begleite ich dich durch diese besondere gemeinsame Zeit.</p>
+        <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">Ich verbinde die unterschiedlichen Impulse, Energien und Perspektiven zu einem gemeinsamen Feld, in dem Inspiration, Tiefe und echte Begegnung entstehen dürfen.</p>
+        <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">Besonders am Herzen liegt mir die Verbindung von Spiritualität und Alltag. Denn für mich zeigt sich wahres Wachstum darin, spirituelle Erkenntnisse ins Leben zu bringen — in unser Denken, Fühlen und Handeln.</p>
+        <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">Ein absolutes Highlight sind die Gespräche mit unseren Speakern: Persönliche Einblicke und Begegnungen auf Augenhöhe, nahbar, authentisch und von Herz zu Herz.</p>
+        <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">Meine Herzensaufgabe ist es, Menschen zusammenzuführen, Räume für Verbindung zu schaffen und ein Feld zu halten, in dem wir gemeinsam wachsen, erinnern und leuchten dürfen.</p>
+        <p style="font-size:15px;color:rgba(245,240,232,0.55);line-height:1.9;font-style:italic;border-left:2px solid rgba(201,168,76,0.3);padding-left:16px;margin-top:8px;">Eine Einladung, diesen Weg miteinander zu gehen — authentisch, berührend und voller Licht.</p>
+      </div>
+
+      <!-- Thomas Schmelzer Symposium -->
+      <div class="reveal reveal-delay-1" style="display:flex;flex-direction:column;gap:24px;">
+        <div style="display:flex;align-items:center;gap:20px;">
+          <div style="width:90px;height:90px;border-radius:50%;overflow:hidden;border:2px solid rgba(201,168,76,0.3);flex-shrink:0;">
+            <img src="Medien/Speaker/thomas-schmelzer.jpg" alt="Thomas Schmelzer" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;">
+          </div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.5vw,30px);font-weight:400;color:var(--cream-mid);">Thomas Schmelzer</div>
+            <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-top:4px;">Moderation Symposium</div>
+          </div>
+        </div>
+        <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">Mit seiner langjährigen Erfahrung als Moderator, Interviewer und Brückenbauer begleitet Thomas Schmelzer durch das Symposium.</p>
+        <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">Mit Feingefühl, Präsenz und authentischer Neugier schafft er einen Raum für inspirierende Gespräche, neue Perspektiven und echte Begegnungen. Seine besondere Gabe liegt darin, Menschen miteinander zu verbinden und auch komplexe Themen verständlich, lebendig und nahbar werden zu lassen.</p>
+        <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">In den Gesprächen mit unseren Speakern eröffnet er neue Blickwinkel und ermöglicht Einblicke, die berühren, inspirieren und weit über das Gesagte hinauswirken.</p>
+        <p style="font-size:15px;color:rgba(245,240,232,0.55);line-height:1.9;font-style:italic;border-left:2px solid rgba(201,168,76,0.3);padding-left:16px;margin-top:8px;">Freue dich auf tiefgehende Begegnungen, wertvolle Impulse und eine Moderation, die Herz, Verstand und Seele gleichermaßen anspricht.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1972,7 +2368,7 @@ footer {
 <!-- FAQ -->
 <section id="faq">
   <div class="faq-inner">
-    <span class="section-label reveal">Alles, was du wissen musst</span>
+    <span class="section-label reveal" style="color:var(--rose-light);">Alles, was du wissen musst</span>
     <h2 class="section-title reveal reveal-delay-1">Häufige <span class="gold-text">Fragen</span></h2>
     <div class="gold-line reveal reveal-delay-2"></div>
 
@@ -1988,14 +2384,14 @@ footer {
         Was ist beim Feuerlauf zu beachten?
         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Der Feuerlauf wird professionell begleitet — keine Vorerfahrung notwendig. Maximal 50 Teilnehmer, um eine intensive und sichere Atmosphäre zu gewährleisten. Die Anmeldung erfolgt direkt beim Ticketkauf. Du wirst vorab ausführlich über Ablauf und Vorbereitung informiert.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Der Feuerlauf wird professionell begleitet — keine Vorerfahrung notwendig, keine Teilnehmerbegrenzung. Die Anmeldung erfolgt direkt beim Ticketkauf. Du wirst vorab ausführlich über Ablauf und Vorbereitung informiert.</div></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false">
         Ist Vollverpflegung inklusive?
         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Die Vollverpflegung ist ein optionales Add-on und kostet €55 pro Tag. Sie ist pro Tag einzeln buchbar (Freitag, Samstag, Sonntag). Das Angebot ist 100% vegan und vegetarisch: Frühstück, Mittagessen, Abendessen sowie Obst, Kuchen, Kaffee, Tee und Wasser den ganzen Tag.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Die Vollverpflegung ist ein optionales Add-on und kostet €55 pro Tag. Sie ist pro Tag buchbar (Freitag, Samstag, Sonntag). Das Angebot ist 100% vegan und vegetarisch: Frühstück, Mittagessen, Abendessen sowie Obst, Kuchen und Kaffee, Tee &amp; Wasser den ganzen Tag. Buchung per E-Mail an info@hotel-lethehof.com.</div></div>
     </div>
     <div class="faq-item reveal reveal-delay-1">
       <button class="faq-question" aria-expanded="false">
@@ -2009,7 +2405,21 @@ footer {
         Ich möchte ausstellen — wie kann ich mitmachen?
         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Es stehen 20 Tischplätze (1,80m Tisch, selbst mitbringen) für €200/3 Tage und 10 Pavillonplätze (selbst mitbringen) für €300/3 Tage zur Verfügung. Sponsoring-Optionen auf Anfrage. Schreib uns unter kontakt@soul-awakening-festival.de mit deinem Angebot und deinen Wünschen — wir melden uns schnellstmöglich.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Es stehen 20 Tischplätze (1,80m Tisch, selbst mitbringen) für €150/3 Tage und 10 Pavillonplätze (selbst mitbringen) für €200/3 Tage zur Verfügung. Sponsoring-Optionen auf Anfrage. Schreib uns unter kontakt@soul-awakening-festival.de mit deinem Angebot und deinen Wünschen — wir melden uns schnellstmöglich.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        Sind Hunde erlaubt?
+        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Ja! Unsere vierbeinigen Freunde sind im Erdgeschoss des Seminarhaus Hotels herzlich willkommen. 6 Zimmer sind für Hundebesitzer buchbar. Wichtig: Hunde dürfen die Veranstaltungen nicht stören und müssen sich mit anderen Hunden vertragen.</div></div>
+    </div>
+    <div class="faq-item reveal reveal-delay-1">
+      <button class="faq-question" aria-expanded="false">
+        Gibt es die Möglichkeit, Fahrgemeinschaften zu organisieren?
+        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Ja! Sobald du dich zum Festival angemeldet hast, erhältst du eine E-Mail mit weiteren Infos — darunter auch einen Link zu einer Telegram-Gruppe, die eigens für die Organisation von Fahrgemeinschaften eingerichtet ist.</div></div>
     </div>
     <div class="faq-item reveal reveal-delay-1">
       <button class="faq-question" aria-expanded="false">
@@ -2046,6 +2456,23 @@ footer {
   </div>
   <div class="footer-copy">© 2026 Soul Awakening Festival · Mit Liebe gemacht</div>
 </footer>
+
+<!-- SPEAKER MODAL -->
+<div id="speaker-modal" role="dialog" aria-modal="true" aria-label="Speaker Info" onclick="closeSpeakerModal(event)">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeSpeakerModal(null)" aria-label="Schließen">×</button>
+    <div class="modal-img-wrap">
+      <img id="modal-img" src="" alt="" class="modal-img">
+    </div>
+    <div class="modal-content">
+      <div id="modal-label" class="modal-label">Speaker</div>
+      <div id="modal-name" class="modal-name"></div>
+      <div id="modal-title" class="modal-theme"></div>
+      <div id="modal-theme" class="modal-bio" style="font-style:italic;color:var(--gold-dark);margin-bottom:16px;font-size:13px;"></div>
+      <div id="modal-bio" class="modal-bio"></div>
+    </div>
+  </div>
+</div>
 
 <!-- COOKIE BANNER -->
 <div id="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen" aria-modal="true">
@@ -2419,6 +2846,30 @@ void main(void){
     else { rafId = requestAnimationFrame(loop); }
   });
 })();
+
+// ===== SPEAKER MODAL =====
+function openSpeakerModal(card) {
+  const name = card.dataset.name;
+  if (!name) return; // Platzhalter nicht öffnen
+  document.getElementById('modal-name').textContent = name;
+  document.getElementById('modal-title').textContent = card.dataset.title;
+  document.getElementById('modal-theme').textContent = '„' + card.dataset.theme + '"';
+  document.getElementById('modal-bio').textContent = card.dataset.bio;
+  const img = document.getElementById('modal-img');
+  img.src = card.dataset.img;
+  img.alt = name;
+  const modal = document.getElementById('speaker-modal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSpeakerModal(e) {
+  if (e && e.target !== document.getElementById('speaker-modal')) return;
+  document.getElementById('speaker-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeSpeakerModal(null);
+});
 
 // ===== COOKIE CONSENT =====
 (function initCookieBanner() {
