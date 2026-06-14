@@ -1929,7 +1929,7 @@ footer {
 <section id="speaker">
   <div class="speakers-inner">
     <div class="section-header">
-      <span class="section-label reveal" style="color:var(--rose);">11 Speaker · 3 Tage · hautnah</span>
+      <span class="section-label reveal" style="color:var(--rose);">12 Speaker · 3 Tage · hautnah</span>
       <h2 class="section-title reveal reveal-delay-1" style="color:var(--text-dark);">Unsere Speaker <span style="background:linear-gradient(135deg,var(--rose) 0%,var(--gold) 60%,var(--rose-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">hautnah</span></h2>
     </div>
     <div class="speakers-grid">
@@ -2642,8 +2642,6 @@ footer {
           <option value="" disabled selected>Bitte wählen …</option>
           <option value="Early Bird Festival-Ticket (€249 statt €299)">🕊 Early Bird Festival-Ticket — €249 statt €299</option>
           <option value="Early Bird VIP-Ticket (€449 statt €499)">🌟 Early Bird VIP-Ticket — €449 statt €499</option>
-          <option value="Festival-Ticket Standard (€299)">Festival-Ticket Standard — €299</option>
-          <option value="VIP-Ticket Standard (€499)">VIP-Ticket Standard — €499</option>
         </select>
         <p style="font-size:12px;color:rgba(245,240,232,0.35);margin-top:6px;">Early Bird gilt für die ersten 50 Tickets oder bis 20. Juli 2026 — je nachdem, was zuerst eintritt.</p>
       </div>
@@ -2704,7 +2702,12 @@ footer {
             </p>
           </div>
         </div>
-        <p style="font-size:13px;color:rgba(245,240,232,0.35);text-align:center;margin-top:20px;">Genaue Infos kommen mit der Bestätigungs-E-Mail. Von Herzen — Bianka 🤍</p>
+        <div style="margin-top:20px;padding:16px 20px;background:rgba(255,255,255,0.04);border-radius:2px;border-left:3px solid var(--gold);">
+          <p style="font-size:14px;color:rgba(245,240,232,0.6);line-height:1.8;margin:0;">
+            📬 <strong style="color:var(--cream-mid);">Bianka meldet sich persönlich bei dir</strong> — sie wird deine Buchung bestätigen und alle weiteren Infos per E-Mail schicken. Bitte schau auch in deinen Spam-Ordner.<br>
+            <span style="font-size:12px;color:rgba(245,240,232,0.4);">Die IBAN und alle Zahlungsinfos stehen bereits oben — du kannst die Überweisung schon jetzt vornehmen.</span>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -3273,9 +3276,14 @@ function toggleCookieDetails() {
           method: 'POST',
           headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            name, email, adresse, ticket, feuerlauf, nachricht,
+            '👤 Name': name,
+            '📧 E-Mail': email,
+            '🏠 Adresse': adresse,
+            '🎟️ Ticket': ticket,
+            '🔥 Feuerlauf': feuerlauf,
+            '💬 Nachricht': nachricht || '—',
             _replyto: email,
-            _subject: 'Ticket-Buchung SAF2026 — ' + name
+            _subject: '🎟️ Neue Buchung SAF2026 — ' + name
           })
         });
         if (res.ok) {
