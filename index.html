@@ -468,8 +468,46 @@ p { line-height: 1.7; }
   font-weight: 300;
   line-height: 1.3;
   color: var(--gold-dark);
-  margin-bottom: 32px;
-  max-width: 800px;
+  margin-bottom: 40px;
+  max-width: 860px;
+}
+.about-opening-img {
+  width: 100%;
+  max-height: 520px;
+  overflow: hidden;
+  margin-bottom: 56px;
+  border-radius: 3px;
+}
+.about-opening-img img { width: 100%; height: 520px; object-fit: cover; object-position: center 30%; display: block; }
+.about-blocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-bottom: 64px;
+}
+.about-block-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+.about-block-text {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #3A3028;
+  margin-bottom: 12px;
+}
+.about-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 400;
+  color: var(--gold-dark);
+  text-align: center;
+  margin-bottom: 40px;
+  font-style: italic;
 }
 .about-text {
   font-size: 17px;
@@ -838,6 +876,13 @@ p { line-height: 1.7; }
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
   margin-top: 60px;
+}
+.workshop-img {
+  width: calc(100% + 56px);
+  margin: -32px -28px 24px;
+  height: 190px;
+  object-fit: cover;
+  display: block;
 }
 .workshop-card {
   background: rgba(255,255,255,0.03);
@@ -1822,11 +1867,32 @@ footer {
   <div class="about-inner">
     <span class="section-label reveal" style="color:var(--rose);">Was erwartet dich</span>
     <blockquote class="about-quote reveal reveal-delay-1">
-      „Es ist kein Kongress, kein Podium und kein klassischer Input-Marathon. Es geht um etwas weitaus Tieferes."
+      Das Soul Awakening Festival ist kein Kongress, kein Podium und kein klassischer Input-Marathon. Es geht um etwas viel Tieferes.
     </blockquote>
-    <p class="about-text reveal reveal-delay-2">
-      Musik, Tanz, Lagerfeuer, Stille, Vernetzung und pure Lebensfreude stehen im Mittelpunkt. Spirituelles Festival — Speaker hautnah, mit Freude und Leichtigkeit. Drei Tage, die dein Leben verändern können.
-    </p>
+
+    <div class="about-opening-img reveal reveal-delay-2">
+      <img src="Medien/Festival/Programm/Opening-hellere-Version.png" alt="Soul Awakening Festival Opening" loading="lazy">
+    </div>
+
+    <div class="about-blocks">
+      <div class="about-block reveal">
+        <div class="about-block-title">Spiritualität leben</div>
+        <p class="about-block-text">Hier geht es nicht darum, Wissen zu sammeln, sondern darum, es zu leben. Drei Tage lang erschaffen wir einen Raum voller Begegnungen, Transformation und echter Verbundenheit.</p>
+      </div>
+      <div class="about-block reveal reveal-delay-1">
+        <div class="about-block-title">Speaker 3 Tage hautnah</div>
+        <p class="about-block-text">Unsere Speaker sind nicht nur auf der Bühne präsent, sondern mitten unter euch. Triff sie beim Essen, am Lagerfeuer oder auf der Tanzfläche, stelle deine Fragen, tausche Gedanken aus, lache gemeinsam und knüpfe echte Verbindungen. Statt Abstand und Autogrammstunde erwarten dich Gespräche auf Augenhöhe und Begegnungen, die in Erinnerung bleiben.</p>
+        <p class="about-block-text">Hier treffen sich Menschen, die den Mut haben, neue Wege zu gehen und ihr Bewusstsein in die Tat umzusetzen. Gemeinsam entdecken wir, was möglich wird, wenn wir uns zusammentun, Erkenntnisse teilen und verkörpern, uns authentisch begegnen und das Leben mit offenem Herzen feiern.</p>
+        <p class="about-block-text">Lasst uns zusammen wachsen, feiern, lachen und das Leben genießen. Freue dich auf inspirierende Begegnungen, tiefe Gespräche, neue Freundschaften, Musik, Tanz, Natur und all die besonderen Momente, die entstehen, wenn wir uns wirklich begegnen.</p>
+      </div>
+      <div class="about-block reveal reveal-delay-2">
+        <div class="about-block-title">Bewusstsein wird lebendig</div>
+        <p class="about-block-text">Hier findest du keine Käseglocke, die dich vom Leben trennt. Du findest einen Ort, an dem Bewusstsein lebendig wird. Einen Ort, an dem du sein darfst, wie du bist. Einen Ort, an dem aus Begegnungen Verbindungen entstehen und aus Verbindungen vielleicht sogar Freundschaften fürs Leben.</p>
+        <p class="about-block-text">Drei Tage voller Herz, Gemeinschaft, Inspiration und Lebensfreude. Drei Tage, die dich daran erinnern können, wie lebendig das Leben wirklich ist. Und die Speaker mittendrin.</p>
+      </div>
+    </div>
+
+    <div class="about-subtitle reveal">Unsere Speaker — 3 Tage hautnah und mittendrin</div>
 
     <div class="features-grid">
       <div class="feature-card reveal">
@@ -2064,7 +2130,7 @@ footer {
       <div class="experience-text">
         <span class="experience-num">01</span>
         <h3 class="experience-title">Heilung & Tiefe</h3>
-        <p class="experience-desc">Lass dich tragen — von Klang, Atem und Berührung. Erlebe eine Reise auf der Klangliege, einen Breathwork-Workshop oder eine Aroma-Heil-Massage. Räume, in denen echte Transformation entsteht.</p>
+        <p class="experience-desc">Lass dich tragen von Klang, Atem, Berührung und Transformation. Erlebe eine Reise auf der Klangliege, einen Breathwork-Workshop, Füßedrücken, Atemmeditation oder eine Aroma-Heil-Massage. Räume, in denen echte Transformation entsteht.</p>
       </div>
       <div class="experience-img-wrap">
         <img src="Medien/Festival/Angebote/Roland-Hutner-Klangliege-113.png" alt="Klangliege" class="experience-img" loading="lazy">
@@ -2075,7 +2141,7 @@ footer {
       <div class="experience-text">
         <span class="experience-num">02</span>
         <h3 class="experience-title">Klang & Rhythmus</h3>
-        <p class="experience-desc">Spüre die Kraft von Taiko-Trommeln, lass dich von Handpan-Klängen verzaubern und erlebe den Heilkreis mit Riccardo Avola. Musik als Sprache der Seele — live, unverstärkt, direkt ins Herz.</p>
+        <p class="experience-desc">Spüre die Kraft von Taiko-Trommeln, lass dich von Handpan-Klängen verzaubern und erlebe den Heilkreis mit Riccardo Avola. Musik, Frequenzen, Verbundenheit und Tanz als Sprache der Seele — live, unverstärkt, direkt ins Herz.</p>
       </div>
       <div class="experience-img-wrap">
         <img src="Medien/Festival/Handpan/Handpan-IMG-2174.jpeg" alt="Handpan" class="experience-img" loading="lazy">
@@ -2086,10 +2152,10 @@ footer {
       <div class="experience-text">
         <span class="experience-num">03</span>
         <h3 class="experience-title">Breathwork</h3>
-        <p class="experience-desc">Roland Hutner und Aurelia Hutner begleiten dich durch eine kraftvolle Atemreise — eine Einladung, loszulassen, was nicht mehr dient, und neue Lebendigkeit zu spüren. Max. 25 Teilnehmende.</p>
+        <p class="experience-desc">Roland Hutner und Aurelia Hutner begleiten dich durch eine kraftvolle Atemreise und durch 3 Breathwork Sessions. Eine Einladung, loszulassen, was nicht mehr dient, und neue Lebendigkeit zu spüren. 3x max. 40 Teilnehmende.</p>
       </div>
       <div class="experience-img-wrap">
-        <img src="Medien/Festival/Angebote/Roland-Hutner-111.jpeg" alt="Breathwork" class="experience-img" loading="lazy">
+        <img src="Medien/Festival/Angebote/Breathwork-neu-ohne-Datum.jpg" alt="Breathwork" class="experience-img" loading="lazy">
       </div>
     </div>
 
@@ -2097,10 +2163,10 @@ footer {
       <div class="experience-text">
         <span class="experience-num">04</span>
         <h3 class="experience-title">Feuerlaufen & Feier</h3>
-        <p class="experience-desc">Das transformative Highlight des Festivals — geh durch das Feuer und wachse darüber hinaus. Anschließend feiert ihr gemeinsam: Musik, Tanz und echte Begegnung unter freiem Himmel.</p>
+        <p class="experience-desc">Das transformative Highlight des Festivals — geh durch das Feuer und wachse darüber hinaus. Anschließend feiert ihr gemeinsam: Musik, Tanz und echte Begegnung unter freiem Himmel. Das Leben und uns feiern.</p>
       </div>
       <div class="experience-img-wrap">
-        <img src="Medien/Festival/Feuerlauf/Feuerlauf-Siluette-FW.jpeg" alt="Feuerlauf" class="experience-img" loading="lazy">
+        <img src="Medien/Festival/Feuerlauf/Feuerlauf-neu.jpg" alt="Feuerlauf" class="experience-img" loading="lazy">
       </div>
     </div>
   </div>
@@ -2164,13 +2230,14 @@ footer {
 
       <!-- Breathwork -->
       <article class="workshop-card reveal">
-        <span class="workshop-tag">Workshop · max. 25 Personen</span>
+        <img src="Medien/Festival/Angebote/Breathwork-neu-ohne-Datum.jpg" alt="Breathwork Workshop" class="workshop-img" loading="lazy">
+        <span class="workshop-tag">Workshop · 3x · max. 40 Personen</span>
         <h3 class="workshop-title">Breathwork Workshop</h3>
         <div class="workshop-host">Roland Hutner &amp; Aurelia Hutner</div>
         <p class="workshop-desc">Eine kraftvolle Atemreise, die tief in das Nervensystem wirkt — loslassen, was nicht mehr dient, und neue Lebendigkeit spüren.</p>
         <div class="workshop-meta">
           <span class="workshop-badge">⏱ 2 Stunden</span>
-          <span class="workshop-badge price">€ 30 · Exklusiver Festivalpreis</span>
+          <span class="workshop-badge price">€ 40 pro Person</span>
           <span class="workshop-badge free-badge">Im VIP-Paket inbegriffen</span>
         </div>
         <p class="workshop-note">Nicht geeignet bei Schwangerschaft, Epilepsie, Herzerkrankungen oder psychischen Erkrankungen. Bitte im Vorfeld abklären.</p>
@@ -2178,6 +2245,7 @@ footer {
 
       <!-- Klangreise -->
       <article class="workshop-card reveal">
+        <img src="Medien/Festival/Angebote/Roland-Hutner-Klangliege-113.png" alt="Klangliege" class="workshop-img" loading="lazy">
         <span class="workshop-tag">Einzelsitzung</span>
         <h3 class="workshop-title">Klangreise auf der Klangliege</h3>
         <div class="workshop-host">Roland Hutner</div>
@@ -2191,6 +2259,7 @@ footer {
 
       <!-- Kostenfreie Atemmeditation -->
       <article class="workshop-card reveal">
+        <img src="Medien/Festival/Workshops/Atem-Meditation.jpg" alt="Atemmeditation" class="workshop-img" loading="lazy">
         <span class="workshop-tag free">Kostenlos</span>
         <h3 class="workshop-title">Atemmeditation</h3>
         <div class="workshop-host">Roland Hutner</div>
@@ -2203,7 +2272,8 @@ footer {
 
       <!-- Handpan -->
       <article class="workshop-card reveal">
-        <span class="workshop-tag">Schnupperkurs · max. 4 Personen</span>
+        <img src="Medien/Festival/Handpan/Hilla-Knipper-05.jpeg" alt="Handpan Schnupperkurs" class="workshop-img" loading="lazy">
+        <span class="workshop-tag">Schnupperkurs · max. 4 Personen · wird mehrfach angeboten</span>
         <h3 class="workshop-title">Handpan Schnupperkurs</h3>
         <div class="workshop-host">Hilla Knipper</div>
         <p class="workshop-desc">Entdecke das faszinierende Klanginstrument Handpan — du lernst erste Rhythmen und bekommst ein Gefühl für den meditativen Klang. Zwischendurch gibt es freies Spielen für alle.</p>
@@ -2219,7 +2289,7 @@ footer {
         <span class="workshop-tag free">Kostenlos inklusive</span>
         <h3 class="workshop-title">Taiko Trommeln</h3>
         <div class="workshop-host">Sa &amp; So Morgens · Sa Abend: Taiko Show</div>
-        <p class="workshop-desc">Samstag und Sonntag morgens kannst du japanische Taiko-Trommeln selbst ausprobieren. Am Samstagabend gibt es eine mitreißende Taiko-Bühnenshow — kostenlos für alle.</p>
+        <p class="workshop-desc">Starte am Samstag und Sonntag morgen kraftvoll mit den Frequenzen der japanischen Taiko-Trommeln. Du darfst es selbst ausprobieren. Am Samstagabend gibt es eine mitreißende Taiko-Bühnenshow — kostenlos für alle.</p>
         <div class="workshop-meta">
           <span class="workshop-badge free-badge">Im Ticket enthalten</span>
         </div>
@@ -2227,6 +2297,7 @@ footer {
 
       <!-- Aroma Heil Massage -->
       <article class="workshop-card reveal">
+        <img src="Medien/Festival/Angebote/Aroma-Massage-querformat.jpg" alt="Aroma Heil Massage" class="workshop-img" loading="lazy">
         <span class="workshop-tag">Einzelsitzung · Optional</span>
         <h3 class="workshop-title">Aroma Heil Massage</h3>
         <div class="workshop-host">Verena Jaus</div>
@@ -2239,6 +2310,7 @@ footer {
 
       <!-- Energetisches Füssedrücken -->
       <article class="workshop-card reveal">
+        <img src="Medien/Festival/Angebote/Fuessedruecken.jpg" alt="Füßedrücken" class="workshop-img" loading="lazy">
         <span class="workshop-tag">Einzelsitzung · Optional</span>
         <h3 class="workshop-title">Energetisches Füßedrücken</h3>
         <div class="workshop-host">Einzelsitzung auf Anfrage</div>
@@ -2250,7 +2322,8 @@ footer {
 
       <!-- Riccardo Avola -->
       <article class="workshop-card reveal">
-        <span class="workshop-tag free">Kostenlos inklusive</span>
+        <img src="Medien/Festival/Angebote/Heilkreis.jpg" alt="Heilkreis & Gesang" class="workshop-img" loading="lazy">
+        <span class="workshop-tag free">Gastauftritt · Kostenlos inklusive</span>
         <h3 class="workshop-title">Heilkreis & Gesang</h3>
         <div class="workshop-host">Riccardo Avola</div>
         <p class="workshop-desc">Riccardo Avola, Gründer der Heilkreise Deutschlands, verbindet Menschen durch die Kraft von Gesang, Musik und kollektivem Bewusstsein. Er singt am Freitagabend und leitet Sa- und Sonntagmorgen jeweils einen Heilkreis — ein gemeinschaftliches Ritual der Verbindung, Stille und Transformation.</p>
@@ -2261,13 +2334,87 @@ footer {
 
       <!-- Symposium -->
       <article class="workshop-card reveal">
+        <img src="Medien/Festival/Workshops/Symposium.jpg" alt="Symposium" class="workshop-img" loading="lazy">
         <span class="workshop-tag free">Kostenlos inklusive</span>
-        <h3 class="workshop-title">Symposium</h3>
+        <h3 class="workshop-title">Symposium mit Thomas Schmelzer</h3>
         <div class="workshop-host">Moderation: Thomas Schmelzer</div>
-        <p class="workshop-desc">„Ganz wach und bewusst im Herzen sein – wie gelingt uns das in diesen bewegenden Zeiten?" Ein offener Austausch mit Speakern und Teilnehmenden.</p>
+        <p class="workshop-desc">„Ganz wach und bewusst im Herzen sein – wie gelingt uns das in diesen bewegenden Zeiten?" Ein ganz besonderes Highlight: die Gelegenheit, den Speakern persönlich Fragen zu stellen. In einer offenen und herzlichen Gesprächsrunde vertiefen wir Gedanken aus den Vorträgen, beleuchten Hintergründe und kommen miteinander ins Gespräch. Mit Humor, Tiefgang und viel Raum für echte Begegnung.</p>
         <div class="workshop-meta">
           <span class="workshop-badge free-badge">Im Ticket enthalten</span>
         </div>
+      </article>
+
+      <!-- Geistige Ausrichtung -->
+      <article class="workshop-card reveal">
+        <img src="Medien/Festival/Speaker/Charlene-und-Pjotr-Geistige-Ausrichtung.jpg" alt="Geistige Ausrichtung" class="workshop-img" loading="lazy">
+        <span class="workshop-tag">Einzelsitzung · max. 1 Person</span>
+        <h3 class="workshop-title">Geistige Ausrichtung</h3>
+        <div class="workshop-host">Pjotr &amp; Charlene Elkunoviz</div>
+        <p class="workshop-desc">Eine tiefgehende individuelle Sitzung zur geistigen Ausrichtung — ein persönlicher Raum für Transformation, Klarheit und innere Ausrichtung mit Pjotr und Charlene.</p>
+        <div class="workshop-meta">
+          <span class="workshop-badge price">€ 150 pro Person</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- SPEAKER WORKSHOPS -->
+    <h3 class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,40px);font-weight:300;color:var(--cream-mid);text-align:center;margin:60px 0 12px;">Workshops der <span style="background:linear-gradient(135deg,var(--gold) 0%,var(--rose-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Speaker</span></h3>
+    <p class="reveal" style="text-align:center;color:rgba(245,240,232,0.5);font-size:14px;margin-bottom:40px;">Intensivere Begegnung mit unseren Speakern — in kleinen Gruppen, persönlich und hautnah</p>
+    <div class="workshops-grid">
+
+      <article class="workshop-card reveal">
+        <img src="Medien/Festival/Speaker/Moderation-Bianka-Hugen.jpg" alt="Workshop Bianka Hugen" class="workshop-img" loading="lazy" style="object-position:center 20%;">
+        <span class="workshop-tag">Speaker-Workshop</span>
+        <h3 class="workshop-title">Workshop: Bianka Hugen</h3>
+        <div class="workshop-host">Bianka Hugen</div>
+        <p class="workshop-desc">Details zum Workshop werden in Kürze bekanntgegeben.</p>
+        <div class="workshop-meta"><span class="workshop-badge price">€ 30</span></div>
+      </article>
+
+      <article class="workshop-card reveal reveal-delay-1">
+        <img src="Medien/Festival/Workshops/Workshop-Speaker-Beispiel.png" alt="Workshop" class="workshop-img" loading="lazy">
+        <span class="workshop-tag">Speaker-Workshop</span>
+        <h3 class="workshop-title">Workshop: Dr. Marc Stollreiter</h3>
+        <div class="workshop-host">Dr. Marc Stollreiter</div>
+        <p class="workshop-desc">Details zum Workshop werden in Kürze bekanntgegeben.</p>
+        <div class="workshop-meta"><span class="workshop-badge">Preis folgt</span></div>
+      </article>
+
+      <article class="workshop-card reveal reveal-delay-2">
+        <img src="Medien/Festival/Workshops/Workshop-Speaker-Beispiel.png" alt="Workshop" class="workshop-img" loading="lazy">
+        <span class="workshop-tag">Speaker-Workshop</span>
+        <h3 class="workshop-title">Workshop: Bettina Hallifax</h3>
+        <div class="workshop-host">Bettina Hallifax</div>
+        <p class="workshop-desc">Details zum Workshop werden in Kürze bekanntgegeben.</p>
+        <div class="workshop-meta"><span class="workshop-badge">Preis folgt</span></div>
+      </article>
+
+      <article class="workshop-card reveal">
+        <img src="Medien/Festival/Workshops/Workshop-Speaker-Beispiel.png" alt="Workshop" class="workshop-img" loading="lazy">
+        <span class="workshop-tag">Speaker-Workshop</span>
+        <h3 class="workshop-title">Workshop: Andy Schwab</h3>
+        <div class="workshop-host">Andy Schwab</div>
+        <p class="workshop-desc">Details zum Workshop werden in Kürze bekanntgegeben.</p>
+        <div class="workshop-meta"><span class="workshop-badge price">€ 30</span></div>
+      </article>
+
+      <article class="workshop-card reveal reveal-delay-1">
+        <img src="Medien/Festival/Workshops/Workshop-Speaker-Beispiel.png" alt="Workshop" class="workshop-img" loading="lazy">
+        <span class="workshop-tag">Speaker-Workshop</span>
+        <h3 class="workshop-title">Workshop: Susanne Hühn</h3>
+        <div class="workshop-host">Susanne Hühn</div>
+        <p class="workshop-desc">Details zum Workshop werden in Kürze bekanntgegeben.</p>
+        <div class="workshop-meta"><span class="workshop-badge">Preis folgt</span></div>
+      </article>
+
+      <article class="workshop-card reveal reveal-delay-2">
+        <img src="Medien/Festival/Workshops/Workshop-Speaker-Beispiel.png" alt="Workshop" class="workshop-img" loading="lazy">
+        <span class="workshop-tag">Speaker-Workshop</span>
+        <h3 class="workshop-title">Workshop: Desiree Salomon</h3>
+        <div class="workshop-host">Desiree Salomon</div>
+        <p class="workshop-desc">Details zum Workshop werden in Kürze bekanntgegeben.</p>
+        <div class="workshop-meta"><span class="workshop-badge">Preis folgt</span></div>
       </article>
 
     </div>
@@ -2281,13 +2428,12 @@ footer {
     <h2 class="feuerlauf-title serif reveal reveal-delay-1">Geh durch das Feuer.</h2>
     <p class="feuerlauf-sub reveal reveal-delay-2">Komm als Neue/r heraus.</p>
     <p class="feuerlauf-text reveal reveal-delay-3">
-      Der Feuerlauf ist eines der ältesten Rituale der Menschheit — und eines der mächtigsten. In der Abenddämmerung des Samstags wirst du eingeladen, auf Kohlen zu gehen. Nicht als Mutprobe, sondern als Zeremonie der Transformation. Professionell begleitet. Sicher. Unvergesslich.
+      Das transformative Highlight des Festivals — geh durch das Feuer und wachse darüber hinaus. Anschließend feiert ihr gemeinsam: Musik, Tanz und echte Begegnung unter freiem Himmel. Das Leben und uns feiern. Professionell begleitet. Sicher. Unvergesslich.
     </p>
     <div class="feuerlauf-counter reveal" id="feuerlaufCounter">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF9933" stroke-width="1.5" aria-hidden="true"><path d="M17.657 18.657A8 8 0 016.343 7.343M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 6.343l-.707-.707M6.343 6.343l-.707-.707"/></svg>
-      <span>Für alle Teilnehmenden · kostenlos · Professionelle Begleitung</span>
+      <span>Für alle Teilnehmenden · kostenlos inklusive · Professionelle Begleitung</span>
     </div>
-    <p class="feuerlauf-note reveal">Für alle Teilnehmenden · kostenlos inklusive · Professionelle Begleitung</p>
     <div class="reveal reveal-delay-1" style="margin-top:12px;">
       <a href="#kontakt" class="btn-outline">Ticket anfragen</a>
     </div>
@@ -2426,7 +2572,7 @@ footer {
       <!-- Bianka Hugen -->
       <div class="reveal" style="display:flex;flex-direction:column;gap:24px;">
         <div style="display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;">
-          <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;border:2px solid rgba(201,168,76,0.4);flex-shrink:0;">
+          <div style="width:200px;height:200px;border-radius:50%;overflow:hidden;border:2px solid rgba(201,168,76,0.4);flex-shrink:0;">
             <img src="Medien/Speaker/bianka-hugen.jpg" alt="Bianka Hugen" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;">
           </div>
           <div>
@@ -2445,7 +2591,7 @@ footer {
       <!-- Thomas Schmelzer Symposium -->
       <div class="reveal reveal-delay-1" style="display:flex;flex-direction:column;gap:24px;">
         <div style="display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;">
-          <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;border:2px solid rgba(201,168,76,0.4);flex-shrink:0;">
+          <div style="width:200px;height:200px;border-radius:50%;overflow:hidden;border:2px solid rgba(201,168,76,0.4);flex-shrink:0;">
             <img src="Medien/Speaker/thomas-schmelzer.jpg" alt="Thomas Schmelzer" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;">
           </div>
           <div>
@@ -2541,7 +2687,7 @@ footer {
         Wie komme ich zum Lethehof?
         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Lethehof, Friedrichstraße 74, 26203 Wardenburg (Oldenburg). Mit dem Auto: A28, Ausfahrt Wardenburg — Parkplätze sind vorhanden. Mit der Bahn: Hauptbahnhof Oldenburg (~10 km), von dort per Taxi oder Bus. Genaue Anfahrtsbeschreibung erhältst du mit deiner Buchungsbestätigung.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Lethehof, Friedrichstraße 74, 26203 Wardenburg (Oldenburg). Mit dem Auto: A28, Ausfahrt Wardenburg — Parkplätze sind kostenlos, direkt am Hof vorhanden. Mit der Bahn: Hauptbahnhof Oldenburg (~10 km), von dort per Taxi oder Bus. Genaue Anfahrtsbeschreibung erhältst du nach deiner Anmeldung.</div></div>
     </div>
     <div class="faq-item reveal reveal-delay-1">
       <button class="faq-question" aria-expanded="false">
@@ -2559,10 +2705,10 @@ footer {
     </div>
     <div class="faq-item reveal reveal-delay-1">
       <button class="faq-question" aria-expanded="false">
-        Kann ich mein Ticket stornieren?
+        Wie kann ich stornieren oder mein Ticket übertragen?
         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Bis 30 Tage vor Veranstaltungsbeginn: volle Rückerstattung. Bis 14 Tage vorher: 50% Rückerstattung. Danach ist keine Rückerstattung mehr möglich — das Ticket kann jedoch auf eine andere Person übertragen werden. Bitte melde dich in diesem Fall an kontakt@soul-awakening-festival.com.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Für alle Fragen rund um Stornierung oder Ticketübertragung melde dich bitte direkt bei uns: <a href="mailto:kontakt@soul-awakening-festival.com" style="color:var(--gold-dark);">kontakt@soul-awakening-festival.com</a> — wir helfen dir unkompliziert und persönlich.</div></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" aria-expanded="false">
