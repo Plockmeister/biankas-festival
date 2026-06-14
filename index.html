@@ -2974,87 +2974,22 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-// ===== FEUERLAUF COUNTER (localStorage) =====
-(function() {
-  const stored = localStorage.getItem('feuerlaufVerfuegbar');
-  const checked = localStorage.getItem('feuerlaufChecked');
-  let verfuegbar = stored !== null ? parseInt(stored) : CONFIG.feuerlaufVerfuegbar;
-
-  document.getElementById('feuerlaufNum').textContent = verfuegbar;
-
-  if (checked === '1') {
-    document.getElementById('feuerlaufCheck').checked = true;
-    document.getElementById('feuerlaufCheckedMsg').style.display = 'block';
-    document.getElementById('addonFeuerlauf').checked = true;
-  }
-
-  document.getElementById('feuerlaufCheck').addEventListener('change', function() {
-    if (this.checked && verfuegbar > 0) {
-      verfuegbar--;
-      localStorage.setItem('feuerlaufVerfuegbar', verfuegbar);
-      localStorage.setItem('feuerlaufChecked', '1');
-      document.getElementById('feuerlaufNum').textContent = verfuegbar;
-      document.getElementById('feuerlaufCheckedMsg').style.display = 'block';
-      document.getElementById('addonFeuerlauf').checked = true;
-      calcTotal();
-    } else if (!this.checked) {
-      verfuegbar++;
-      if (verfuegbar > CONFIG.feuerlaufPlaetze) verfuegbar = CONFIG.feuerlaufPlaetze;
-      localStorage.setItem('feuerlaufVerfuegbar', verfuegbar);
-      localStorage.removeItem('feuerlaufChecked');
-      document.getElementById('feuerlaufNum').textContent = verfuegbar;
-      document.getElementById('feuerlaufCheckedMsg').style.display = 'none';
-      document.getElementById('addonFeuerlauf').checked = false;
-      calcTotal();
-    }
-  });
-})();
-
-// ===== TICKET SELECTION & PRICE CALC =====
-let selectedTicketPrice = 0;
-let selectedTicketName = '';
-
-function setSelectedTicket(type) {
-  const prices = { earlyBird: CONFIG.earlyBirdPreis, standard: CONFIG.standardPreis, vip: CONFIG.vipPreis };
-  const names = { earlyBird: 'Early Bird', standard: 'Standard', vip: 'VIP' };
-  selectedTicketPrice = prices[type];
-  selectedTicketName = names[type];
-  calcTotal();
-  document.getElementById('mainBookBtn').href = CONFIG.buchungsLink;
-  // Scroll to addons
-  document.querySelector('.addons-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function toggleVerpflegung() {
-  const show = document.getElementById('addonVerpflegung').checked;
-  document.getElementById('verpflegungTage').classList.toggle('visible', show);
-}
-
-function toggleRoom() {
-  const show = document.getElementById('addonUebernachtung').checked;
-  document.getElementById('roomOptions').classList.toggle('visible', show);
-}
-
-function calcTotal() {
-  let total = selectedTicketPrice;
-
-  if (document.getElementById('addonVerpflegung').checked) {
-    document.querySelectorAll('.verpf-day:checked').forEach(cb => { total += parseInt(cb.value); });
-  }
-
-  if (document.getElementById('addonUebernachtung').checked) {
-    const room = document.querySelector('input[name="room"]:checked');
-    const nights = parseInt(document.getElementById('numNights').value) || 2;
-    if (room) total += parseInt(room.value) * nights;
-  }
-
-  document.getElementById('totalPrice').textContent = selectedTicketPrice > 0 ? '€' + total : '€—';
-}
-
-// Ticket buttons also update booking link
-['bookEarlyBird','bookStandard','bookVIP'].forEach(id => {
+// ===== TICKET BUTTONS → FORMULAR VORAUSWAHL =====
+const ticketMap = {
+  bookEarlyBird: 'Early Bird Festival-Ticket (€249 statt €299)',
+  bookVIP: 'Early Bird VIP-Ticket (€449 statt €499)',
+  mainBookBtn: 'Early Bird Festival-Ticket (€249 statt €299)'
+};
+Object.entries(ticketMap).forEach(([id, val]) => {
   const el = document.getElementById(id);
-  if (el) el.href = CONFIG.buchungsLink;
+  if (!el) return;
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    const sel = document.getElementById('formTicket');
+    if (sel) sel.value = val;
+    const target = document.getElementById('kontakt');
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
 });
 
 // ===== HERO WEBGL SHADER =====
