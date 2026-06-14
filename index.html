@@ -2886,11 +2886,12 @@ footer {
 
 <script>
 // ===== INIT CONFIG VALUES =====
-document.getElementById('priceEarlyBird').textContent = CONFIG.earlyBirdPreis;
-document.getElementById('priceStandard').textContent = CONFIG.standardPreis;
-document.getElementById('priceVIP').textContent = CONFIG.vipPreis;
-document.getElementById('earlyBirdLeft').textContent = CONFIG.earlyBirdPlaetze - CONFIG.earlyBirdVerkauft;
-document.getElementById('vipLeft').textContent = CONFIG.vipPlaetze;
+const _setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+_setEl('priceEarlyBird', CONFIG.earlyBirdPreis);
+_setEl('priceStandard', CONFIG.standardPreis);
+_setEl('priceVIP', CONFIG.vipPreis);
+_setEl('earlyBirdLeft', CONFIG.earlyBirdPlaetze - CONFIG.earlyBirdVerkauft);
+_setEl('vipLeft', CONFIG.vipPlaetze);
 
 // ===== COUNTDOWN =====
 function updateCountdown() {
