@@ -1,5 +1,5 @@
 # Soul Awakening Festival 2026 — Projektstatus
-*Zuletzt aktualisiert: 14. Juni 2026*
+*Zuletzt aktualisiert: 15. Juni 2026*
 
 ---
 
@@ -26,7 +26,8 @@
 | **DNS** | Hetzner → soul-awakening-festival.com |
 | **SSL** | GitHub Let's Encrypt (automatisch) |
 | **NETLIFY** | ❌ NICHT MEHR NUTZEN — 300 Credits verbraucht |
-| **Ticketsystem** | QRTicket (noch nicht eingerichtet) — Pretix aufgegeben (zu teuer) |
+| **Formspree** | ✅ Aktiv — ID `xnjylzzd` → sendet an bianka.hugen@gmx.de |
+| **Auto-Reply** | ❌ Nicht auf Free-Plan — Bianka antwortet manuell. Plan: EmailJS sobald Bianka Gmail hat |
 
 ---
 
@@ -41,44 +42,37 @@
 
 ### Sektionen in index.html (von oben nach unten):
 1. **Hero** — Logo, Countdown, CTA-Button
-2. **Feature-Cards** — 3 Highlights (Taiko, Feuerlaufen, Verbundenheit)
-3. **Speaker** — 10 Speaker-Karten + 1 Platzhalter (Andy Schwab)
-4. **Festival-Erlebnis** — 4 Foto-Blöcke (Klangliege, Handpan, Breathwork, Feuerlauf)
-5. **Programm** — Tab-basiert Fr/Sa/So (Platzhalter, ab 12:00 Fr)
-6. **Workshops** — 9 Karten mit Preisen
-7. **Feuerlauf** — Highlight-Sektion
-8. **Tickets** — Early Bird €249 / Standard €299 / VIP €499
-9. **Moderation** — Bianka + Thomas (160px Fotos)
+2. **About** — Übersichtsbild (100% Breite), 3 Textblöcke, Stats, Features
+3. **Speaker** — 12 Speaker-Karten (inkl. Riccardo Avola) + Moderatoren
+4. **Workshops** — Karten mit Speaker-Fotos (object-position center 15%)
+5. **Programm** — ⚠️ AUSGEBLENDET (`display:none`) — wartet auf Google Sheet
+6. **Feuerlauf** — Highlight-Sektion
+7. **Tickets** — Early Bird €249 / Standard €299 / VIP Early Bird €449 (regulär €499)
+8. **Buchungsformular** — Formspree, Felder: Name, E-Mail, Adresse, Ticket, Feuerlauf, Nachricht
+9. **Moderation** — Bianka + Thomas (160px Fotos, zentriert)
 10. **Unterkunft** — Lethehof + Verpflegung
 11. **FAQ**
 12. **Footer**
 
 ---
 
-## 👥 Speaker (Stand: 14.06.2026)
+## 👥 Speaker (Stand: 15.06.2026)
 
-| Nr | Name | Foto | Bio | Status |
-|----|------|------|-----|--------|
-| 1 | Thomas Schmelzer | ✅ | ✅ | fertig |
-| 2 | Samu Vitatum | ✅ | ✅ | fertig |
-| 3 | Dr. Marc Stollreiter | ✅ | ✅ | fertig |
-| 4 | Susanne Hühn | ✅ | ✅ | fertig |
-| 5 | Bettina Hallifax | ✅ | ✅ | fertig |
-| 6 | Renate Dertinger | ✅ | ✅ | fertig |
-| 7 | Bianka Hugen | ✅ | ✅ | fertig (besseres Foto kommt) |
-| 8 | Verena Jaus | ✅ | ✅ | fertig |
-| 9 | Desiree Salomon | ✅ | ✅ | fertig |
-| 10 | Pjotr & Charlene Elkunoviz | ✅ | ✅ | fertig |
-| 11 | Andy Schwab | ❌ | ❌ | wartet auf Zusage |
-| -- | Manfred Mohr | -- | -- | ABGESAGT — gestrichen |
-
-**Gewünschte neue Struktur** pro Speaker-Modal:
-```
-Vortrag: [Thema]
-Workshop: [Thema]
-Bio: [Text]
-```
-→ Bianka geht alle Texte durch
+| Nr | Name | Foto | Vortrag | Workshop | Bio | Status |
+|----|------|------|---------|----------|-----|--------|
+| 1 | Thomas Schmelzer | ✅ | ✅ | ✅ | ✅ | fertig |
+| 2 | Samu Vitatum | ✅ | ⚠️ | ⚠️ | ✅ | Klären: Workshop "Non Duality" rein oder nicht? |
+| 3 | Dr. Marc Stollreiter | ✅ | ⚠️ | ⚠️ | ✅ | Vortrag + Workshop-Text fehlt |
+| 4 | Susanne Hühn | ✅ | ⚠️ | ⚠️ | ✅ | Vortrag + Workshop-Text fehlt |
+| 5 | Bettina Hallifax | ✅ | ⚠️ | ⚠️ | ✅ | Vortrag + Workshop-Text fehlt |
+| 6 | Renate Dertinger | ✅ | ⚠️ | ⚠️ | ✅ | Vortrag + Workshop-Text fehlt |
+| 7 | Bianka Hugen | ✅ | ⚠️ | ⚠️ | ✅ | Besseres Foto kommt; Workshop-Text fehlt |
+| 8 | Verena Jaus | ✅ | ⚠️ | ⚠️ | ✅ | Neue Bio aus Mail ausstehend; Vortrag: "Warum Spiritualität allein nicht die Antwort ist" |
+| 9 | Desiree Salomon | ✅ | ⚠️ | ⚠️ | ✅ | Vortrag + Workshop-Text fehlt |
+| 10 | Pjotr & Charlene Elkunoviz | ✅ | ⚠️ | ⚠️ | ✅ | Schreibweise "Geistige Aufrichtung" prüfen |
+| 11 | Andy Schwab | ❌ | ❌ | ❌ | ❌ | Wartet auf Zusage, Foto + Bio |
+| 12 | Riccardo Avola | ✅ | —  | ✅ | ✅ | Fertig — kein Vortrag, singt Fr + Heilkreis Sa/So |
+| -- | Manfred Mohr | -- | -- | -- | -- | ABGESAGT — gestrichen |
 
 ---
 
@@ -86,44 +80,53 @@ Bio: [Text]
 
 ```
 Medien/
-├── Speaker/              ← aktive Speaker-Fotos
 ├── Festival/
+│   ├── Speaker/          ← Speaker-Fotos inkl. Riccardo-Avola-2026-06-13.jpg
 │   ├── Angebote/         ← Klangliege (113,114), Breathwork (111,115), Aroma-Massage
 │   ├── Feuerlauf/        ← Siluette✅, Titelbild, WhatsApp, fire-2-120
 │   ├── Handpan/          ← IMG-2174✅, IMG-8615, Hilla-Knipper-05
-│   ├── Programm/         ← diverse Speaker-Fotos
-│   └── Speaker/          ← weitere Speaker-Fotos
-├── lethehof.jpg          ← Lethehof-Foto
+│   └── Programm/         ← diverse Speaker-Fotos + Opening-hellere-Version.png
 └── Awakening Festival Logo.png
 ```
 
 ---
 
+## 💰 Tickets & Preise (Stand: 15.06.2026)
+
+| Ticket | Early Bird Preis | Regulär | Early Bird Frist |
+|--------|-----------------|---------|------------------|
+| Festival-Ticket | €249 | €299 | bis 29. Juli 2026 oder 50 Tickets |
+| VIP-Ticket | €449 | €499 | bis 29. Juli 2026 oder 50 Tickets |
+
+**Buchungsweg:** Formspree → E-Mail an Bianka → Bianka bestätigt nach Zahlungseingang  
+**Bankdaten:** Bianka muss selbst im Formular/Bestätigungsseite eintragen (Claude darf keine IBAN eingeben)
+
+---
+
 ## 🔴 Offene Aufgaben
 
-### Sofort umsetzbar (Claude):
-- [ ] WebGL Hero-Animation reparieren (Canvas-Größe falsch: 300×150 statt Vollbild)
-- [ ] Mobile-Check: Feuerlauf, Tickets, FAQ Sektionen
-- [ ] STATUS.md aktuell halten
+### Sofort umsetzbar (Claude) — Nach Todo-Checkliste:
+- [ ] Kacheltexte (Festival-Erlebnis): Heilung & Tiefe, Klang & Rhythmus, Breathwork, Feuerlaufen — Texte aus Word-Dok
+- [ ] Speaker-Vortrag/Workshop-Texte: alle 6 haben noch "Details folgen" Platzhalter
+- [ ] Verena Jaus: Positionierung "Die Sonnenfrau" + neue Bio einbauen
+- [ ] Pjotr & Charlene: "Geistige Ausrichtung" → "Geistige Aufrichtung" prüfen
+- [ ] FAQ: Storno entfernen, Parkplatz-Hinweis, Hotel-E-Mail (.de vs .com), Hunde-Hinweis, Aussteller-Infos
+- [ ] Ticket-Leistungsübersicht per Checkliste aktualisieren
+- [ ] About-Bereich: Textblöcke aus Word-Dok einbauen
 
 ### Wartet auf Bianka:
+- [ ] Google Sheet mit Programm freigeben → Programm-Sektion einblenden
+- [ ] Andy Schwab — Foto + Bio + Vortrag
 - [ ] Besseres Foto von Bianka
-- [ ] Party-Foto (erstellt mit Gemini)
-- [ ] Breathwork-Foto nochmal tauschen
-- [ ] Taiko-Foto für "Klang & Rhythmus"
-- [ ] Workshop-Fotos: Symposium, Aromamassage, Klangliege, Heilkreis, Musik, Handpan, Füße, Breathwork, Feuer, Taiko, Atemmedi
-- [ ] Speaker-Texte: Vortrag + Workshop + Bio pro Speaker
-- [ ] Mehr Workshops — welche kommen noch?
-- [ ] Andy Schwab — Foto + Bio
-- [ ] Finales Programm Fr/Sa/So
-- [ ] "Open Text / Open Foto" — unklar was gemeint ist
-- [ ] QRTicket registrieren → Ticket-Links ersetzen
+- [ ] Taiko-Foto für "Klang & Rhythmus"-Kachel
+- [ ] Workshop-Fotos: Symposium, Aromamassage (Querformat), Klangliege, Heilkreis, Musik, Handpan, Füße, Breathwork, Feuer, Taiko, Atemmeditation
+- [ ] Samu Vitatum klären: Workshop "Non Duality" rein oder raus?
 - [ ] Instagram + Facebook Links
-- [ ] Hintergrundfarbe — endgültige Entscheidung
+- [ ] EmailJS-Setup → sobald Bianka Gmail-Adresse hat
 
 ### Technik:
-- [ ] SSL aktiv? (GitHub Zertifikat prüfen)
-- [ ] QRTicket IBAN → Bianka muss selbst eintragen
+- [ ] WebGL Hero-Animation — Canvas 300×150 Bug (kein Vollbild)
+- [ ] Mobile-Check: Feuerlauf, Tickets, FAQ Sektionen
 
 ---
 
@@ -139,36 +142,19 @@ Medien/
 
 **Schriften:** Cormorant Garamond (Überschriften), Inter (Text), Georgia (Fallback)
 
-**Hero-Animation:** WebGL2 Shader (Matthias Hurrle / @atzedent) — fließende Wolken/Wind
-- Canvas: `#hero-canvas`, opacity 0.85, blur 4px, brightness 1.3
-- Problem: Canvas wird mit 300×150 statt Vollbild gerendert → in Reparatur
-
 ---
 
-## 💰 Tickets & Preise
+## 📝 Letzte Änderungen (15.06.2026)
 
-| Ticket | Preis | Early Bird Plätze |
-|--------|-------|-------------------|
-| Early Bird | €249 | 30 (27 noch verfügbar lt. Counter) |
-| Standard | €299 | unbegrenzt |
-| VIP | €499 | unbegrenzt |
-
-**Ticketsystem:** QRTicket (0,90€/Ticket vom Käufer, kostenlos für Bianka)  
-**Status:** Noch nicht eingerichtet — Bianka muss sich registrieren  
-**Aktuell:** Links zeigen noch auf Pretix (muss geändert werden nach QRTicket-Setup)
-
----
-
-## 📝 Letzte Änderungen (14.06.2026)
-
-- Domain .de → .com überall korrigiert
-- GitHub Pages aufgesetzt (ersetzt Netlify)
-- Unterkunft: Mobile-Fix
-- Moderation: Fotos 90px → 160px, zentriert
-- Breathwork-Foto: Roland-Hutner-111.jpeg
-- Unterkunft: "nur per E-Mail buchbar" hervorgehoben
-- Programm: Hinweis-Banner + Fr ab 12:00 Uhr
-- Festival-Erlebnis: Feuer-Silhouette-Foto zurück
-- Speaker: "Unsere Speaker hautnah · 11 Speaker · 3 Tage"
-- Feuerlauf: "kostenlos" ergänzt
-- "Gemeinschaft" → "Verbundenheit & Austausch"
+- Programm-Sektion ausgeblendet (`display:none`) inkl. Nav-Links — wartet auf Programminhalt
+- Workshop-Karten: Gruppen-Platzhalter-Bild ersetzt durch individuelle Speaker-Fotos
+- Workshop-Bilder: `object-position: center 15%` — Gesichter nicht mehr abgeschnitten
+- Bettina Halifax: korrektes Foto (großes H) in Workshop-Karte
+- Riccardo Avola: Speaker-Karte + Modal hinzugefügt (kein Vortrag, Workshop: Heilkreis & Gesang)
+- Speaker-Modal: Vortrag/Workshop-Felder getrennt angezeigt
+- Formspree aktiviert: ID xnjylzzd → bianka.hugen@gmx.de
+- Dankeseite vereinfacht (war identisch mit geplanter Bestätigungsmail)
+- Übersichtsbild 100% Breite (außerhalb Container)
+- VIP-Ticket Preisdarstellung korrigiert: "449 statt 499"-Bug behoben
+  - VIP zeigt jetzt klar: Early Bird €449 (statt ~~€499~~), "Du sparst €50"
+  - Early Bird Frist: 20. Juli → **29. Juli 2026** überall aktualisiert

@@ -32,7 +32,7 @@ const CONFIG = {
   // Ticketpreise in Euro (nur die Zahl, ohne €-Zeichen)
   earlyBirdPreis: 249,        // ← Early Bird Preis
   standardPreis:  299,        // ← Standard Ticket
-  vipPreis:       499,        // ← VIP Ticket
+  vipPreis:       449,        // ← VIP Early Bird Preis (regulär €499 ab 30. Juli)
 
   // Verfügbare Plätze
   earlyBirdPlaetze: 50,       // ← Wie viele Early Bird Plätze gibt es?
@@ -1075,6 +1075,58 @@ p { line-height: 1.7; }
   gap: 2px;
   margin-bottom: 60px;
 }
+.tickets-grid-2col {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ticket-urgency {
+  display: block;
+  padding: 8px 16px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin-bottom: 28px;
+  text-align: center;
+}
+.ticket-price-block {
+  margin-bottom: 8px;
+}
+.ticket-original-price {
+  font-size: 15px;
+  color: rgba(245,240,232,0.45);
+  margin-top: 2px;
+}
+.ticket-original-price s { text-decoration-color: rgba(245,240,232,0.5); }
+.ticket-saving {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 10px;
+  background: rgba(201,168,76,0.18);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+.ticket-card.featured .ticket-saving {
+  background: rgba(0,0,0,0.15);
+  color: #0A0A0A;
+}
+.ticket-deadline {
+  font-size: 12px;
+  color: rgba(245,240,232,0.4);
+  border: 1px solid rgba(245,240,232,0.1);
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin: 14px 0 24px;
+  line-height: 1.5;
+}
 .ticket-card {
   padding: 40px 32px;
   border: 1px solid rgba(201,168,76,0.15);
@@ -1114,7 +1166,7 @@ p { line-height: 1.7; }
   color: var(--cream-mid);
   margin-bottom: 8px;
 }
-.ticket-card.featured .ticket-name { color: var(--black); }
+.ticket-card.featured .ticket-name { color: #1A0A00; }
 .ticket-price {
   font-family: 'Cormorant Garamond', serif;
   font-size: 64px;
@@ -1148,14 +1200,14 @@ p { line-height: 1.7; }
   color: rgba(245,240,232,0.75);
   line-height: 1.4;
 }
-.ticket-card.featured .ticket-features li { color: rgba(10,10,10,0.75); }
+.ticket-card.featured .ticket-features li { color: rgba(10,10,10,0.88); font-weight: 500; }
 .ticket-check {
   width: 16px; height: 16px;
   flex-shrink: 0;
   margin-top: 1px;
   color: var(--gold);
 }
-.ticket-card.featured .ticket-check { color: rgba(10,10,10,0.7); }
+.ticket-card.featured .ticket-check { color: rgba(10,10,10,0.85); }
 .ticket-btn {
   width: 100%;
   padding: 16px;
@@ -1277,6 +1329,7 @@ p { line-height: 1.7; }
 
 @media (max-width: 900px) {
   .tickets-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+  .tickets-grid-2col { max-width: 420px; }
 }
 @media (max-width: 600px) {
   .addons-section { padding: 24px 20px; }
@@ -2476,61 +2529,72 @@ footer {
       <h2 class="section-title gold-text reveal reveal-delay-1" style="font-size:clamp(40px,6vw,80px);">Wähle dein Erlebnis</h2>
     </div>
 
-    <div class="tickets-grid">
-      <!-- EARLY BIRD -->
+    <div class="tickets-grid tickets-grid-2col">
+
+      <!-- EARLY BIRD FESTIVAL -->
       <div class="ticket-card reveal">
-        <span class="ticket-badge">🕊 Early Bird — Noch <span id="earlyBirdLeft">50</span> Plätze!</span>
-        <div class="ticket-name">Early Bird</div>
-        <div class="ticket-price gold-text"><span class="ticket-price-currency">€</span><span id="priceEarlyBird">249</span></div>
-        <div class="ticket-price-note">Statt €299 — spare €50 · Nur bis 20. Juli 2026 oder 50 Tickets</div>
-        <ul class="ticket-features">
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Festivaleintritt Freitag–Sonntag</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alle Speaker-Sessions &amp; Symposium</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Taiko Trommeln · Handpan · Musik</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Feuerlauf · Lagerfeuer · Tanz</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>~20 Aussteller · Speaker hautnah</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Viele Workshops (optional zubuchbar)</li>
-        </ul>
-        <a href="#kontakt" id="bookEarlyBird" class="ticket-btn">Jetzt buchen</a>
-      </div>
-
-      <!-- STANDARD -->
-      <div class="ticket-card reveal reveal-delay-1">
-        <span class="ticket-badge">Standard</span>
+        <!-- Urgency-Banner -->
+        <div class="ticket-urgency">
+          🕊 Early Bird — Nur noch <strong><span id="earlyBirdLeft">50</span> Plätze</strong> verfügbar!
+        </div>
         <div class="ticket-name">Festival-Ticket</div>
-        <div class="ticket-price" style="color:var(--cream-mid);"><span class="ticket-price-currency" style="color:var(--cream-mid);">€</span><span id="priceStandard">299</span></div>
-        <div class="ticket-price-note">Regulärer Festivalpreis ab 21. Juli 2026</div>
+
+        <!-- Preis klar: groß + durchgestrichen -->
+        <div class="ticket-price-block">
+          <div class="ticket-price gold-text">
+            <span class="ticket-price-currency">€</span><span id="priceEarlyBird">249</span>
+          </div>
+          <div class="ticket-original-price">statt <s>€299</s></div>
+          <div class="ticket-saving">Du sparst €50!</div>
+        </div>
+
+        <div class="ticket-deadline">⏳ Gilt bis 29. Juli 2026 oder solange Vorrat reicht</div>
+
         <ul class="ticket-features">
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Festivaleintritt Freitag–Sonntag</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alle Speaker-Sessions &amp; Symposium</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Taiko Trommeln · Handpan · Musik</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Feuerlauf · Lagerfeuer · Tanz</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>~20 Aussteller · Speaker hautnah</li>
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Viele Workshops (optional zubuchbar)</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alle 12 Speaker-Sessions &amp; Symposium</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Taiko Trommeln · Handpan · Musik · Tanz</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Feuerlauf · Lagerfeuer · Atemmeditation · Heilkreis</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>~20 Aussteller · Speaker hautnah erleben</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Viele Workshops optional zubuchbar</li>
         </ul>
-        <a href="#kontakt" id="bookStandard" class="ticket-btn">Jetzt buchen</a>
+        <a href="#kontakt" id="bookEarlyBird" class="ticket-btn">Jetzt Early Bird sichern</a>
       </div>
 
-      <!-- VIP -->
-      <div class="ticket-card featured reveal reveal-delay-2">
-        <span class="ticket-badge">🌟 VIP Early Bird — Exklusiv</span>
-        <div class="ticket-name">VIP</div>
-        <div class="ticket-price" style="color:#0A0A0A;"><span class="ticket-price-currency" style="color:#0A0A0A;">€</span><span id="priceVIP">449</span></div>
-        <div class="ticket-price-note">Statt €499 — spare €50 · Nur bis 20. Juli 2026 oder 50 Tickets</div>
+      <!-- VIP EARLY BIRD -->
+      <div class="ticket-card featured reveal reveal-delay-1">
+        <!-- Urgency-Banner -->
+        <div class="ticket-urgency" style="background:rgba(0,0,0,0.18);color:#0A0A0A;">
+          🌟 VIP Early Bird — Exklusives Erlebnis
+        </div>
+        <div class="ticket-name">VIP-Ticket</div>
+
+        <!-- Preis klar: groß + durchgestrichen -->
+        <div class="ticket-price-block">
+          <div class="ticket-price" style="color:#0A0A0A;">
+            <span class="ticket-price-currency" style="color:#0A0A0A;">€</span><span id="priceVIP">449</span>
+          </div>
+          <div class="ticket-original-price" style="color:rgba(10,10,10,0.7);">statt <s>€499</s></div>
+          <div class="ticket-saving" style="color:#0A0A0A;">Du sparst €50!</div>
+        </div>
+
+        <div class="ticket-deadline" style="color:rgba(10,10,10,0.75);border-color:rgba(10,10,10,0.25);">⏳ Gilt bis 29. Juli 2026 oder solange Vorrat reicht</div>
+
         <ul class="ticket-features">
-          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Standard</li>
+          <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alles aus dem Festival-Ticket</li>
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alle Workshops inklusive</li>
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Breathwork Journey inklusive</li>
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Meet the Speaker</li>
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Feuerlauf inklusive</li>
         </ul>
-        <a href="#kontakt" id="bookVIP" class="ticket-btn">VIP-Erlebnis buchen</a>
+        <a href="#kontakt" id="bookVIP" class="ticket-btn">VIP-Erlebnis sichern</a>
       </div>
     </div>
 
-    <div style="text-align:center;" class="reveal">
-      <a href="#kontakt" id="mainBookBtn" class="btn-gold" style="margin-bottom:20px;">Jetzt Early-Bird-Ticket buchen</a>
-      <p class="tickets-note">Alle Preise inkl. MwSt. · Persönliche Buchung · Zahlung per Überweisung</p>
+    <div style="text-align:center;margin-top:16px;" class="reveal">
+      <p class="tickets-note" style="margin-bottom:24px;">Alle Preise inkl. MwSt. · Persönliche Buchung · Zahlung per Überweisung</p>
+      <a href="#kontakt" id="mainBookBtn" class="btn-gold">Jetzt Early-Bird-Ticket buchen</a>
+      <p class="tickets-note" style="margin-top:16px;opacity:0.5;">Ab 30. Juli 2026: Festival-Ticket €299 · VIP-Ticket €499</p>
     </div>
   </div>
 </section>
@@ -2670,9 +2734,9 @@ footer {
         <select class="form-select" id="formTicket" name="ticket" required>
           <option value="" disabled selected>Bitte wählen …</option>
           <option value="Early Bird Festival-Ticket (€249 statt €299)">🕊 Early Bird Festival-Ticket — €249 statt €299</option>
-          <option value="Early Bird VIP-Ticket (€449 statt €499)">🌟 Early Bird VIP-Ticket — €449 statt €499</option>
+          <option value="Early Bird VIP-Ticket (€449 statt €499 — spare €50)">🌟 Early Bird VIP-Ticket — €449 (regulär €499, spare €50)</option>
         </select>
-        <p style="font-size:12px;color:rgba(245,240,232,0.35);margin-top:6px;">Early Bird gilt für die ersten 50 Tickets oder bis 20. Juli 2026 — je nachdem, was zuerst eintritt.</p>
+        <p style="font-size:12px;color:rgba(245,240,232,0.35);margin-top:6px;">Early Bird gilt für die ersten 50 Tickets oder bis 29. Juli 2026 — je nachdem, was zuerst eintritt.</p>
       </div>
 
       <div class="form-group">
@@ -2717,7 +2781,7 @@ footer {
             Betreff: <strong style="color:var(--cream-mid);">Festival Ticket</strong> + dein gewähltes Ticket<br>
             <em style="color:rgba(245,240,232,0.5);">Early Bird Festival-Ticket: €249 · Early Bird VIP: €449</em>
           </p>
-          <p style="font-size:13px;color:rgba(245,240,232,0.45);margin-top:12px;line-height:1.7;">Das Early Bird Angebot gilt nur bis die ersten 50 Tickets verkauft sind oder bis zum 20.07.2026 — je nachdem was zuerst eintritt. Schnell sein lohnt sich also.</p>
+          <p style="font-size:13px;color:rgba(245,240,232,0.45);margin-top:12px;line-height:1.7;">Das Early Bird Angebot gilt nur bis die ersten 50 Tickets verkauft sind oder bis zum 29.07.2026 — je nachdem was zuerst eintritt. Schnell sein lohnt sich also.</p>
           <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(201,168,76,0.15);">
             <p style="font-size:13px;color:rgba(245,240,232,0.5);line-height:1.7;">
               📍 <strong>Veranstaltungsort:</strong> Lethehof, Friedrichstraße 74, 26203 Wardenburg<br>
@@ -3010,7 +3074,7 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 // ===== TICKET BUTTONS → FORMULAR VORAUSWAHL =====
 const ticketMap = {
   bookEarlyBird: 'Early Bird Festival-Ticket (€249 statt €299)',
-  bookVIP: 'Early Bird VIP-Ticket (€449 statt €499)',
+  bookVIP: 'Early Bird VIP-Ticket (€449 statt €499 — spare €50)',
   mainBookBtn: 'Early Bird Festival-Ticket (€249 statt €299)'
 };
 Object.entries(ticketMap).forEach(([id, val]) => {
@@ -3268,7 +3332,7 @@ function toggleCookieDetails() {
       e.preventDefault();
       const ticketMap = {
         bookEarlyBird: 'Early Bird Festival-Ticket (€249 statt €299)',
-        bookVIP: 'Early Bird VIP-Ticket (€449 statt €499)',
+        bookVIP: 'Early Bird VIP-Ticket (€449 statt €499 — spare €50)',
         mainBookBtn: 'Early Bird Festival-Ticket (€249 statt €299)'
       };
       const sel = document.getElementById('formTicket');
