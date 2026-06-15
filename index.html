@@ -882,6 +882,71 @@ p { line-height: 1.7; }
 }
 .program-desc { font-size: 13px; color: var(--text-muted-light); }
 .highlight-session .program-session { color: var(--gold-dark); }
+.program-item.program-pause {
+  padding: 10px 0;
+  opacity: 0.5;
+}
+.program-item.program-pause .program-session { font-size: 14px; font-family: inherit; }
+.program-item.program-pause::before { background: var(--cream-dark); border-color: var(--cream-dark); }
+.program-workshop-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  padding: 10px 0 20px;
+  border-bottom: 1px solid var(--cream-dark);
+  position: relative;
+}
+.program-workshop-row::before {
+  content: '';
+  position: absolute;
+  left: 72px;
+  top: 14px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--rose);
+  border: 2px solid var(--cream);
+}
+.program-workshop-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.label-buehne { background: rgba(201,168,76,0.12); color: var(--gold-dark); }
+.label-workshop { background: rgba(196,132,140,0.12); color: var(--rose); }
+.label-pause { background: rgba(109,74,55,0.1); color: var(--text-muted-light); }
+.program-parallel {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--cream-dark);
+  position: relative;
+}
+.program-parallel::before {
+  content: '';
+  position: absolute;
+  left: 72px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--cream);
+}
+.program-parallel-col { }
+.program-parallel-col + .program-parallel-col {
+  border-left: 1px solid var(--cream-dark);
+  padding-left: 20px;
+}
+@media (max-width: 680px) {
+  .program-parallel { grid-template-columns: 80px 1fr; }
+  .program-parallel-col + .program-parallel-col { border-left: none; padding-left: 0; border-top: 1px solid var(--cream-dark); padding-top: 10px; margin-top: 8px; }
+}
 
 /* ===== WORKSHOPS ===== */
 #workshops {
@@ -1885,7 +1950,7 @@ footer {
     <img src="Medien/Awakening Festival Logo.png" alt="Soul Awakening Festival 2026 Logo">
   </a>
   <ul class="nav-links">
-    <li style="display:none;"><a href="#programm">Programm</a></li>
+    <li><a href="#programm">Programm</a></li>
     <li><a href="#speaker">Speaker</a></li>
     <li><a href="#workshops">Workshops</a></li>
     <li><a href="#feuerlauf">Feuerlauf</a></li>
@@ -1900,7 +1965,7 @@ footer {
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation">
-  <a href="#programm" class="mobile-nav-link" style="display:none;">Programm</a>
+  <a href="#programm" class="mobile-nav-link">Programm</a>
   <a href="#speaker" class="mobile-nav-link">Speaker</a>
   <a href="#workshops" class="mobile-nav-link">Workshops</a>
   <a href="#feuerlauf" class="mobile-nav-link">Feuerlauf</a>
@@ -2275,14 +2340,14 @@ footer {
 </section>
 
 <!-- PROGRAM -->
-<section id="programm" style="display:none;">
+<section id="programm">
   <div class="program-inner">
     <span class="section-label reveal">21.–23. August 2026</span>
     <h2 class="section-title reveal reveal-delay-1" style="color:var(--text-dark);">Das <span style="color:var(--gold-dark);">Programm</span></h2>
     <div class="gold-line reveal reveal-delay-2"></div>
 
     <div class="reveal reveal-delay-2" style="max-width:640px;margin:0 auto 32px;padding:14px 20px;background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.2);border-radius:6px;text-align:center;">
-      <span style="font-size:13px;color:var(--gold-dark);letter-spacing:0.05em;">✦ Das vollständige Programm wird laufend aktualisiert — alle Zeiten vorläufig</span>
+      <span style="font-size:13px;color:var(--gold-dark);letter-spacing:0.05em;">✦ Hauptbühne / Seminarraum &nbsp;·&nbsp; <span style="color:var(--rose);">Workshopraum</span> &nbsp;·&nbsp; ★ Highlight-Session</span>
     </div>
 
     <div class="tab-buttons reveal reveal-delay-2" role="tablist">
@@ -2292,31 +2357,82 @@ footer {
     </div>
 
     <div id="tab-fr" class="tab-panel active" role="tabpanel">
-      <div class="program-item"><div class="program-time">12:00</div><div><div class="program-session">Anreise &amp; Check-in</div><div class="program-desc">Ankommen, Zimmer beziehen, Orientierung auf dem Lethehof</div></div></div>
-      <div class="program-item"><div class="program-time">13:00</div><div><div class="program-session">Mittagessen</div><div class="program-desc">Gemeinsames Mittagessen (optional, Vollverpflegung)</div></div></div>
-      <div class="program-item"><div class="program-time">15:00</div><div><div class="program-session">Speaker-Sessions &amp; Workshops</div><div class="program-desc">Genaues Programm folgt — das Programm ist bis oben hin voll</div></div></div>
-      <div class="program-item"><div class="program-time">18:00</div><div><div class="program-session">Eröffnungs-Zeremonie</div><div class="program-desc">Gemeinsames Einläuten des Festivals — spirituelle Öffnungsrunde</div></div></div>
-      <div class="program-item"><div class="program-time">19:30</div><div><div class="program-session">Willkommens-Dinner</div><div class="program-desc">Gemeinsames Abendessen (optional, Vollverpflegung)</div></div></div>
-      <div class="program-item highlight-session"><div class="program-time">21:00</div><div><div class="program-session">Lagerfeuer &amp; Kennenlernen</div><div class="program-desc">Entspannter Abend unter dem Sternenhimmel</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">12:00</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Eröffnung</div><div class="program-desc">Bianka Hugen begrüßt alle Teilnehmenden</div></div></div>
+      <div class="program-parallel">
+        <div class="program-time">12:15</div>
+        <div class="program-parallel-col"><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Desirée Salomon</div><div class="program-desc">Mehr Menschen. Mehr Wirkung. Mehr Licht. · 30 Min</div></div>
+        <div class="program-parallel-col"><span class="program-workshop-label label-workshop">Workshopraum</span><div class="program-session">Breathwork</div><div class="program-desc">Roland &amp; Aurelia Hutner · 12:15–14:15 · 2 Std · max. 40 Pers.</div></div>
+      </div>
+      <div class="program-item program-pause"><div class="program-time">12:45</div><div><div class="program-session">Pause · 15 Min</div></div></div>
+      <div class="program-item"><div class="program-time">13:00</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Charlene &amp; Pjotr Elkunoviz</div><div class="program-desc">Ganzheitliche Heilung durch Die Geistige Aufrichtung® · 60 Min</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">14:00</div><div><div class="program-session">Pause · 30 Min</div></div></div>
+      <div class="program-item"><div class="program-time">14:30</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Verena Jaus</div><div class="program-desc">Warum Spiritualität allein nicht die Antwort ist · 60 Min</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">15:30</div><div><div class="program-session">Pause · 30 Min</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">16:00</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Thomas Schmelzer ★</div><div class="program-desc">Klarheit des Herzens: Willkommen auf dem Bewusstseinsweg! · 60 Min</div></div></div>
+      <div class="program-item"><div class="program-time">17:00</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Atemmeditation</div><div class="program-desc">Roland Hutner · 30 Min · Kostenlos für alle</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">17:30</div><div><div class="program-session">Abendessen · 60 Min</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">18:30</div><div><span class="program-workshop-label label-buehne">Gelände</span><div class="program-session">🔥 Feuerlauf</div><div class="program-desc">Das transformative Highlight des Festivals · Professionell begleitet · Kostenlos für alle · bis 21:00</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">ab 21:00</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Gesang &amp; Heilkreis · Riccardo Avola</div><div class="program-desc">Kollektives Bewusstsein — Töne, die das Herz öffnen</div></div></div>
     </div>
 
     <div id="tab-sa" class="tab-panel" role="tabpanel">
-      <div class="program-item"><div class="program-time">07:00</div><div><div class="program-session">Morgen-Meditation</div><div class="program-desc">Sanfter Start in den Tag, geführte Meditation im Freien</div></div></div>
-      <div class="program-item"><div class="program-time">09:00</div><div><div class="program-session">Speaker-Session I</div><div class="program-desc">Keynote Speaker — Thema und Name werden bekanntgegeben</div></div></div>
-      <div class="program-item"><div class="program-time">11:00</div><div><div class="program-session">Workshops</div><div class="program-desc">Parallele Workshop-Angebote zur Auswahl</div></div></div>
-      <div class="program-item"><div class="program-time">13:00</div><div><div class="program-session">Mittagspause</div><div class="program-desc">Gemeinsames Mittagessen (vegan/vegetarisch, Vollverpflegung optional)</div></div></div>
-      <div class="program-item"><div class="program-time">15:00</div><div><div class="program-session">Speaker-Session II</div><div class="program-desc">Keynote Speaker — Thema und Name werden bekanntgegeben</div></div></div>
-      <div class="program-item highlight-session"><div class="program-time">17:00</div><div><div class="program-session">Taiko Trommeln</div><div class="program-desc">Erlebe die kraftvolle Energie japanischer Trommelkunst</div></div></div>
-      <div class="program-item highlight-session"><div class="program-time">20:00</div><div><div class="program-session">🔥 Feuerlauf-Zeremonie</div><div class="program-desc">Das Highlight des Festivals — für angemeldete Teilnehmer</div></div></div>
-      <div class="program-item"><div class="program-time">22:00</div><div><div class="program-session">Lagerfeuer-Nacht</div><div class="program-desc">Musik, Stille, Verbindung</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">08:00</div><div><div class="program-session">Frühstück · bis 08:45</div></div></div>
+      <div class="program-item"><div class="program-time">08:45</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Eröffnung · Bianka Hugen</div></div></div>
+      <div class="program-item"><div class="program-time">09:00</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Morgengruß &amp; Heilkreis · Riccardo Avola</div></div></div>
+      <div class="program-item"><div class="program-time">09:15</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Taiko Trommeln</div><div class="program-desc">Kraftvoller Start mit japanischer Trommelkunst · bis 09:45</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">09:45</div><div><div class="program-session">Pause · 15 Min</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">10:00</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Bianka Hugen ★</div><div class="program-desc">Öffnen von Bewusstseinswelten durch das Kollektiv · 60 Min</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">11:00</div><div><div class="program-session">Pause · 20 Min</div></div></div>
+      <div class="program-item"><div class="program-time">11:20</div><div><span class="program-workshop-label label-workshop">Workshopraum</span><div class="program-session">Bianka Hugen — Workshop</div><div class="program-desc">Expedition ins SEIN — gemeinsam reisen wir in die Tiefen von Atlantis, um neue Bewusstseinsräume zu öffnen · 60 Min</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">12:20</div><div><div class="program-session">Mittagessen · bis 13:20</div></div></div>
+      <div class="program-parallel">
+        <div class="program-time">13:20</div>
+        <div class="program-parallel-col"><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Bettina Hallifax</div><div class="program-desc">Gefühle als Kompass — Wie Emotionen zu Wegweisern werden · 60 Min</div></div>
+        <div class="program-parallel-col"><span class="program-workshop-label label-workshop">Workshopraum</span><div class="program-session">Breathwork 2</div><div class="program-desc">Roland &amp; Aurelia Hutner · 13:20–15:20 · 2 Std · max. 40 Pers.</div></div>
+      </div>
+      <div class="program-item program-pause"><div class="program-time">14:20</div><div><div class="program-session">Pause · 20 Min</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">14:40</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Symposium ★ — Thomas Schmelzer</div><div class="program-desc">Ganz wach und bewusst im Herzen sein — wie gelingt uns das in diesen bewegenden Zeiten? · 60 Min</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">15:40</div><div><div class="program-session">Pause · 30 Min</div></div></div>
+      <div class="program-parallel">
+        <div class="program-time">16:10</div>
+        <div class="program-parallel-col"><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Susanne Hühn</div><div class="program-desc">Die Heldenreise des Inneren Kindes · 60 Min</div></div>
+        <div class="program-parallel-col"><span class="program-workshop-label label-workshop">Workshopraum</span><div class="program-session">Bettina Hallifax — Workshop</div><div class="program-desc">Unter der Oberfläche — was dich wirklich bewegt · 60 Min</div></div>
+      </div>
+      <div class="program-item program-pause"><div class="program-time">17:10</div><div><div class="program-session">Pause · 20 Min</div></div></div>
+      <div class="program-item"><div class="program-time">17:30</div><div><span class="program-workshop-label label-workshop">Workshopraum</span><div class="program-session">Susanne Hühn — Workshop</div><div class="program-desc">Die Heldenreise des Inneren Kindes · 60 Min</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">18:30</div><div><div class="program-session">Abendessen · bis 19:30</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">19:30</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Taiko Show</div><div class="program-desc">Mitreißende Bühnenshow · Kostenlos für alle · bis 20:30</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">ab 20:30</div><div><span class="program-workshop-label label-buehne">Gelände</span><div class="program-session">🎶 DJ · Tanzen · Lagerfeuer · Handpan</div><div class="program-desc">Feiert gemeinsam das Leben — der Abend gehört euch</div></div></div>
     </div>
 
     <div id="tab-so" class="tab-panel" role="tabpanel">
-      <div class="program-item"><div class="program-time">08:00</div><div><div class="program-session">Yoga &amp; Stille</div><div class="program-desc">Sanfter Morgen mit Yoga und Atemübungen</div></div></div>
-      <div class="program-item"><div class="program-time">10:00</div><div><div class="program-session">Speaker-Session III</div><div class="program-desc">Keynote Speaker — Thema und Name werden bekanntgegeben</div></div></div>
-      <div class="program-item highlight-session"><div class="program-time">12:00</div><div><div class="program-session">Abschluss-Kreis</div><div class="program-desc">Gemeinsame Reflexion, Dankbarkeit und Verabschiedung</div></div></div>
-      <div class="program-item"><div class="program-time">13:00</div><div><div class="program-session">Gemeinsames Mittagessen</div><div class="program-desc">Letztes gemeinsames Essen des Festivals</div></div></div>
-      <div class="program-item"><div class="program-time">15:00</div><div><div class="program-session">Abreise</div><div class="program-desc">Safe travels — bis zum nächsten Mal</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">08:00</div><div><div class="program-session">Frühstück · bis 08:45</div></div></div>
+      <div class="program-item"><div class="program-time">08:45</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Eröffnung · Bianka Hugen</div></div></div>
+      <div class="program-item"><div class="program-time">09:00</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Morgengruß &amp; Heilkreis · Riccardo Avola</div></div></div>
+      <div class="program-item"><div class="program-time">09:15</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Taiko Trommeln</div><div class="program-desc">Kraftvoller Start mit japanischer Trommelkunst · bis 09:45</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">09:45</div><div><div class="program-session">Pause · 15 Min</div></div></div>
+      <div class="program-parallel">
+        <div class="program-time">10:00</div>
+        <div class="program-parallel-col"><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Andy Schwab — Vortrag</div><div class="program-desc">Thema folgt · 60 Min</div></div>
+        <div class="program-parallel-col"><span class="program-workshop-label label-workshop">Workshopraum</span><div class="program-session">Desirée Salomon — Workshop</div><div class="program-desc">Die Geldidentität der neuen Zeit · 60 Min</div></div>
+      </div>
+      <div class="program-item program-pause"><div class="program-time">11:00</div><div><div class="program-session">Pause · 30 Min</div></div></div>
+      <div class="program-item"><div class="program-time">11:30</div><div><span class="program-workshop-label label-workshop">Workshopraum</span><div class="program-session">Andy Schwab — Workshop</div><div class="program-desc">Thema folgt · 60 Min</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">12:30</div><div><div class="program-session">Mittagessen · bis 13:30</div></div></div>
+      <div class="program-parallel">
+        <div class="program-time">13:30</div>
+        <div class="program-parallel-col"><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Samu Vitatum</div><div class="program-desc">Wer bin ich — Das Ende der Suche ist der Anfang des Lebens · 60 Min</div></div>
+        <div class="program-parallel-col"><span class="program-workshop-label label-workshop">Workshopraum</span><div class="program-session">Breathwork 3</div><div class="program-desc">Roland &amp; Aurelia Hutner · 13:20–15:20 · 2 Std · max. 40 Pers.</div></div>
+      </div>
+      <div class="program-item program-pause"><div class="program-time">14:30</div><div><div class="program-session">Pause · 30 Min</div></div></div>
+      <div class="program-item"><div class="program-time">15:00</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Renate Dertinger</div><div class="program-desc">Komme durch Cosmic Healing in das Feld der Demenz, lass dich berühren und schau, was alles möglich ist · 45 Min</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">15:45</div><div><div class="program-session">Pause · 30 Min</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">16:15</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Dr. Marc Stollreiter ★</div><div class="program-desc">Von der Willenskraft zur Seelenkraft · 60 Min</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">17:15</div><div><div class="program-session">Pause · 30 Min</div></div></div>
+      <div class="program-item"><div class="program-time">17:45</div><div><span class="program-workshop-label label-workshop">Workshopraum</span><div class="program-session">Dr. Marc Stollreiter — Workshop</div><div class="program-desc">Der direkte Kontakt zum Göttlichen in Dir — oder: vom Glauben zum Wissen · 60 Min</div></div></div>
+      <div class="program-item program-pause"><div class="program-time">18:45</div><div><div class="program-session">Pause · 15 Min</div></div></div>
+      <div class="program-item highlight-session"><div class="program-time">19:00</div><div><span class="program-workshop-label label-buehne">Hauptbühne</span><div class="program-session">Abschlusskreis</div><div class="program-desc">Gemeinsamer Abschluss des Festivals · 30 Min</div></div></div>
+      <div class="program-item"><div class="program-time">ab 19:30</div><div><div class="program-session">Festivalende</div><div class="program-desc">Auf Wiedersehen — bis zum nächsten Mal 🌟</div></div></div>
     </div>
   </div>
 </section>
