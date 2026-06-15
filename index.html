@@ -634,6 +634,27 @@ p { line-height: 1.7; }
   text-overflow: ellipsis;
 }
 .speaker-bio { font-size: 13px; color: var(--text-muted-light); line-height: 1.55; }
+.speaker-more-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  border: 1px solid rgba(139,105,20,0.35);
+  border-radius: 20px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  font-family: inherit;
+}
+.speaker-more-btn:hover {
+  background: var(--gold-dark);
+  color: var(--cream);
+  border-color: var(--gold-dark);
+}
 
 @media (max-width: 900px) {
   .speakers-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2692,9 +2713,10 @@ footer {
           <div>
             <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,32px);font-weight:400;color:var(--cream-mid);">Thomas Schmelzer</div>
             <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-top:4px;">Moderation Symposium</div>
+            <div style="font-size:12px;letter-spacing:0.08em;color:rgba(201,168,76,0.6);margin-top:6px;">Gesicht von <strong style="color:var(--gold);">MYSTICA.TV</strong> · 145.000 Abonnenten</div>
           </div>
         </div>
-        <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">Mit seiner langjährigen Erfahrung als Moderator, Interviewer und Brückenbauer begleitet Thomas Schmelzer durch das Symposium.</p>
+        <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">Thomas Schmelzer ist das bekannte Gesicht des Onlinemagazins <strong style="color:var(--gold);">MYSTICA.TV</strong> (145.000 Abonnenten) — und einer der erfahrensten Moderatoren der deutschsprachigen Bewusstseinsszene. Mit seiner langjährigen Erfahrung als Moderator, Interviewer und Brückenbauer begleitet er durch das Symposium.</p>
         <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">Mit Feingefühl, Präsenz und authentischer Neugier schafft er einen Raum für inspirierende Gespräche, neue Perspektiven und echte Begegnungen. Seine besondere Gabe liegt darin, Menschen miteinander zu verbinden und auch komplexe Themen verständlich, lebendig und nahbar werden zu lassen.</p>
         <p style="font-size:15px;color:rgba(245,240,232,0.7);line-height:1.9;">In den Gesprächen mit unseren Speakern eröffnet er neue Blickwinkel und ermöglicht Einblicke, die berühren, inspirieren und weit über das Gesagte hinauswirken.</p>
         <p style="font-size:15px;color:rgba(245,240,232,0.55);line-height:1.9;font-style:italic;border-left:2px solid rgba(201,168,76,0.3);padding-left:16px;margin-top:8px;">Freue dich auf tiefgehende Begegnungen, wertvolle Impulse und eine Moderation, die Herz, Verstand und Seele gleichermaßen anspricht.</p>
@@ -3085,6 +3107,20 @@ Object.entries(ticketMap).forEach(([id, val]) => {
     const target = document.getElementById('kontakt');
     if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
+});
+
+// ===== SPEAKER "MEHR ERFAHREN"-BUTTON =====
+document.querySelectorAll('.speaker-card[data-name]').forEach(card => {
+  const info = card.querySelector('.speaker-info');
+  if (!info) return;
+  const btn = document.createElement('button');
+  btn.className = 'speaker-more-btn';
+  btn.textContent = 'Mehr erfahren';
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openSpeakerModal(card);
+  });
+  info.appendChild(btn);
 });
 
 // ===== COSMIC HEALER HINWEIS =====
