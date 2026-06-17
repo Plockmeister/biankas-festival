@@ -2580,16 +2580,16 @@ footer {
       <!-- Breathwork -->
       <article class="workshop-card reveal">
         <img src="Medien/Festival/Angebote/Breathwork-neu-ohne-Datum.jpg" alt="Breathwork Workshop" class="workshop-img" loading="lazy">
-        <span class="workshop-tag">Workshop · 3x · max. 40 Personen</span>
-        <h3 class="workshop-title">Breathwork Workshop</h3>
+        <span class="workshop-tag">Workshop · 3x · max. 25 Personen</span>
+        <h3 class="workshop-title">Transformative Breathwork Journey</h3>
         <div class="workshop-host">Roland Hutner &amp; Aurelia Hutner</div>
-        <p class="workshop-desc">Eine kraftvolle Atemreise, die tief in das Nervensystem wirkt — loslassen, was nicht mehr dient, und neue Lebendigkeit spüren.</p>
+        <p class="workshop-desc">Tauche ein in die Kraft des verbundenen Atems — eine intensive Atemreise mit bewusstem Atem, Musik und meditativer Begleitung über Kopfhörer.</p>
         <div class="workshop-meta">
-          <span class="workshop-badge">⏱ 2 Stunden</span>
-          <span class="workshop-badge price">€ 40 pro Person</span>
-          <span class="workshop-badge free-badge">Im VIP-Paket inbegriffen</span>
+          <span class="workshop-badge">⏱ ca. 2 Stunden</span>
+          <span class="workshop-badge price">€ 30–40 pro Person</span>
+          <span class="workshop-badge free-badge">exkl. Festivalpreis</span>
         </div>
-        <p class="workshop-note">Nicht geeignet bei Schwangerschaft, Epilepsie, Herzerkrankungen oder psychischen Erkrankungen. Bitte im Vorfeld abklären.</p>
+        <button class="speaker-more-btn" style="margin-top:12px;" onclick="openInfoModal('breathwork')">Mehr erfahren</button>
       </article>
 
       <!-- Klangreise -->
@@ -2598,25 +2598,26 @@ footer {
         <span class="workshop-tag">Einzelsitzung</span>
         <h3 class="workshop-title">Klangreise auf der Klangliege</h3>
         <div class="workshop-host">Roland Hutner</div>
-        <p class="workshop-desc">Monochord, Planeten-Gong, Obertongesang und Didgeridoo erzeugen ein Klangfeld, das durch Körper und Geist fließt — eine Reise nach innen.</p>
+        <p class="workshop-desc">Planeten-Gong, Obertongesang und Didgeridoo — die Schwingungen der Klangliege übertragen sich direkt auf deinen Körper und führen dich tief nach innen.</p>
         <div class="workshop-meta">
           <span class="workshop-badge">⏱ 30 Minuten</span>
-          <span class="workshop-badge price">€ 40 · Exklusiver Festivalpreis</span>
-          <span class="workshop-badge free-badge">Im VIP-Paket inbegriffen</span>
+          <span class="workshop-badge price">€ 40 pro Person</span>
         </div>
+        <button class="speaker-more-btn" style="margin-top:12px;" onclick="openInfoModal('klangliege')">Mehr erfahren</button>
       </article>
 
       <!-- Kostenfreie Atemmeditation -->
       <article class="workshop-card reveal">
         <img src="Medien/Festival/Workshops/Atem-Meditation.jpg" alt="Atemmeditation" class="workshop-img" loading="lazy">
-        <span class="workshop-tag free">Kostenlos</span>
-        <h3 class="workshop-title">Atemmeditation</h3>
+        <span class="workshop-tag free">Kostenlos · Im Ticket enthalten</span>
+        <h3 class="workshop-title">Atem-Meditation</h3>
         <div class="workshop-host">Roland Hutner</div>
-        <p class="workshop-desc">Eine geführte Atemmeditation für alle — einfach kommen, ankommen und durchatmen. Kein Vorwissen nötig.</p>
+        <p class="workshop-desc">Ein sanfter Einstieg in die Welt des verbundenen Atems — für alle Festivalgäste. Im Sitzen, kein Vorwissen nötig.</p>
         <div class="workshop-meta">
           <span class="workshop-badge">⏱ ca. 30 Minuten</span>
-          <span class="workshop-badge free-badge">Kostenlos</span>
+          <span class="workshop-badge free-badge">Kostenlos für alle</span>
         </div>
+        <button class="speaker-more-btn" style="margin-top:12px;" onclick="openInfoModal('atemmeditation')">Mehr erfahren</button>
       </article>
 
       <!-- Handpan -->
@@ -3580,6 +3581,87 @@ document.addEventListener('keydown', e => {
 
 // ===== INFO MODAL (Feuerlauf, Breathwork etc.) =====
 const INFO_CONTENT = {
+  breathwork: {
+    img: 'Medien/Festival/Angebote/Breathwork-neu-ohne-Datum.jpg',
+    body: `
+      <div class="info-highlight">
+        <strong>Transformative Breathwork Journey</strong><br>
+        Roland Hutner &amp; Aurelia Hutner · ca. 2 Stunden · max. 25 Personen · € 30–40 pro Person
+      </div>
+      <span class="info-tag">3 Sessions am Festival</span>
+      <span class="info-tag">exkl. Festivalpreis</span>
+
+      <h3>Das Erlebnis</h3>
+      <p>Tauche ein in die Kraft des verbundenen Atems. In dieser intensiven Atemreise verbinden sich bewusster Atem, ausgewählte Musik, harmonisierende Klänge und eine achtsame meditative Begleitung zu einem tiefen Selbsterfahrungsprozess.</p>
+      <p>Der verbundene Atem kann dabei unterstützen, den Verstand zu beruhigen, emotionale Blockaden zu lösen und einen tieferen Zugang zur eigenen inneren Wirklichkeit zu finden. Viele Menschen erleben Gefühle von Verbundenheit, Herzöffnung, innerem Frieden und nachhaltige Erkenntnisse, die weit über die Atemreise hinaus wirken.</p>
+      <p>Die Sessions werden über ein hochwertiges Kopfhörersystem begleitet und schaffen einen geschützten und intensiven Erfahrungsraum.</p>
+
+      <h3>Deine Begleiter</h3>
+      <p>Roland Hutner ist Gründer und Leiter der Nada Prana® Akademie für Atemtherapie, Klangtherapie, Yogatherapie und ganzheitliche Gesundheitsbildung im Allgäu. Seit über 30 Jahren begleitet er Menschen auf ihrem Weg zu mehr Gesundheit, Bewusstsein und innerer Balance.</p>
+      <p>Seine Tochter Aurelia Hutner studiert Psychologie und begleitet die Gruppe während der gesamten Atemreise einfühlsam und achtsam.</p>
+
+      <div class="info-highlight" style="border-color:var(--rose);background:rgba(196,132,140,0.07);">
+        <strong>Wichtiger Hinweis</strong><br>
+        Die Atemreise richtet sich an Menschen, die sich körperlich und psychisch stabil fühlen. Eine Teilnahme wird nicht empfohlen bei: Schwangerschaft, Epilepsie, schweren Herz-Kreislauf-Erkrankungen, akuten psychiatrischen Erkrankungen oder sehr hohem Blutdruck (über 200 mmHg systolisch). Bei Unsicherheiten bitte vorab Kontakt aufnehmen.
+      </div>
+
+      <div class="info-modal-contact">
+        <strong>Roland Hutner | Nada Prana® Akademie</strong><br>
+        <a href="https://www.nada-prana-akademie.de" target="_blank" rel="noopener" style="color:var(--gold-dark);">nada-prana-akademie.de</a>
+      </div>
+    `
+  },
+  klangliege: {
+    img: 'Medien/Festival/Angebote/Roland-Hutner-Klangliege-113.png',
+    body: `
+      <div class="info-highlight">
+        <strong>Klangreise auf der Klangliege</strong><br>
+        Roland Hutner · 30 Minuten · € 40 pro Person · Einzelsitzung
+      </div>
+      <span class="info-tag">Liege-Monochord</span>
+      <span class="info-tag">Planeten-Gong</span>
+      <span class="info-tag">Obertongesang</span>
+      <span class="info-tag">Didgeridoo</span>
+
+      <h3>Das Erlebnis</h3>
+      <p>Erlebe eine außergewöhnliche Reise aus Klang, Schwingung und tiefer Entspannung. Die Klangliege (Liege-Monochord) ist ein großer Resonanzkörper, dessen feine Schwingungen sich direkt auf den gesamten Körper übertragen. Durch das sanfte Anspielen der Saiten entsteht ein harmonischer Klangraum, der viele Menschen als beruhigend, regenerierend und tief berührend erleben.</p>
+      <p>Ergänzt wird die Klangreise durch Planeten-Gong, Obertongesang und Didgeridoo. Die obertonreichen Klänge schaffen einen besonderen Erfahrungsraum, der als Reise durch das Universum oder als intensive Begegnung mit dem eigenen Inneren erfahren werden kann.</p>
+      <p>Viele Teilnehmer berichten von tiefer Entspannung, innerer Klarheit und einem Gefühl von Verbundenheit.</p>
+
+      <h3>Dein Begleiter</h3>
+      <p>Roland Hutner ist Gründer und Leiter der Nada Prana® Akademie für Atemtherapie, Klangtherapie, Yogatherapie und ganzheitliche Gesundheitsbildung im Allgäu. Seit über 30 Jahren begleitet er Menschen auf ihrem Weg zu mehr Gesundheit, Bewusstsein und innerer Balance.</p>
+
+      <div class="info-modal-contact">
+        <strong>Roland Hutner | Nada Prana® Akademie</strong><br>
+        <a href="https://www.nada-prana-akademie.de" target="_blank" rel="noopener" style="color:var(--gold-dark);">nada-prana-akademie.de</a>
+      </div>
+    `
+  },
+  atemmeditation: {
+    img: 'Medien/Festival/Workshops/Atem-Meditation.jpg',
+    body: `
+      <div class="info-highlight">
+        <strong>Atem-Meditation – Ein sanfter Einstieg in die Welt des verbundenen Atems</strong><br>
+        Roland Hutner · ca. 30 Minuten · Kostenlos für alle Festivalgäste
+      </div>
+      <span class="info-tag">Kostenlos inklusive</span>
+      <span class="info-tag">Für alle offen</span>
+      <span class="info-tag">Kein Vorwissen nötig</span>
+
+      <h3>Das Erlebnis</h3>
+      <p>Diese etwa 30-minütige Atem-Meditation bietet einen einfachen und wohltuenden Zugang zur Kraft des bewussten Atmens. In einer ruhigen und achtsamen Atmosphäre lernst du erste Elemente des verbundenen Atems kennen.</p>
+      <p>Die Meditation eignet sich besonders für Menschen, die Breathwork kennenlernen möchten, oder die keinen Platz in einer der intensiven Atemsessions erhalten haben. Sie kann bequem im Sitzen durchgeführt werden und ist für alle Festivalgäste offen.</p>
+      <p style="font-style:italic;opacity:0.7;">Ein gemeinsamer Moment des Innehaltens, Ankommens und Auftankens.</p>
+
+      <h3>Dein Begleiter</h3>
+      <p>Roland Hutner ist Gründer und Leiter der Nada Prana® Akademie im Allgäu und begleitet seit über 30 Jahren Menschen mit Atem-, Klang- und Yogaarbeit auf ihrem Weg zu mehr Gesundheit, innerer Balance und persönlicher Entwicklung.</p>
+
+      <div class="info-modal-contact">
+        <strong>Roland Hutner | Nada Prana® Akademie</strong><br>
+        <a href="https://www.nada-prana-akademie.de" target="_blank" rel="noopener" style="color:var(--gold-dark);">nada-prana-akademie.de</a>
+      </div>
+    `
+  },
   feuerlauf: {
     img: 'Medien/Festival/Feuerlauf/Feuerlauf-neu.jpg',
     body: `
