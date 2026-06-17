@@ -2451,7 +2451,7 @@ footer {
       <div class="experience-text">
         <span class="experience-num">03</span>
         <h3 class="experience-title">Breathwork</h3>
-        <p class="experience-desc">Roland Hutner und Aurelia Hutner begleiten dich durch eine kraftvolle Atemreise und durch 3 Breathwork Sessions. Eine Einladung, loszulassen, was nicht mehr dient, und neue Lebendigkeit zu spüren. 3x max. 25 Teilnehmende.</p>
+        <p class="experience-desc">Roland Hutner und Aurelia Hutner begleiten dich durch eine kraftvolle Atemreise und durch 3 Breathwork Sessions. Eine Einladung, loszulassen, was nicht mehr dient, und neue Lebendigkeit zu spüren. 3x max. 40 Teilnehmende.</p>
         <button class="speaker-more-btn" style="margin-top:14px;" onclick="openInfoModal('breathwork')">Mehr erfahren</button>
       </div>
       <div class="experience-img-wrap">
@@ -2583,7 +2583,7 @@ footer {
       <!-- Breathwork -->
       <article class="workshop-card reveal">
         <img src="Medien/Festival/Breathwork/breathwork-foto-2.jpg" alt="Breathwork Workshop" class="workshop-img" loading="lazy">
-        <span class="workshop-tag">Workshop · 3x · max. 25 Personen</span>
+        <span class="workshop-tag">Workshop · 3x · max. 40 Personen</span>
         <h3 class="workshop-title">Transformative Breathwork Journey</h3>
         <div class="workshop-host">Roland Hutner &amp; Aurelia Hutner</div>
         <p class="workshop-desc">Tauche ein in die Kraft des verbundenen Atems — eine intensive Atemreise mit bewusstem Atem, Musik und meditativer Begleitung über Kopfhörer.</p>
@@ -2681,6 +2681,18 @@ footer {
         <h3 class="workshop-title">Heilkreis & Gesang</h3>
         <div class="workshop-host">Riccardo Avola</div>
         <p class="workshop-desc">Riccardo Avola, Gründer der Heilkreise Deutschlands, verbindet Menschen durch die Kraft von Gesang, Musik und kollektivem Bewusstsein. Er singt am Freitagabend und leitet Sa- und Sonntagmorgen jeweils einen Heilkreis — ein gemeinschaftliches Ritual der Verbindung, Stille und Transformation.</p>
+        <div class="workshop-meta">
+          <span class="workshop-badge free-badge">Im Ticket enthalten</span>
+        </div>
+      </article>
+
+      <!-- Gesang mit Riccardo -->
+      <article class="workshop-card reveal">
+        <img src="Medien/Festival/Workshops/Gesang-mit-Riccardo-neues-Foto.png" alt="Gesang mit Riccardo Avola" class="workshop-img" loading="lazy" style="object-position:center 20%;">
+        <span class="workshop-tag free">Kostenlos inklusive</span>
+        <h3 class="workshop-title">Gesang mit Riccardo</h3>
+        <div class="workshop-host">Riccardo Avola</div>
+        <p class="workshop-desc">Lass dich von Riccardos Stimme tragen — ein Moment der Stille, der Verbindung und der tiefen inneren Berührung. Gemeinsam im Klang ankommen.</p>
         <div class="workshop-meta">
           <span class="workshop-badge free-badge">Im Ticket enthalten</span>
         </div>
@@ -2895,64 +2907,113 @@ footer {
     <h2 class="section-title reveal reveal-delay-1" style="color:var(--text-dark);">Unterkunft &amp; <span style="color:var(--gold-dark);">Verpflegung</span></h2>
     <div class="gold-line reveal reveal-delay-2" style="background:linear-gradient(to right, transparent, var(--gold-dark), transparent);"></div>
 
-    <!-- Lethehof Foto + Empfehlung -->
-    <div class="reveal" style="max-width:860px;margin:0 auto 48px;">
-      <div style="position:relative;overflow:hidden;aspect-ratio:16/6;border:1px solid rgba(109,74,55,0.2);">
-        <img src="Medien/lethehof.jpg" alt="Hotel Lethehof Wardenburg" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.85);">
-        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.6) 0%,transparent 50%);display:flex;align-items:center;padding:40px;">
-          <div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,40px);font-weight:300;color:var(--cream-mid);margin-bottom:8px;">Hotel Lethehof</div>
-            <div style="font-size:13px;color:rgba(245,240,232,0.6);margin-bottom:16px;">Friedrichstraße 74 · 26203 Wardenburg · Direkt vor Ort</div>
-            <a href="https://hotel-lethehof.com" target="_blank" rel="noopener" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(201,168,76,0.4);padding-bottom:2px;text-decoration:none;">hotel-lethehof.com →</a>
+    <!-- Hotel Header mit Foto -->
+    <div class="reveal" style="max-width:860px;margin:0 auto 20px;position:relative;overflow:hidden;aspect-ratio:16/6;border:1px solid rgba(109,74,55,0.2);">
+      <img src="Medien/lethehof.jpg" alt="Hotel Lethehof Wardenburg" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.85);">
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.65) 0%,rgba(10,10,10,0.2) 60%,transparent 100%);display:flex;align-items:center;padding:40px;">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,40px);font-weight:300;color:var(--cream-mid);margin-bottom:6px;">Hotel Lethehof</div>
+          <div style="font-size:13px;color:rgba(245,240,232,0.7);margin-bottom:4px;">Friedrichstraße 74 · 26203 Wardenburg</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;">
+            <a href="mailto:info@hotel-lethehof.de" style="font-size:12px;color:var(--gold);text-decoration:none;">✉ info@hotel-lethehof.de</a>
+            <a href="tel:+4917632699427" style="font-size:12px;color:var(--gold);text-decoration:none;">📞 0176 32699427</a>
           </div>
+          <a href="https://hotel-lethehof.com" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,240,232,0.5);border-bottom:1px solid rgba(201,168,76,0.3);padding-bottom:2px;text-decoration:none;">hotel-lethehof.com →</a>
         </div>
       </div>
-      <p style="font-size:13px;color:var(--text-muted-light);margin-top:12px;text-align:center;">Modernes Design trifft rustikalen Charme — hochwertige Zimmer, Seminarräume und Gastronomie direkt auf dem Festivalgelände.</p>
     </div>
 
-    <div class="unterkunft-grid reveal" style="max-width:860px;margin:0 auto;">
-      <!-- Lethehof -->
-      <div class="unterkunft-card">
-        <div class="unterkunft-card-title">🏡 Lethehof</div>
-        <div class="unterkunft-card-sub">Direkt vor Ort · Friedrichstraße 74, 26203 Wardenburg</div>
-        <ul class="room-list" style="margin-top:18px;">
-          <li class="room-row"><span class="room-name">Einzelzimmer</span><span class="room-price-display">€ 85 / Nacht</span></li>
-          <li class="room-row"><span class="room-name">Doppelzimmer (pro Person)</span><span class="room-price-display">€ 65 / Nacht</span></li>
-          <li class="room-row"><span class="room-name">Dreier-/Vierzimmer (pro Person)</span><span class="room-price-display">€ 35 / Nacht</span></li>
-          <li class="room-row"><span class="room-name">Camper / WoMo / Gruppenraum</span><span class="room-price-display">€ 5 / Nacht</span></li>
-        </ul>
-        <div style="margin-top:16px;padding:12px 16px;background:rgba(201,168,76,0.08);border-left:3px solid var(--gold-dark);border-radius:0 4px 4px 0;">
-          <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:6px;">Empfehlung</div>
-          <p style="font-size:13px;color:var(--text-muted-light);line-height:1.7;margin:0 0 4px;">Einzelzimmer <strong style="color:var(--text-dark);">€ 85</strong> + Vollverpflegung <strong style="color:var(--text-dark);">€ 55</strong> = <strong style="color:var(--text-dark);">€ 140 / Tag</strong></p>
-          <p style="font-size:13px;color:var(--text-muted-light);line-height:1.7;margin:0;">Anreise flexibel von <strong style="color:var(--text-dark);">Donnerstag bis Montag</strong> möglich · Wer bis Montag bleibt: Frühstück +€ 15</p>
-        </div>
-        <div style="margin-top:14px;font-size:13px;color:var(--text-muted-light);line-height:1.8;">
-          <div>✓ WLAN kostenfrei</div>
-          <div>✓ Alle Zimmer mit Dusche, Handtücher, Bettwäsche, Duschgel &amp; Fön</div>
-          <div>✓ Camper / WoMo / Gruppenraum: Dusche &amp; WC vorhanden — Bettwäsche bitte mitbringen</div>
-          <div style="margin-top:8px;font-style:italic;opacity:0.7;">Gerne mit anderen Teilnehmenden zusammentun — Zimmer sind begrenzt!</div>
-        </div>
-        <div style="margin-top:14px;padding:10px 14px;background:rgba(109,74,55,0.08);border-radius:4px;font-size:13px;color:var(--text-muted-light);">
-          Buchung <strong style="color:var(--text-dark);">nur per E-Mail</strong> direkt beim Lethehof:
-        </div>
-        <a href="mailto:info@hotel-lethehof.de" class="hotel-btn" style="display:inline-block;margin-top:12px;padding:10px 20px;border:1px solid rgba(109,74,55,0.4);color:var(--gold-dark);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.3s;">info@hotel-lethehof.de</a>
-      </div>
-
-      <!-- Verpflegung -->
-      <div class="unterkunft-card">
-        <div class="unterkunft-card-title">💖 Vollverpflegung</div>
-        <div class="unterkunft-card-sub">€ 55 pro Person / Tag · tagesweise buchbar</div>
-        <div class="verpflegung-item" style="margin-top:18px;"><div class="verpflegung-dot"></div>Frühstück, Mittagessen &amp; Abendessen</div>
-        <div class="verpflegung-item"><div class="verpflegung-dot"></div>100 % vegan &amp; vegetarisch · frisch &amp; regional</div>
-        <div class="verpflegung-item"><div class="verpflegung-dot"></div>Getränke-Flat: Kaffee, Tee &amp; Wasser den ganzen Tag</div>
-        <div class="verpflegung-item"><div class="verpflegung-dot"></div>Extra-Schmankerl: Obst &amp; Kuchen inklusive</div>
-        <div style="margin-top:16px;padding:12px 16px;background:rgba(201,168,76,0.08);border-left:3px solid var(--gold-dark);border-radius:0 4px 4px 0;">
-          <p style="font-size:13px;color:var(--text-muted-light);line-height:1.7;margin:0;">Freitag, Samstag, Sonntag — einzeln buchbar.<br>Wer bis <strong style="color:var(--text-dark);">Montag</strong> bleibt: Frühstück für <strong style="color:var(--text-dark);">€ 15</strong> zubuchbar.</p>
-        </div>
-        <p style="font-size:13px;color:var(--text-muted-light);margin-top:16px;line-height:1.7;">Buchung direkt beim Lethehof:</p>
-        <a href="mailto:info@hotel-lethehof.de" class="hotel-btn" style="display:inline-block;margin-top:12px;padding:10px 20px;border:1px solid rgba(109,74,55,0.4);color:var(--gold-dark);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.3s;">info@hotel-lethehof.de</a>
+    <!-- Hinweis-Box -->
+    <div class="reveal" style="max-width:860px;margin:0 auto 28px;background:#fefae8;border:1px solid #e8d86a;border-radius:8px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start;">
+      <span style="font-size:20px;flex-shrink:0;">👥</span>
+      <div style="font-size:13px;color:#5a5020;line-height:1.7;">
+        <strong>Die Zimmer sind begrenzt — bitte tut euch zusammen, damit alle Platz finden.</strong><br>
+        Teilt euch gerne Doppel- oder Mehrbettzimmer — so spart ihr Geld und sichert euren Platz.<br>
+        In unserer Telegramgruppe könnt ihr euch auch für Fahrgemeinschaften zusammenfinden: <a href="https://t.me/+EfXNuQnYE_VmNzIy" target="_blank" rel="noopener" style="color:#8b7a10;font-weight:600;">Zur Telegramgruppe →</a>
       </div>
     </div>
+
+    <!-- Zimmerpreise inkl. Vollverpflegung -->
+    <div class="reveal" style="max-width:860px;margin:0 auto 28px;">
+      <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted-light);margin-bottom:14px;">Zimmer inkl. Vollverpflegung</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
+
+        <div style="background:#fff;border:1px solid rgba(109,74,55,0.15);border-radius:8px;padding:18px 16px;text-align:left;">
+          <div style="font-size:13px;font-weight:600;color:var(--text-dark);margin-bottom:10px;">Einzelzimmer</div>
+          <div style="font-size:24px;font-weight:700;color:var(--text-dark);">€ 140</div>
+          <div style="font-size:12px;color:var(--text-muted-light);margin-bottom:10px;">/ Tag</div>
+          <div style="font-size:11px;color:var(--text-muted-light);">€ 85 Zimmer + € 55<br>Vollverpflegung</div>
+        </div>
+
+        <div style="background:#fff;border:1px solid rgba(109,74,55,0.15);border-radius:8px;padding:18px 16px;text-align:left;">
+          <div style="font-size:13px;font-weight:600;color:var(--text-dark);margin-bottom:10px;">Doppelzimmer</div>
+          <div style="font-size:24px;font-weight:700;color:var(--text-dark);">€ 120</div>
+          <div style="font-size:12px;color:var(--text-muted-light);margin-bottom:10px;">/ Person / Tag</div>
+          <div style="font-size:11px;color:var(--text-muted-light);">€ 65 Zimmer + € 55<br>Vollverpflegung</div>
+        </div>
+
+        <div style="background:#fff;border:1px solid rgba(109,74,55,0.15);border-radius:8px;padding:18px 16px;text-align:left;">
+          <div style="font-size:13px;font-weight:600;color:var(--text-dark);margin-bottom:10px;">Dreier-/Vierzimmer</div>
+          <div style="font-size:24px;font-weight:700;color:var(--text-dark);">€ 90</div>
+          <div style="font-size:12px;color:var(--text-muted-light);margin-bottom:10px;">/ Person / Tag</div>
+          <div style="font-size:11px;color:var(--text-muted-light);">€ 35 Zimmer + € 55<br>Vollverpflegung</div>
+        </div>
+
+        <div style="background:#fff;border:1px solid rgba(109,74,55,0.15);border-radius:8px;padding:18px 16px;text-align:left;">
+          <div style="font-size:13px;font-weight:600;color:var(--text-dark);margin-bottom:10px;">Gruppenraum / Camper / Zelt / WoMo</div>
+          <div style="font-size:24px;font-weight:700;color:var(--text-dark);">€ 60</div>
+          <div style="font-size:12px;color:var(--text-muted-light);margin-bottom:10px;">/ Person / Tag</div>
+          <div style="font-size:11px;color:var(--text-muted-light);">€ 5 Stellplatz + € 55<br>Vollverpflegung</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Ausstattung + Verpflegung -->
+    <div class="reveal" style="max-width:860px;margin:0 auto 28px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+      <!-- Zimmerausstattung -->
+      <div style="background:#fff;border:1px solid rgba(109,74,55,0.15);border-radius:8px;padding:20px;">
+        <div style="font-size:13px;font-weight:600;color:var(--text-dark);margin-bottom:14px;">🛏 Zimmerausstattung</div>
+        <div style="font-size:13px;color:var(--text-muted-light);line-height:2;">
+          <div>🚿 Dusche im Zimmer</div>
+          <div>🛁 Handtücher inklusive</div>
+          <div>🛌 Bettwäsche inklusive</div>
+          <div>🧴 Duschgel &amp; Fön</div>
+          <div>📶 WLAN kostenlos</div>
+          <div>🚗 Kostenlose Parkplätze direkt am Hof</div>
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--text-muted-light);line-height:1.7;border-top:1px solid rgba(109,74,55,0.1);padding-top:10px;">
+          ¹ Camper / Zelt / WoMo: Dusche &amp; WC vorhanden · Stellplatz direkt am Hof<br>
+          ² Gruppenraum: frisch bezogene Matratzen · Bettzeug &amp; Handtücher bitte mitbringen
+        </div>
+      </div>
+
+      <!-- Vollverpflegung -->
+      <div style="background:#fff;border:1px solid rgba(109,74,55,0.15);border-radius:8px;padding:20px;">
+        <div style="font-size:13px;font-weight:600;color:var(--text-dark);margin-bottom:4px;">🥗 Vollverpflegung — € 55 / Person / Tag</div>
+        <div style="font-size:13px;color:var(--text-muted-light);line-height:2;margin-top:10px;">
+          <div>🌙 Abendessen</div>
+          <div>☀️ Frühstück</div>
+          <div>🍽 Mittagessen</div>
+          <div>☕ Getränke-Flat: Kaffee, Tee &amp; Wasser ganztags</div>
+          <div>🍎 Obst &amp; Kuchen inklusive</div>
+          <div>🌱 100 % vegan &amp; vegetarisch, frisch &amp; regional</div>
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--text-muted-light);border-top:1px solid rgba(109,74,55,0.1);padding-top:10px;">
+          📅 Montag Frühstück zubuchbar + € 15
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer-Leiste -->
+    <div class="reveal" style="max-width:860px;margin:0 auto;background:rgba(109,74,55,0.06);border:1px solid rgba(109,74,55,0.15);border-radius:8px;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;font-size:13px;color:var(--text-muted-light);">
+      <span>📅 <strong style="color:var(--text-dark);">Anreise flexibel: Donnerstag bis Montag</strong></span>
+      <a href="mailto:info@hotel-lethehof.de" style="color:var(--gold-dark);text-decoration:none;">✉ info@hotel-lethehof.de</a>
+      <a href="tel:+4917632699427" style="color:var(--gold-dark);text-decoration:none;">📞 0176 32699427</a>
+    </div>
+
   </div>
 </section>
 
@@ -3045,20 +3106,6 @@ footer {
         <p id="cosmic-healer-hint" style="display:none;font-size:12px;margin-top:8px;padding:10px 14px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:6px;color:rgba(245,240,232,0.6);line-height:1.6;">💫 Als Cosmic Healer oder Helfer bitte <strong style="color:var(--gold);">nicht</strong> direkt überweisen — Bianka klärt deinen Platz persönlich mit dir. Deine Nachricht wird trotzdem abgeschickt, damit sie weiß, dass du dabei bist!</p>
       </div>
 
-      <div class="form-group">
-        <label class="form-label">Feuerlauf *</label>
-        <div style="display:flex;gap:20px;margin-top:4px;">
-          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:15px;color:rgba(245,240,232,0.7);">
-            <input type="radio" name="feuerlauf" value="Ja, ich möchte beim Feuerlauf dabei sein" required style="accent-color:var(--gold);width:18px;height:18px;">
-            Ja, ich bin dabei!
-          </label>
-          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:15px;color:rgba(245,240,232,0.7);">
-            <input type="radio" name="feuerlauf" value="Nein, kein Feuerlauf" style="accent-color:var(--gold);width:18px;height:18px;">
-            Nein, danke
-          </label>
-        </div>
-        <p style="font-size:12px;color:rgba(245,240,232,0.35);margin-top:6px;">Kostenlos und unverbindlich inklusive</p>
-      </div>
 
       <div class="form-group">
         <label class="form-label" for="formNachricht">Nachricht (optional)</label>
@@ -3602,7 +3649,7 @@ const INFO_CONTENT = {
     body: `
       <div class="info-highlight">
         <strong>Transformative Breathwork Journey</strong><br>
-        Roland Hutner &amp; Aurelia Hutner · ca. 2 Stunden · max. 25 Personen · € 30–40 pro Person
+        Roland Hutner &amp; Aurelia Hutner · ca. 2 Stunden · max. 40 Personen · € 30–40 pro Person
       </div>
       <span class="info-tag">3 Sessions am Festival</span>
       <span class="info-tag">exkl. Festivalpreis</span>
