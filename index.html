@@ -751,6 +751,118 @@ p { line-height: 1.7; }
   z-index: 1;
 }
 .modal-close:hover { color: var(--text-dark); }
+
+/* ===== INFO MODAL (Feuerlauf, Breathwork etc.) ===== */
+#info-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(10,4,4,0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px,4vw,40px);
+}
+#info-modal.open { display: flex; }
+.info-modal-inner {
+  background: var(--cream);
+  max-width: 680px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+}
+.info-modal-hero {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+.info-modal-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: brightness(0.65);
+}
+.info-modal-hero-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 32px;
+  background: linear-gradient(to top, rgba(10,4,4,0.7) 0%, transparent 60%);
+}
+.info-modal-body {
+  padding: clamp(24px,4vw,36px);
+  color: var(--text-dark);
+}
+.info-modal-body h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px,3vw,28px);
+  font-weight: 300;
+  color: var(--text-dark);
+  margin: 24px 0 8px;
+}
+.info-modal-body h3:first-child { margin-top: 0; }
+.info-modal-body p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-muted-light);
+  margin-bottom: 12px;
+}
+.info-modal-body .info-highlight {
+  background: rgba(201,168,76,0.1);
+  border-left: 3px solid var(--gold-dark);
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+.info-modal-body .info-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  border: 1px solid rgba(139,105,20,0.35);
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin: 2px 4px 2px 0;
+}
+.info-modal-contact {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: rgba(61,31,20,0.05);
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--text-muted-light);
+}
+.btn-mehr-erfahren {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 28px;
+  border: 1px solid rgba(255,153,51,0.5);
+  color: rgba(255,153,51,0.9);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+.btn-mehr-erfahren:hover {
+  background: rgba(255,153,51,0.15);
+  border-color: rgba(255,153,51,0.8);
+}
 @media (max-width: 600px) {
   .modal-inner {
     display: flex;
@@ -2672,7 +2784,8 @@ footer {
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF9933" stroke-width="1.5" aria-hidden="true"><path d="M17.657 18.657A8 8 0 016.343 7.343M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 6.343l-.707-.707M6.343 6.343l-.707-.707"/></svg>
       <span>Für alle Teilnehmenden · kostenlos inklusive · Professionelle Begleitung</span>
     </div>
-    <div class="reveal reveal-delay-1" style="margin-top:12px;">
+    <div class="reveal reveal-delay-1" style="margin-top:20px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn-mehr-erfahren" onclick="openInfoModal('feuerlauf')">Mehr erfahren</button>
       <a href="#kontakt" class="btn-outline">Ticket buchen</a>
     </div>
   </div>
@@ -3086,6 +3199,17 @@ footer {
   </div>
 </div>
 
+<!-- INFO MODAL (Feuerlauf, Breathwork etc.) -->
+<div id="info-modal" role="dialog" aria-modal="true" onclick="closeInfoModal(event)">
+  <div class="info-modal-inner">
+    <button class="modal-close" onclick="closeInfoModal(null)" aria-label="Schließen">×</button>
+    <div class="info-modal-hero">
+      <img id="info-modal-img" src="" alt="">
+    </div>
+    <div class="info-modal-body" id="info-modal-body"></div>
+  </div>
+</div>
+
 <!-- COOKIE BANNER -->
 <div id="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen" aria-modal="true">
   <div class="cookie-inner">
@@ -3451,8 +3575,56 @@ function closeSpeakerModal(e) {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeSpeakerModal(null);
+  if (e.key === 'Escape') { closeSpeakerModal(null); closeInfoModal(null); }
 });
+
+// ===== INFO MODAL (Feuerlauf, Breathwork etc.) =====
+const INFO_CONTENT = {
+  feuerlauf: {
+    img: 'Medien/Festival/Feuerlauf/Feuerlauf-neu.jpg',
+    body: `
+      <div class="info-highlight">
+        <strong>Feuerlauf-Erlebnisritual für Mut, Vertrauen und neue Perspektiven</strong><br>
+        Dauer: ca. 2 Stunden · Für alle Festivalgäste · Im Ticket enthalten
+      </div>
+      <span class="info-tag">Kostenlos inklusive</span>
+      <span class="info-tag">Professionelle Begleitung</span>
+      <span class="info-tag">Zertifikat inklusive</span>
+
+      <h3>Was dich erwartet</h3>
+      <p>Dieser Feuerlauf ist weit mehr als das barfüßige Gehen über glühende Kohlen. Er ist eine intensive Erfahrung, die dich einlädt, deine Vorstellungen von Grenzen, Möglichkeiten und persönlicher Entwicklung neu zu hinterfragen.</p>
+      <p>Was zunächst unmöglich erscheint, wird Schritt für Schritt erfahrbar. Anhand praktischer Übungen entdeckst du, welche Kräfte in dir stecken, wenn Fokus, Vertrauen und Entschlossenheit zusammenkommen.</p>
+      <p>Gemeinsam mit anderen Festivalgästen entsteht ein außergewöhnlicher Raum voller Energie, Begegnung, Freude und gegenseitiger Unterstützung. Die Erfahrungen aus Feuerlauf, dem Brechen ritueller Pfeile und dem Biegen von Stahlstangen mit deiner Kehle wirken weit über den Festivalmoment hinaus.</p>
+      <p>Zum Abschluss erhältst du dein persönliches <strong>Feuerlauf-Zertifikat</strong> sowie ein handgefertigtes <strong>Kohle-Amulett</strong> — ein persönlicher Anker für den Moment, in dem du erlebt hast, dass Grenzen oft nur dort existieren, wo wir aufhören, an unsere Möglichkeiten zu glauben.</p>
+      <p style="font-style:italic;opacity:0.7;">Wissenschaft trifft Erfahrung. Tradition trifft Mentaltraining. Feuer trifft Gemeinschaft. — The Fire Within.</p>
+
+      <h3>Deine Begleiterin: Stefanie Greifzu</h3>
+      <p>Stefanie Greifzu (M.A.) ist Feuerlauf-Instruktorin, Coach, Kulturwissenschaftlerin mit dem Schwerpunkt Komplementäre Medizin und Gründerin von ONFIRE – Firewalk Berlin. Seit über 25 Jahren begleitet sie Menschen in Transformations-, Entwicklungs- und Grenzerfahrungen.</p>
+      <p>Ihre Arbeit verbindet moderne Erkenntnisse aus Psychologie, Neurobiologie und Mentaltraining mit der jahrtausendealten Tradition des Feuerlaufens. Ihr Fokus liegt darauf, Menschen sicher an ihre Grenzen zu führen — und darüber hinaus handlungsfähig zu machen.</p>
+
+      <div class="info-modal-contact">
+        <strong>ONFIRE – Firewalk Berlin</strong><br>
+        Stefanie Greifzu, M.A.<br>
+        <a href="https://firewalkberlin.com" target="_blank" rel="noopener" style="color:var(--gold-dark);">firewalkberlin.com</a> · Instagram: @firewalks.berlin
+      </div>
+    `
+  }
+};
+
+function openInfoModal(key) {
+  const data = INFO_CONTENT[key];
+  if (!data) return;
+  document.getElementById('info-modal-img').src = data.img;
+  document.getElementById('info-modal-img').alt = key;
+  document.getElementById('info-modal-body').innerHTML = data.body;
+  document.getElementById('info-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeInfoModal(e) {
+  if (e && e.target !== document.getElementById('info-modal')) return;
+  document.getElementById('info-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 // ===== COOKIE CONSENT =====
 (function initCookieBanner() {
