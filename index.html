@@ -3902,52 +3902,101 @@ function toggleCookieDetails() {
       const email = document.getElementById('formEmail').value.trim();
       const adresse = document.getElementById('formAdresse').value.trim();
       const ticket = document.getElementById('formTicket').value;
-      const feuerlaufEl = form.querySelector('input[name="feuerlauf"]:checked');
-      const feuerlauf = feuerlaufEl ? feuerlaufEl.value : 'Keine Angabe';
       const nachricht = (document.getElementById('formNachricht').value || '').trim();
 
-      // Mailto fallback (reliable on all devices)
-      const body = encodeURIComponent(
-        'Neue Ticket-Buchung\n\nName: ' + name +
-        '\nE-Mail: ' + email +
-        '\nAdresse: ' + adresse +
-        '\nTicket: ' + ticket +
-        '\nFeuerlauf: ' + feuerlauf +
-        (nachricht ? '\n\nNachricht: ' + nachricht : '')
-      );
-      const mailtoLink = 'mailto:bianka.hugen@gmx.de?subject=' +
-        encodeURIComponent('Ticket-Buchung SAF2026 — ' + name) +
-        '&body=' + body;
+      const WORKER_URL = 'https://brevo-proxy.plock-daniel.workers.dev';
+      const SENDER = { name: 'Soul Awakening Festival', email: 'kontakt@soul-awakening-festival.com' };
+
+      const ticketPreis = ticket.includes('VIP') ? '449 €' : ticket.includes('Cosmic') ? 'auf Anfrage' : '249 €';
+
+      const notifyHtml = `
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f9f5f0;padding:32px;">
+          <div style="background:#3D1F14;padding:20px 28px;margin-bottom:24px;">
+            <h2 style="color:#C9A84C;font-size:20px;margin:0;">🎟️ Neue Buchungsanfrage</h2>
+            <p style="color:rgba(245,237,227,0.6);font-size:13px;margin:6px 0 0;">Soul Awakening Festival 2026</p>
+          </div>
+          <table style="width:100%;border-collapse:collapse;font-size:15px;">
+            <tr><td style="padding:10px 0;border-bottom:1px solid #e0d5c8;color:#888;width:130px;">Name</td><td style="padding:10px 0;border-bottom:1px solid #e0d5c8;color:#3D1F14;font-weight:bold;">${name}</td></tr>
+            <tr><td style="padding:10px 0;border-bottom:1px solid #e0d5c8;color:#888;">E-Mail</td><td style="padding:10px 0;border-bottom:1px solid #e0d5c8;"><a href="mailto:${email}" style="color:#8B6914;">${email}</a></td></tr>
+            <tr><td style="padding:10px 0;border-bottom:1px solid #e0d5c8;color:#888;">Adresse</td><td style="padding:10px 0;border-bottom:1px solid #e0d5c8;color:#3D1F14;">${adresse}</td></tr>
+            <tr><td style="padding:10px 0;border-bottom:1px solid #e0d5c8;color:#888;">Ticket</td><td style="padding:10px 0;border-bottom:1px solid #e0d5c8;color:#3D1F14;font-weight:bold;">${ticket} — ${ticketPreis}</td></tr>
+            ${nachricht ? `<tr><td style="padding:10px 0;color:#888;vertical-align:top;">Nachricht</td><td style="padding:10px 0;color:#3D1F14;">${nachricht}</td></tr>` : ''}
+          </table>
+          <div style="margin-top:24px;padding:16px 20px;background:#fff;border-left:3px solid #C9A84C;font-size:13px;color:#666;">
+            Bitte antworte direkt an <a href="mailto:${email}" style="color:#8B6914;">${email}</a> zur Zahlungsbestätigung.
+          </div>
+        </div>`;
+
+      const confirmHtml = `
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f9f5f0;">
+          <div style="background:#3D1F14;padding:28px 32px;">
+            <img src="https://soul-awakening-festival.com/Medien/awakening-festival-logo.png" alt="Soul Awakening Festival" style="width:70px;margin-bottom:16px;display:block;">
+            <h1 style="color:#C9A84C;font-size:24px;font-weight:300;margin:0 0 6px;">Danke für deine Buchungsanfrage!</h1>
+            <p style="color:rgba(245,237,227,0.6);font-size:14px;margin:0;">Soul Awakening Festival 2026 · 21.–23. August · Wardenburg</p>
+          </div>
+          <div style="padding:32px;">
+            <p style="font-size:16px;color:#3D1F14;line-height:1.7;">Liebe/r ${name},<br><br>
+            deine Buchungsanfrage für das <strong>Soul Awakening Festival 2026</strong> ist bei uns eingegangen. Wir freuen uns, dich dabei zu haben!</p>
+
+            <div style="margin:24px 0;padding:20px 24px;background:#fff;border:1px solid #e0d5c8;">
+              <p style="font-size:13px;color:#888;margin:0 0 12px;text-transform:uppercase;letter-spacing:1px;">Deine Buchung</p>
+              <p style="font-size:15px;color:#3D1F14;margin:4px 0;"><strong>${ticket}</strong> — ${ticketPreis}</p>
+              <p style="font-size:13px;color:#888;margin:4px 0;">21.–23. August 2026 · Lethehof, Wardenburg</p>
+            </div>
+
+            <div style="margin:24px 0;padding:20px 24px;background:#fff8ee;border-left:3px solid #C9A84C;">
+              <p style="font-size:13px;font-weight:bold;color:#8B6914;margin:0 0 10px;">Nächster Schritt: Zahlung</p>
+              <p style="font-size:14px;color:#3D1F14;line-height:1.7;margin:0;">
+                Bianka meldet sich persönlich bei dir mit den Zahlungsinfos. Bitte schau auch in deinen Spam-Ordner.<br><br>
+                Bei Fragen erreichst du uns unter:<br>
+                <a href="mailto:kontakt@soul-awakening-festival.com" style="color:#8B6914;">kontakt@soul-awakening-festival.com</a>
+              </p>
+            </div>
+
+            <p style="font-size:14px;color:#3D1F14;line-height:1.7;">Wir freuen uns auf drei unvergessliche Tage mit dir!<br><br>
+            Herzliche Grüße,<br><strong>Bianka Hugen</strong><br>
+            <span style="color:#888;font-size:13px;">Soul Awakening Festival 2026</span></p>
+          </div>
+          <div style="background:#3D1F14;padding:16px 32px;text-align:center;">
+            <a href="https://soul-awakening-festival.com" style="color:#C9A84C;font-size:13px;text-decoration:none;">soul-awakening-festival.com</a>
+          </div>
+        </div>`;
 
       try {
-        // FORMSPREE: Bianka muss sich auf formspree.io registrieren und die Form-ID hier eintragen
-        // Aktuell: FORMSPREE_FORM_ID ersetzen mit der echten ID (z.B. xbjvnrka)
-        const FORMSPREE_ID = 'xnjylzzd';
-        const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            '👤 Name': name,
-            '📧 E-Mail': email,
-            '🏠 Adresse': adresse,
-            '🎟️ Ticket': ticket,
-            '🔥 Feuerlauf': feuerlauf,
-            '💬 Nachricht': nachricht || '—',
-            _replyto: email,
-            _subject: '🎟️ Neue Buchung SAF2026 — ' + name
+        const [r1, r2] = await Promise.all([
+          fetch(WORKER_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              sender: SENDER,
+              to: [{ email: 'bianka.hugen@gmx.de', name: 'Bianka Hugen' }],
+              replyTo: { email: email, name: name },
+              subject: '🎟️ Neue Buchung SAF2026 — ' + name,
+              htmlContent: notifyHtml
+            })
+          }),
+          fetch(WORKER_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              sender: SENDER,
+              to: [{ email: email, name: name }],
+              replyTo: { email: 'kontakt@soul-awakening-festival.com', name: 'Bianka Hugen' },
+              subject: '✨ Deine Buchungsanfrage — Soul Awakening Festival 2026',
+              htmlContent: confirmHtml
+            })
           })
-        });
-        if (res.ok) {
+        ]);
+
+        if (r1.ok && r2.ok) {
           form.style.display = 'none';
           successBox.style.display = 'block';
           successBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else { throw new Error('Formspree error'); }
+        } else { throw new Error('Brevo error'); }
       } catch(err) {
-        // Fallback: öffnet E-Mail-Client mit ausgefüllten Daten
-        window.open(mailtoLink);
-        form.style.display = 'none';
-        successBox.style.display = 'block';
-        successBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        btn.textContent = origText;
+        btn.disabled = false;
+        alert('Es gab ein technisches Problem. Bitte schreib direkt an kontakt@soul-awakening-festival.com');
       }
     });
   }
