@@ -3970,6 +3970,16 @@ function toggleCookieDetails() {
         </div>`;
 
       try {
+        fetch(WORKER_URL + '/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            attributes: { FIRSTNAME: name, TICKET: ticket },
+            updateEnabled: true
+          })
+        }).catch(() => {});
+
         const [r1, r2] = await Promise.all([
           fetch(WORKER_URL, {
             method: 'POST',
