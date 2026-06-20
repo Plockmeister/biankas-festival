@@ -3117,13 +3117,17 @@ footer {
 
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label" for="formName">Name *</label>
-          <input class="form-input" type="text" id="formName" name="name" placeholder="Vorname Nachname" required>
+          <label class="form-label" for="formVorname">Vorname *</label>
+          <input class="form-input" type="text" id="formVorname" name="vorname" placeholder="Vorname" required>
         </div>
         <div class="form-group">
-          <label class="form-label" for="formEmail">E-Mail-Adresse *</label>
-          <input class="form-input" type="email" id="formEmail" name="email" placeholder="deine@email.de" required>
+          <label class="form-label" for="formNachname">Nachname *</label>
+          <input class="form-input" type="text" id="formNachname" name="nachname" placeholder="Nachname" required>
         </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="formEmail">E-Mail-Adresse *</label>
+        <input class="form-input" type="email" id="formEmail" name="email" placeholder="deine@email.de" required>
       </div>
 
       <div class="form-group">
@@ -3898,7 +3902,9 @@ function toggleCookieDetails() {
       btn.textContent = 'Wird gesendet …';
       btn.disabled = true;
 
-      const name = document.getElementById('formName').value.trim();
+      const vorname = document.getElementById('formVorname').value.trim();
+      const nachname = document.getElementById('formNachname').value.trim();
+      const name = vorname + ' ' + nachname;
       const email = document.getElementById('formEmail').value.trim();
       const adresse = document.getElementById('formAdresse').value.trim();
       const ticket = document.getElementById('formTicket').value;
@@ -3980,9 +3986,6 @@ function toggleCookieDetails() {
           })
         }).catch(() => {});
 
-        const nameParts = name.trim().split(' ');
-        const vorname = nameParts[0] || '';
-        const nachname = nameParts.slice(1).join(' ') || '';
         fetch(WORKER_URL + '/sheet', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
