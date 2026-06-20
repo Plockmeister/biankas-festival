@@ -3983,10 +3983,9 @@ function toggleCookieDetails() {
         const nameParts = name.trim().split(' ');
         const vorname = nameParts[0] || '';
         const nachname = nameParts.slice(1).join(' ') || '';
-        fetch('https://script.google.com/macros/s/AKfycbwdYCq6ouGt9b5-zuTN4b3udPqi8mudnZARa_fs-aJZGnvYJBFgCWmYtHurOuMV3QhifQ/exec', {
+        fetch(WORKER_URL + '/sheet', {
           method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain' },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             email: email,
             vorname: vorname,
