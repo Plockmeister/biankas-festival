@@ -3980,6 +3980,21 @@ function toggleCookieDetails() {
           })
         }).catch(() => {});
 
+        const nameParts = name.trim().split(' ');
+        const vorname = nameParts[0] || '';
+        const nachname = nameParts.slice(1).join(' ') || '';
+        fetch('https://script.google.com/macros/s/AKfycbwdYCq6ouGt9b5-zuTN4b3udPqi8mudnZARa_fs-aJZGnvYJBFgCWmYtHurOuMV3QhifQ/exec', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            vorname: vorname,
+            nachname: nachname,
+            ticket: ticket,
+            datum: new Date().toLocaleDateString('de-DE')
+          })
+        }).catch(() => {});
+
         const [r1, r2] = await Promise.all([
           fetch(WORKER_URL, {
             method: 'POST',
