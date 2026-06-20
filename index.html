@@ -3161,7 +3161,7 @@ footer {
           <span style="font-size:48px;">✨</span>
           <h3 style="margin-top:12px;font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold-light);">Vielen Dank für deine Buchung!</h3>
         </div>
-        <p style="font-size:16px;line-height:1.9;color:rgba(245,240,232,0.75);">Deine Buchungsanfrage ist bei uns eingegangen. Bitte überweise den Betrag auf das untenstehende Konto — sobald deine Zahlung eingegangen ist, bekommst du eine persönliche Bestätigung von Bianka per E-Mail.</p>
+        <p style="font-size:16px;line-height:1.9;color:rgba(245,240,232,0.75);">Deine Buchungsbestätigung ist bei uns eingegangen. Bitte überweise den Betrag auf das untenstehende Konto — sobald deine Zahlung eingegangen ist, bekommst du eine persönliche Bestätigung von Bianka per E-Mail.</p>
 
         <div style="margin-top:32px;padding:24px 28px;background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.25);border-radius:2px;">
           <p style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Zahlungsinfos</p>
@@ -3912,7 +3912,7 @@ function toggleCookieDetails() {
       const notifyHtml = `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f9f5f0;padding:32px;">
           <div style="background:#3D1F14;padding:20px 28px;margin-bottom:24px;">
-            <h2 style="color:#C9A84C;font-size:20px;margin:0;">🎟️ Neue Buchungsanfrage</h2>
+            <h2 style="color:#C9A84C;font-size:20px;margin:0;">🎟️ Neue Buchungsbestätigung</h2>
             <p style="color:rgba(245,237,227,0.6);font-size:13px;margin:6px 0 0;">Soul Awakening Festival 2026</p>
           </div>
           <table style="width:100%;border-collapse:collapse;font-size:15px;">
@@ -3931,12 +3931,12 @@ function toggleCookieDetails() {
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f9f5f0;">
           <div style="background:#3D1F14;padding:28px 32px;">
             <img src="https://soul-awakening-festival.com/Medien/awakening-festival-logo.png" alt="Soul Awakening Festival" style="width:70px;margin-bottom:16px;display:block;">
-            <h1 style="color:#C9A84C;font-size:24px;font-weight:300;margin:0 0 6px;">Danke für deine Buchungsanfrage!</h1>
+            <h1 style="color:#C9A84C;font-size:24px;font-weight:300;margin:0 0 6px;">Danke für deine Buchungsbestätigung!</h1>
             <p style="color:rgba(245,237,227,0.6);font-size:14px;margin:0;">Soul Awakening Festival 2026 · 21.–23. August · Wardenburg</p>
           </div>
           <div style="padding:32px;">
             <p style="font-size:16px;color:#3D1F14;line-height:1.7;">Liebe/r ${name},<br><br>
-            deine Buchungsanfrage für das <strong>Soul Awakening Festival 2026</strong> ist bei uns eingegangen. Wir freuen uns, dich dabei zu haben!</p>
+            deine Buchungsbestätigung für das <strong>Soul Awakening Festival 2026</strong> ist bei uns eingegangen. Wir freuen uns, dich dabei zu haben!</p>
 
             <div style="margin:24px 0;padding:20px 24px;background:#fff;border:1px solid #e0d5c8;">
               <p style="font-size:13px;color:#888;margin:0 0 12px;text-transform:uppercase;letter-spacing:1px;">Deine Buchung</p>
@@ -3999,7 +3999,7 @@ function toggleCookieDetails() {
               sender: SENDER,
               to: [{ email: email, name: name }],
               replyTo: { email: 'kontakt@soul-awakening-festival.com', name: 'Bianka Hugen' },
-              subject: '✨ Deine Buchungsanfrage — Soul Awakening Festival 2026',
+              subject: '✨ Deine Buchungsbestätigung — Soul Awakening Festival 2026',
               htmlContent: confirmHtml
             })
           })
