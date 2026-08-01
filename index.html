@@ -2121,7 +2121,7 @@ footer {
       <div class="countdown-box"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-label">Sekunden</span></div>
     </div>
     <div class="hero-cta">
-      <a href="#kontakt" class="btn-gold">Jetzt Early-Bird-Ticket buchen</a>
+      <a href="#kontakt" class="btn-gold">Jetzt Ticket buchen</a>
     </div>
   </div>
   <div class="scroll-indicator" aria-hidden="true">
@@ -2912,20 +2912,16 @@ footer {
       <div class="ticket-card reveal">
         <!-- Urgency-Banner -->
         <div class="ticket-urgency">
-          🕊 Early Bird — Nur noch <strong><span id="earlyBirdLeft">50</span> Plätze</strong> verfügbar!
+          🕊 Begrenztes Angebot — Sichere dir deinen Platz!
         </div>
-        <div class="ticket-name">Early Bird Ticket</div>
+        <div class="ticket-name">Festival-Ticket</div>
 
-        <!-- Preis klar: groß + durchgestrichen -->
         <div class="ticket-price-block">
           <div class="ticket-price gold-text">
             <span class="ticket-price-currency">€</span><span id="priceEarlyBird">249</span>
           </div>
-          <div class="ticket-original-price">statt <s>€299</s></div>
-          <div class="ticket-saving">Du sparst €50!</div>
+          <div class="ticket-saving" style="font-size:13px;margin-top:4px;">💳 Ratenzahlung möglich: 3 × €90 oder 6 × €50</div>
         </div>
-
-        <div class="ticket-deadline">⏳ Gilt bis 5. August 2026 oder solange Vorrat reicht</div>
 
         <ul class="ticket-features">
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Festivaleintritt Freitag–Sonntag</li>
@@ -2936,27 +2932,23 @@ footer {
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Viele Workshops optional zubuchbar</li>
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Aufzeichnungen der Vorträge inklusive</li>
         </ul>
-        <a href="#kontakt" id="bookEarlyBird" class="ticket-btn">Jetzt Early Bird sichern</a>
+        <a href="#kontakt" id="bookEarlyBird" class="ticket-btn">Jetzt Ticket sichern</a>
       </div>
 
       <!-- VIP EARLY BIRD -->
       <div class="ticket-card featured reveal reveal-delay-1">
         <!-- Urgency-Banner -->
         <div class="ticket-urgency" style="background:rgba(0,0,0,0.18);color:#0A0A0A;">
-          🌟 VIP Early Bird — Exklusives Erlebnis
+          🌟 VIP — Exklusives Erlebnis
         </div>
-        <div class="ticket-name">Early Bird VIP Ticket</div>
+        <div class="ticket-name">VIP Ticket</div>
 
-        <!-- Preis klar: groß + durchgestrichen -->
         <div class="ticket-price-block">
           <div class="ticket-price" style="color:#0A0A0A;">
             <span class="ticket-price-currency" style="color:#0A0A0A;">€</span><span id="priceVIP">449</span>
           </div>
-          <div class="ticket-original-price" style="color:rgba(10,10,10,0.7);">statt <s>€499</s></div>
-          <div class="ticket-saving" style="color:#0A0A0A;">Du sparst €50!</div>
+          <div class="ticket-saving" style="color:#0A0A0A;font-size:13px;margin-top:4px;">💳 Ratenzahlung möglich: 3 × €90 oder 6 × €50</div>
         </div>
-
-        <div class="ticket-deadline" style="color:rgba(10,10,10,0.75);border-color:rgba(10,10,10,0.25);">⏳ Gilt bis 5. August 2026 oder solange Vorrat reicht</div>
 
         <ul class="ticket-features">
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alles aus dem Festival-Ticket</li>
@@ -2971,9 +2963,8 @@ footer {
     </div>
 
     <div style="text-align:center;margin-top:16px;" class="reveal">
-      <p class="tickets-note" style="margin-bottom:24px;">Alle Preise inkl. MwSt. · Persönliche Buchung · Zahlung per Überweisung</p>
-      <a href="#kontakt" id="mainBookBtn" class="btn-gold">Jetzt Early-Bird-Ticket buchen</a>
-      <p class="tickets-note" style="margin-top:16px;opacity:0.5;">Ab 6. August 2026: Festival-Ticket €299 · VIP-Ticket €499</p>
+      <p class="tickets-note" style="margin-bottom:24px;">Alle Preise inkl. MwSt. · Persönliche Buchung · Zahlung per Überweisung oder Ratenzahlung</p>
+      <a href="#kontakt" id="mainBookBtn" class="btn-gold">Jetzt Ticket buchen</a>
     </div>
   </div>
 </section>
@@ -3286,11 +3277,11 @@ footer {
         <label class="form-label" for="formTicket">Ticket-Art *</label>
         <select class="form-select" id="formTicket" name="ticket" required>
           <option value="" disabled selected>Bitte wählen …</option>
-          <option value="Early Bird Festival-Ticket (€249 statt €299)">🕊 Early Bird Festival-Ticket — €249 statt €299</option>
-          <option value="Early Bird VIP-Ticket (€449 statt €499 — spare €50)">🌟 Early Bird VIP-Ticket — €449 (regulär €499, spare €50)</option>
+          <option value="Festival-Ticket (€249)">🕊 Festival-Ticket — €249</option>
+          <option value="VIP-Ticket (€449)">🌟 VIP-Ticket — €449</option>
           <option value="Cosmic Healer — persönliche Absprache mit Bianka">💫 Cosmic Healer — Bitte direkt bei Bianka melden</option>
         </select>
-        <p style="font-size:12px;color:rgba(245,240,232,0.35);margin-top:6px;">Early Bird gilt für die ersten 50 Tickets oder bis zum 5.8. — je nachdem, was zuerst eintritt.</p>
+        <p style="font-size:12px;color:rgba(245,240,232,0.35);margin-top:6px;">💳 Ratenzahlung möglich: 3 × €90 oder 6 × €50 — einfach in der Nachricht angeben.</p>
         <p id="cosmic-healer-hint" style="display:none;font-size:12px;margin-top:8px;padding:10px 14px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:6px;color:rgba(245,240,232,0.6);line-height:1.6;">💫 Als Cosmic Healer oder Helfer bitte <strong style="color:var(--gold);">nicht</strong> direkt überweisen — Bianka klärt deinen Platz persönlich mit dir. Deine Nachricht wird trotzdem abgeschickt, damit sie weiß, dass du dabei bist!</p>
       </div>
 
@@ -3320,9 +3311,9 @@ footer {
             <strong style="color:var(--cream-mid);">Bianka Hugen</strong><br>
             IBAN: <strong style="color:var(--cream-mid);">DE38 1203 0000 1210 5172 54</strong><br>
             Betreff: <strong style="color:var(--cream-mid);">Festival Ticket</strong> + dein gewähltes Ticket<br>
-            <em style="color:rgba(245,240,232,0.5);">Early Bird Festival-Ticket: €249 · Early Bird VIP: €449</em>
+            <em style="color:rgba(245,240,232,0.5);">Festival-Ticket: €249 · VIP-Ticket: €449</em>
           </p>
-          <p style="font-size:13px;color:rgba(245,240,232,0.45);margin-top:12px;line-height:1.7;">Das Early Bird Angebot gilt nur bis die ersten 50 Tickets verkauft sind oder bis zum 05.08.2026 — je nachdem was zuerst eintritt. Schnell sein lohnt sich also.</p>
+          <p style="font-size:13px;color:rgba(245,240,232,0.45);margin-top:12px;line-height:1.7;">💳 Ratenzahlung möglich: 3 × €90 oder 6 × €50 — einfach in der Nachricht angeben.</p>
           <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(201,168,76,0.15);">
             <p style="font-size:13px;color:rgba(245,240,232,0.5);line-height:1.7;">
               📍 <strong>Veranstaltungsort:</strong> Lethehof, Friedrichstraße 74, 26203 Wardenburg<br>
@@ -3618,9 +3609,9 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 
 // ===== TICKET BUTTONS → FORMULAR VORAUSWAHL =====
 const ticketMap = {
-  bookEarlyBird: 'Early Bird Festival-Ticket (€249 statt €299)',
-  bookVIP: 'Early Bird VIP-Ticket (€449 statt €499 — spare €50)',
-  mainBookBtn: 'Early Bird Festival-Ticket (€249 statt €299)'
+  bookEarlyBird: 'Festival-Ticket (€249)',
+  bookVIP: 'VIP-Ticket (€449)',
+  mainBookBtn: 'Festival-Ticket (€249)'
 };
 Object.entries(ticketMap).forEach(([id, val]) => {
   const el = document.getElementById(id);
@@ -4029,9 +4020,9 @@ function toggleCookieDetails() {
     el.addEventListener('click', function(e) {
       e.preventDefault();
       const ticketMap = {
-        bookEarlyBird: 'Early Bird Festival-Ticket (€249 statt €299)',
-        bookVIP: 'Early Bird VIP-Ticket (€449 statt €499 — spare €50)',
-        mainBookBtn: 'Early Bird Festival-Ticket (€249 statt €299)'
+        bookEarlyBird: 'Festival-Ticket (€249)',
+        bookVIP: 'VIP-Ticket (€449)',
+        mainBookBtn: 'Festival-Ticket (€249)'
       };
       const sel = document.getElementById('formTicket');
       if (sel && ticketMap[id]) sel.value = ticketMap[id];
