@@ -2911,8 +2911,8 @@ footer {
       <!-- EARLY BIRD FESTIVAL -->
       <div class="ticket-card reveal">
         <!-- Urgency-Banner -->
-        <div class="ticket-urgency">
-          🕊 Begrenztes Angebot — Sichere dir deinen Platz!
+        <div class="ticket-urgency" id="earlyBirdBanner1">
+          🕊 Early Bird — Sichere dir deinen Platz bis 5. August!
         </div>
         <div class="ticket-name">Festival-Ticket</div>
 
@@ -2920,8 +2920,9 @@ footer {
           <div class="ticket-price gold-text">
             <span class="ticket-price-currency">€</span><span id="priceEarlyBird">249</span>
           </div>
-          <div class="ticket-saving" style="font-size:13px;margin-top:4px;">💳 Ratenzahlung möglich: 3 × €90 oder 6 × €50</div>
+          <div class="ticket-saving" style="font-size:13px;margin-top:4px;">✨ Ratenzahlung möglich: 3 × €90 oder 6 × €50</div>
         </div>
+        <div class="ticket-deadline" id="earlyBirdDeadline1">⏳ Gilt bis 5. August 2026 oder solange Vorrat reicht</div>
 
         <ul class="ticket-features">
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Festivaleintritt Freitag–Sonntag</li>
@@ -2938,8 +2939,8 @@ footer {
       <!-- VIP EARLY BIRD -->
       <div class="ticket-card featured reveal reveal-delay-1">
         <!-- Urgency-Banner -->
-        <div class="ticket-urgency" style="background:rgba(0,0,0,0.18);color:#0A0A0A;">
-          🌟 VIP — Exklusives Erlebnis
+        <div class="ticket-urgency" style="background:rgba(0,0,0,0.18);color:#0A0A0A;" id="earlyBirdBanner2">
+          🌟 VIP Early Bird — Sichere dir deinen Platz bis 5. August!
         </div>
         <div class="ticket-name">VIP Ticket</div>
 
@@ -2947,8 +2948,9 @@ footer {
           <div class="ticket-price" style="color:#0A0A0A;">
             <span class="ticket-price-currency" style="color:#0A0A0A;">€</span><span id="priceVIP">449</span>
           </div>
-          <div class="ticket-saving" style="color:#0A0A0A;font-size:13px;margin-top:4px;">💳 Ratenzahlung möglich: 3 × €90 oder 6 × €50</div>
+          <div class="ticket-saving" style="color:#0A0A0A;font-size:13px;margin-top:4px;">✨ Ratenzahlung möglich: 3 × €150 oder 6 × €80</div>
         </div>
+        <div class="ticket-deadline" style="color:rgba(10,10,10,0.75);border-color:rgba(10,10,10,0.25);" id="earlyBirdDeadline2">⏳ Gilt bis 5. August 2026 oder solange Vorrat reicht</div>
 
         <ul class="ticket-features">
           <li><svg class="ticket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Alles aus dem Festival-Ticket</li>
@@ -3523,8 +3525,18 @@ const _setEl = (id, val) => { const el = document.getElementById(id); if (el) el
 _setEl('priceEarlyBird', CONFIG.earlyBirdPreis);
 _setEl('priceStandard', CONFIG.standardPreis);
 _setEl('priceVIP', CONFIG.vipPreis);
-_setEl('earlyBirdLeft', CONFIG.earlyBirdPlaetze - CONFIG.earlyBirdVerkauft);
 _setEl('vipLeft', CONFIG.vipPlaetze);
+
+// Early Bird Banner nach 5.8. ausblenden
+(function() {
+  var earlyBirdEnd = new Date('2026-08-06T00:00:00');
+  if (new Date() >= earlyBirdEnd) {
+    ['earlyBirdBanner1','earlyBirdBanner2','earlyBirdDeadline1','earlyBirdDeadline2'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+  }
+})();
 
 // ===== COUNTDOWN =====
 function updateCountdown() {
