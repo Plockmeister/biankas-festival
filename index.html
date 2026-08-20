@@ -2127,8 +2127,8 @@ footer {
       <a href="#kontakt" class="btn-gold">Jetzt Ticket buchen</a>
       <a href="mailto:kontakt@soul-awakening-festival.com" class="btn-gold" style="background:transparent;border:1px solid rgba(201,168,76,0.5);color:var(--gold);">Kontakt</a>
     </div>
-    <p style="margin-top:20px;font-size:13px;color:rgba(245,240,232,0.5);letter-spacing:0.04em;">
-      ✦ Auch spontan willkommen — <a href="#tickets" style="color:var(--gold);text-decoration:none;">Tageskasse vor Ort</a> an allen 3 Festivaltagen
+    <p style="margin-top:24px;font-size:clamp(15px,2vw,18px);color:rgba(245,240,232,0.85);letter-spacing:0.05em;font-weight:300;">
+      ✦ Auch spontan willkommen — <a href="#tickets" style="color:var(--gold);text-decoration:none;font-weight:500;border-bottom:1px solid rgba(201,168,76,0.4);">Tageskasse vor Ort</a> · Freitag, Samstag &amp; Sonntag
     </p>
   </div>
   <div class="scroll-indicator" aria-hidden="true">
@@ -3476,6 +3476,42 @@ footer {
   </div>
   <div class="footer-copy">© 2026 Soul Awakening Festival · Mit Liebe gemacht</div>
 </footer>
+
+<!-- TAGESKASSE POPUP -->
+<div id="tageskasse-popup" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px;" onclick="closeTageskassePopup(event)">
+  <div style="background:linear-gradient(160deg,#2a1208 0%,#3d1f0e 60%,#1a0c04 100%);border:1px solid rgba(201,168,76,0.5);border-radius:12px;max-width:520px;width:100%;padding:clamp(28px,6vw,52px);text-align:center;position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.7);">
+    <button onclick="closeTageskassePopupDirect()" style="position:absolute;top:14px;right:18px;background:none;border:none;color:rgba(245,240,232,0.4);font-size:22px;cursor:pointer;line-height:1;">✕</button>
+    <div style="font-size:32px;margin-bottom:12px;">🔥</div>
+    <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Soul Awakening Festival 2026</div>
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,5vw,42px);font-weight:300;color:#F5F0E8;line-height:1.2;margin-bottom:16px;">Tageskasse vor Ort</h2>
+    <p style="font-size:clamp(15px,2vw,17px);color:rgba(245,240,232,0.8);line-height:1.7;margin-bottom:24px;">
+      Spontan dabei sein? Kein Problem!<br>
+      Tagestickets sind direkt an der Tageskasse erhältlich —<br>
+      <strong style="color:var(--gold);">Freitag · Samstag · Sonntag</strong>
+    </p>
+    <a href="#tickets" onclick="closeTageskassePopupDirect()" class="btn-gold" style="display:inline-block;">Tickets & Preise ansehen</a>
+    <p style="margin-top:16px;font-size:12px;color:rgba(245,240,232,0.3);">21.–23. August 2026 · Lethehof, Wardenburg</p>
+  </div>
+</div>
+<script>
+(function(){
+  if(!sessionStorage.getItem('tkclosed')){
+    setTimeout(function(){
+      var p = document.getElementById('tageskasse-popup');
+      p.style.display = 'flex';
+    }, 2500);
+  }
+})();
+function closeTageskassePopup(e){
+  if(e && e.target !== document.getElementById('tageskasse-popup')) return;
+  document.getElementById('tageskasse-popup').style.display='none';
+  sessionStorage.setItem('tkclosed','1');
+}
+function closeTageskassePopupDirect(){
+  document.getElementById('tageskasse-popup').style.display='none';
+  sessionStorage.setItem('tkclosed','1');
+}
+</script>
 
 <!-- SPEAKER MODAL -->
 <div id="speaker-modal" role="dialog" aria-modal="true" aria-label="Speaker Info" onclick="closeSpeakerModal(event)">
